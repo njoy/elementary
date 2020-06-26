@@ -58,7 +58,7 @@ namespace elementary {
     /* auxialiary functions */
     void testString( const std::string& identifier ) const {
 
-      if ( false == validateId< T >( identifier ) ) {
+      if ( false == validateIdentifier< Tag >( identifier ) ) {
 
         throw std::invalid_argument( "The string '" + identifier + "' is not a "
                                      "valid identifier string");
@@ -71,7 +71,7 @@ namespace elementary {
     /**
      *  @brief Default Constructor
      */
-    Identifier< Tag >() : id_( identifier ) {}
+    Identifier< Tag >() : id_( "" ) {}
 
     /**
      *  @brief Constructor
@@ -153,7 +153,7 @@ namespace elementary {
       try {
 
         // set the string id - can throw an exception
-        id = Indentifier< Tag >( pid );
+        identifier = Identifier< Tag >( pid );
       }
       catch ( std::invalid_argument& error ) {
 

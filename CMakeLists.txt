@@ -2,7 +2,7 @@
 # Preamble
 ########################################################################
 
-cmake_minimum_required( VERSION 3.16 )
+cmake_minimum_required( VERSION 3.14 )
 project( elementary LANGUAGES CXX )
 
 
@@ -48,4 +48,3 @@ if( CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR )
     endif()
 
 endif()
-

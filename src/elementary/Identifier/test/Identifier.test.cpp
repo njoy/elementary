@@ -4,7 +4,8 @@
 #include "elementary/Identifier.hpp"
 
 // convenience typedefs
-using Identifier = njoy::elementary::Identifier;
+template < typename Tag >
+using Identifier = njoy::elementary::Identifier< Tag >;
 
 // dummy template type and validation function
 struct Dummy {};
@@ -13,7 +14,7 @@ namespace njoy {
 namespace elementary {
 
   // specialised validateIdentifier function for the Dummy tag
-  template <> bool validateIdentifier< Dummy >( const std::string& identifier ) {
+  template <> bool validateIdentifier< Dummy >( const std::string& identifier ) noexcept {
 
     if ( identifier.size() != 5 ) { return false; }
     return true;
@@ -29,24 +30,24 @@ SCENARIO( "Identifier" ) {
           "function" ) {
 
       // default constructor
-      Identifer< double > defaultId;
+      Identifier< double > defaultId;
       CHECK( "" == defaultId.string() );
 
       // create new id
-      Identifer< double > id( "myId" );
-      CHECK( "myId" == defaultId.string() );
+      Identifier< double > id( "myId" );
+      CHECK( "myId" == id.string() );
     } // THEN
 
     THEN( "an Identifier can be created with a user defined validation "
           "function" ) {
 
       // default constructor
-      Identifer< Dummy > defaultId;
+      Identifier< Dummy > defaultId;
       CHECK( "" == defaultId.string() );
 
       // create new id
-      Identifer< Dummy > id( "size5" );
-      CHECK( "size5" == defaultId.string() );
+      Identifier< Dummy > id( "size5" );
+      CHECK( "size5" == id.string() );
     } // THEN
 
     THEN( "an Identifier can be streamed from an input stream" ) {
@@ -55,33 +56,33 @@ SCENARIO( "Identifier" ) {
       Identifier< Dummy > id;
 
       in >> id;
-      CHECK( size5 ==  id.string() );
-      CHECK_TRUE( !in.fail() );
-      CHECK_TRUE( !in.eof() );
+      CHECK( "size5" ==  id.string() );
+      CHECK( in.fail() == false );
+      CHECK( in.eof() == false );
 
       in >> id;
-      CHECK( SIZE5 ==  id.string() );
-      CHECK_TRUE( !in.fail() );
-      CHECK_TRUE( !in.eof() );
+      CHECK( "SIZE5" ==  id.string() );
+      CHECK( in.fail() == false );
+      CHECK( in.eof() == true );
     } // THEN
   } // GIVEN
 
   GIVEN( "valid Identifier instances" ) {
 
-    Identifer< double > id1( "a" );
-    Identifer< double > id2( "b" );
+    Identifier< double > id1( "a" );
+    Identifier< double > id2( "b" );
 
     THEN( "instances can be compared" ) {
 
-      CHECK_FALSE( id1 <  id1 );
-      CHECK_TRUE( id1 == id1 );
-      CHECK_FALSE( id1 != id1 );
-      CHECK_TRUE( id1 <  id2 );
-      CHECK_FALSE( id1 == id2 );
-      CHECK_TRUE( id1 != id2 );
-      CHECK_FALSE( id2 <  id1 );
-      CHECK_FALSE( id2 == id1 );
-      CHECK_TRUE( id2 != id1 );
+      CHECK( ( id1 <  id1 ) == false );
+      CHECK( ( id1 == id1 ) == true );
+      CHECK( ( id1 != id1 ) == false );
+      CHECK( ( id1 <  id2 ) == true );
+      CHECK( ( id1 == id2 ) == false );
+      CHECK( ( id1 != id2 ) == true );
+      CHECK( ( id2 <  id1 ) == false );
+      CHECK( ( id2 == id1 ) == false );
+      CHECK( ( id2 != id1 ) == true );
     } // THEN
 
     THEN( "instances can be streamed to an output stream" ) {
@@ -99,7 +100,7 @@ SCENARIO( "Identifier" ) {
 
     THEN( "constructing an Identifier throws an exception" ) {
 
-      CHECK_THROW( Identifier< Dummy >( "notValidId" ) );
+      CHECK_THROWS( Identifier< Dummy >( "notValidId" ) );
     } // THEN
 
     THEN( "streaming an Identifier throws an exception" ) {
@@ -108,8 +109,8 @@ SCENARIO( "Identifier" ) {
       std::istringstream in( "this should fail");
 
       in >> id;
-      CHECK_TRUE( in.fail() );
-      CHECK_TRUE( "size5" == id.string() );
+      CHECK( in.fail() == true );
+      CHECK( "size5" == id.string() );
 
       in.clear();
       std::string temp;

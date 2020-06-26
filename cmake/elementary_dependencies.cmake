@@ -1,4 +1,4 @@
-cmake_minimum_required( VERSION 3.16 )
+cmake_minimum_required( VERSION 3.14 )
 
 include( FetchContent )
 
@@ -26,5 +26,3 @@ FetchContent_Declare( catch-adapter
 FetchContent_MakeAvailable(
     catch-adapter
     )
-
-
