@@ -50,7 +50,7 @@ namespace elementary {
      *
      *  @param[in] za   the za number
      */
-    IsotopeID( int za ) : IsotopeID( ( za - za%10 ) / 10, za%10 ) {}
+    IsotopeID( int za ) : IsotopeID( ( za - za%1000 ) / 1000, za%1000 ) {}
 
     /* methods */
 
@@ -72,15 +72,6 @@ namespace elementary {
 
       return this->element().symbol()
              + ( this->mass() ? std::to_string( this->mass() ) : "" );
-    }
-
-    /**
-     *  @brief return the isotope name according to GNDS rules
-     */
-    std::string gnds() const noexcept {
-
-      return tolower( this->element().symbol()
-                      + std::to_string( this->mass() ) );
     }
 
     /**
