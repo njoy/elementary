@@ -79,7 +79,8 @@ namespace elementary {
      */
     std::string gnds() const noexcept {
 
-      return tolower( this->element().symbol() + this->mass() );
+      return tolower( this->element().symbol()
+                      + std::to_string( this->mass() ) );
     }
 
     /**
