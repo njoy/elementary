@@ -20,13 +20,21 @@ SCENARIO( "IsotopeID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( "H1" == id.name() );
-      CHECK( "h1" == id.gnds() );
 
       id = IsotopeID( 1, 0 );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 0 == id.mass() );
       CHECK( "H" == id.name() );
-      CHECK( "h0" == id.gnds() );
+
+      id = IsotopeID( 1001 );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( "H1" == id.name() );
+
+      id = IsotopeID( 1000 );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 0 == id.mass() );
+      CHECK( "H" == id.name() );
     } // THEN
   } // GIVEN
 
