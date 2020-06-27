@@ -7,6 +7,7 @@
 
 // other includes
 #include "elementary/ElementID.hpp"
+#include "elementary/IsotopeID.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -21,16 +22,13 @@ namespace elementary {
   class NuclideID {
 
     /* type aliases */
-    using MassNumber = unsigned short;
     using LevelNumber = unsigned char;
 
     /* fields */
-    ElementID element_;
-    MassNumber mass_;
+    IsotopeID isotope_;
     LevelNumber level_;
 
     /* auxiliary functions */
-    #include "elementary/NuclideID/src/verifyMass.hpp"
     #include "elementary/NuclideID/src/verifyLevel.hpp"
 
     /**
@@ -38,7 +36,7 @@ namespace elementary {
      */
     int zal() const noexcept {
 
-      return this->element_.number() * 10000 + this->mass_ * 10 + this->level_;
+      return this->isotope_.za() * 10 + this->level_;
     }
 
   public:
@@ -56,22 +54,33 @@ namespace elementary {
      *  @param[in] l   the level number
      */
     NuclideID( int z, int a, int l ) :
-      element_( z ), mass_( verifyMass( a ) ), level_( verifyLevel( l ) ) {}
+      isotope_( z, a ), level_( verifyLevel( l ) ) {}
 
     /* methods */
 
     /**
+     *  @brief return the isotope identifier
+     */
+    const IsotopeID& isotope() const noexcept {
+
+      return this->isotope_;
+    }
+
+    /**
      *  @brief return the element identifier
      */
-    const ElementID& element() const noexcept { return this->element_; }
+    const ElementID& element() const noexcept {
+
+      return this->isotope().element();
+    }
 
     /**
      *  @brief return the mass number
      */
-    auto mass() const noexcept { return this->mass_; }
+    auto mass() const noexcept { return this->isotope().mass(); }
 
     /**
-     *  @brief return the energy level
+     *  @brief return the energy level number
      */
     auto level() const noexcept { return this->level_; }
 
@@ -80,9 +89,9 @@ namespace elementary {
      */
     std::string name() const noexcept {
 
-      return this->element().symbol()
-             + std::to_string( this->mass() )
-             + "_e" + std::to_string( this->level() );
+      return this->isotope().name()
+             + ( this->mass() ? "_e" + std::to_string( this->level() )
+                              : "" );
     }
 
     /**

@@ -4,10 +4,12 @@
 #include "elementary/NuclideID.hpp"
 
 // other includes
-#include "elementary/NuclideID.hpp"
+#include "elementary/ElementID.hpp"
+#include "elementary/IsotopeID.hpp"
 
 // convenience typedefs
 using ElementID = njoy::elementary::ElementID;
+using IsotopeID = njoy::elementary::IsotopeID;
 using NuclideID = njoy::elementary::NuclideID;
 
 SCENARIO( "NuclideID" ) {
@@ -17,6 +19,7 @@ SCENARIO( "NuclideID" ) {
     THEN( "a NuclideID can be created" ) {
 
       NuclideID id( 1, 1, 0 );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 0 == id.level() );
@@ -24,7 +27,7 @@ SCENARIO( "NuclideID" ) {
     } // THEN
   } // GIVEN
 
-  GIVEN( "valid ElementID instances" ) {
+  GIVEN( "valid NuclideID instances" ) {
 
     NuclideID id1( 1, 1, 0 );
     NuclideID id2( 2, 4, 0 );
