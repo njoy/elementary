@@ -70,8 +70,7 @@ namespace elementary {
      */
     std::string name() const noexcept {
 
-      return this->element().symbol()
-             + ( this->mass() ? std::to_string( this->mass() ) : "" );
+      return this->element().symbol() + std::to_string( this->mass() );
     }
 
     /**

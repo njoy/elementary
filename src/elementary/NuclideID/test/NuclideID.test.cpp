@@ -23,7 +23,21 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 0 == id.level() );
-      CHECK( "H1_e0" == id.name() );
+      CHECK( "H1" == id.name() );
+
+      id = NuclideID( 1, 1, 1 );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( 1 == id.level() );
+      CHECK( "H1_e1" == id.name() );
+
+      id = NuclideID( 1, 0, 0 );
+      CHECK( IsotopeID( 1, 0 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 0 == id.mass() );
+      CHECK( 0 == id.level() );
+      CHECK( "H0" == id.name() );
     } // THEN
   } // GIVEN
 
