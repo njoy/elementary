@@ -11,3 +11,4 @@ enable_testing()
 #######################################################################
 add_subdirectory( src/elementary/Identifier/test )
 add_subdirectory( src/elementary/ElementID/test )
+add_subdirectory( src/elementary/IsotopeID/test )
