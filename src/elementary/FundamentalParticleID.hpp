@@ -43,7 +43,7 @@ namespace elementary {
     /**
      *  @brief return the fundamental particle hash value
      */
-    auto hash() const noexcept { return this->hash_; }
+    int hash() const noexcept { return this->hash_; }
 
     /**
      *  @brief return the fundamental particle symbol
