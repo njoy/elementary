@@ -32,7 +32,7 @@ namespace elementary {
     #include "elementary/NuclideID/src/verifyLevel.hpp"
 
   protected:
-    
+
     /**
      *  @brief Private helper function used in comparison
      */
@@ -87,13 +87,21 @@ namespace elementary {
     auto level() const noexcept { return this->level_; }
 
     /**
-     *  @brief return the nuclide name
+     *  @brief return the nuclide symbol
      */
-    std::string name() const noexcept {
+    std::string symbol() const noexcept {
 
       return this->isotope().name()
              + ( this->level() ? "_e" + std::to_string( this->level() )
                                : "" );
+    }
+
+    /**
+     *  @brief return the nuclide name
+     */
+    std::string name() const noexcept {
+
+      return this->symbol();
     }
 
     /**

@@ -65,12 +65,21 @@ namespace elementary {
     auto mass() const noexcept { return this->mass_; }
 
     /**
-     *  @brief return the isotope name, e.g. Fe56 for the isotope or Fe for the
+     *  @brief return the isotope symbol, e.g. Fe56 for the isotope or Fe0 for
+     *         the elemental isotope
+     */
+    std::string symbol() const noexcept {
+
+      return this->element().symbol() + std::to_string( this->mass() );
+    }
+
+    /**
+     *  @brief return the isotope name, e.g. Fe56 for the isotope or Fe0 for the
      *         elemental isotope
      */
     std::string name() const noexcept {
 
-      return this->element().symbol() + std::to_string( this->mass() );
+      return this->symbol();
     }
 
     /**

@@ -44,11 +44,19 @@ namespace elementary {
     using NuclideID::level;
 
     /**
+     *  @brief return the nucleus symbol
+     */
+    std::string symbol() const noexcept {
+
+      return tolower( NuclideID::symbol() );
+    }
+
+    /**
      *  @brief return the nucleus name
      */
     std::string name() const noexcept {
 
-      return tolower( NuclideID::name() );
+      return this->symbol();
     }
 
     /**

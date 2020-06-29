@@ -23,6 +23,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 0 == id.level() );
+      CHECK( "H1" == id.symbol() );
       CHECK( "H1" == id.name() );
 
       id = NuclideID( 1, 1, 1 );
@@ -30,6 +31,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 1 == id.level() );
+      CHECK( "H1_e1" == id.symbol() );
       CHECK( "H1_e1" == id.name() );
 
       id = NuclideID( 1, 0, 0 );
@@ -37,6 +39,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 0 == id.mass() );
       CHECK( 0 == id.level() );
+      CHECK( "H0" == id.symbol() );
       CHECK( "H0" == id.name() );
     } // THEN
   } // GIVEN
