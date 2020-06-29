@@ -31,6 +31,8 @@ namespace elementary {
     /* auxiliary functions */
     #include "elementary/NuclideID/src/verifyLevel.hpp"
 
+  protected:
+    
     /**
      *  @brief Private helper function used in comparison
      */
