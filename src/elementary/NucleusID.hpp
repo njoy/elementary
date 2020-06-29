@@ -5,6 +5,7 @@
 #include <string>
 
 // other includes
+#include "elementary/src/tolower.hpp"
 #include "elementary/NuclideID.hpp"
 
 namespace njoy {
