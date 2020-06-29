@@ -59,6 +59,8 @@ namespace elementary {
       return this->symbol();
     }
 
+    using NuclideID::hash;
+
     /**
      *  @brief operator<()
      *
@@ -66,7 +68,7 @@ namespace elementary {
      */
     bool operator<( const NucleusID& right ) const noexcept {
 
-      return this->zal() < right.zal();
+      return this->hash() < right.hash();
     }
 
     /**
@@ -76,7 +78,7 @@ namespace elementary {
      */
     bool operator==( const NucleusID& right ) const noexcept {
 
-      return this->zal() == right.zal();
+      return this->hash() == right.hash();
     }
 
     /**
@@ -86,7 +88,7 @@ namespace elementary {
      */
     bool operator!=( const NucleusID& right ) const noexcept {
 
-      return this->zal() != right.zal();
+      return this->hash() != right.hash();
     }
   };
 } // elementary namespace

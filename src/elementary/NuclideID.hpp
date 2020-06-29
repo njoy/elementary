@@ -31,16 +31,6 @@ namespace elementary {
     /* auxiliary functions */
     #include "elementary/NuclideID/src/verifyLevel.hpp"
 
-  protected:
-
-    /**
-     *  @brief Private helper function used in comparison
-     */
-    int zal() const noexcept {
-
-      return this->isotope_.za() * 10 + this->level_;
-    }
-
   public:
 
     /* constructor */
@@ -105,13 +95,21 @@ namespace elementary {
     }
 
     /**
+     *  @brief return the nuclide hash value
+     */
+    int hash() const noexcept {
+
+      return this->isotope_.za() * 100 + this->level_;
+    }
+
+    /**
      *  @brief operator<()
      *
      *  @param[in] right   the identifier on the right hand side
      */
     bool operator<( const NuclideID& right ) const noexcept {
 
-      return this->zal() < right.zal();
+      return this->hash() < right.hash();
     }
 
     /**
@@ -121,7 +119,7 @@ namespace elementary {
      */
     bool operator==( const NuclideID& right ) const noexcept {
 
-      return this->zal() == right.zal();
+      return this->hash() == right.hash();
     }
 
     /**
@@ -131,7 +129,7 @@ namespace elementary {
      */
     bool operator!=( const NuclideID& right ) const noexcept {
 
-      return this->zal() != right.zal();
+      return this->hash() != right.hash();
     }
   };
 } // elementary namespace
