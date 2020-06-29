@@ -90,8 +90,8 @@ namespace elementary {
     std::string name() const noexcept {
 
       return this->isotope().name()
-             + ( this->mass() ? "_e" + std::to_string( this->level() )
-                              : "" );
+             + ( this->level() ? "_e" + std::to_string( this->level() )
+                               : "" );
     }
 
     /**
