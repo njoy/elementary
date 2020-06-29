@@ -3,29 +3,13 @@
 
 // system includes
 #include <stdexcept>
-#include <algorithm>
-#include <cctype>
 #include <string>
 
 // other includes
+#include "elementary/src/tolower.hpp"
 
 namespace njoy {
 namespace elementary {
-
-  /**
-   *  @brief Return the lower case version of a string
-   *
-   *  @todo this can probably be moved elsewhere
-   *
-   *  @param[in] string   the string to be converted to lower case
-   */
-  std::string tolower( const std::string& string ) {
-
-    std::string lower;
-    std::transform( string.begin(), string.end(), std::back_inserter( lower ),
-                    [] ( const auto& c ) { return std::tolower( c ); } );
-    return lower;
-  }
 
   /**
    *  @class
