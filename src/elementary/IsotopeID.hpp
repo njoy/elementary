@@ -2,6 +2,7 @@
 #define NJOY_ELEMENTARY_ISOTOPEID
 
 // system includes
+#include <regex>
 #include <stdexcept>
 #include <string>
 
@@ -20,37 +21,21 @@ namespace elementary {
     /* type aliases */
     using MassNumber = unsigned short;
 
+    /* regex */
+    static const std::regex regex;
+
     /* fields */
     ElementID element_;
     MassNumber mass_;
 
     /* auxiliary functions */
     #include "elementary/IsotopeID/src/verifyMass.hpp"
+    #include "elementary/IsotopeID/src/matchIdentifier.hpp"
 
   public:
 
     /* constructor */
-
-    /**
-     *  @brief Constructor
-     *
-     *  This function throws an invalid_argument exception if invalid data is
-     *  used.
-     *
-     *  @param[in] z   the element number
-     *  @param[in] a   the mass number
-     */
-    IsotopeID( int z, int a ) : element_( z ), mass_( verifyMass( a ) ) {}
-
-    /**
-     *  @brief Constructor
-     *
-     *  This function throws an invalid_argument exception if invalid data is
-     *  used.
-     *
-     *  @param[in] za   the za number
-     */
-    IsotopeID( int za ) : IsotopeID( ( za - za%1000 ) / 1000, za%1000 ) {}
+    #include "elementary/IsotopeID/src/ctor.hpp"
 
     /* methods */
 
@@ -120,6 +105,9 @@ namespace elementary {
       return this->za() != right.za();
     }
   };
+
+  // register the regex
+  #include "elementary/IsotopeID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
