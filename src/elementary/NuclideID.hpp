@@ -24,29 +24,21 @@ namespace elementary {
     /* type aliases */
     using LevelNumber = unsigned char;
 
+    /* regex */
+    static const std::regex regex;
+
     /* fields */
     IsotopeID isotope_;
     LevelNumber level_;
 
     /* auxiliary functions */
     #include "elementary/NuclideID/src/verifyLevel.hpp"
+    #include "elementary/NuclideID/src/matchIdentifier.hpp"
 
   public:
 
     /* constructor */
-
-    /**
-     *  @brief Constructor
-     *
-     *  This function throws an invalid_argument exception if invalid data is
-     *  used.
-     *
-     *  @param[in] z   the element number
-     *  @param[in] a   the mass number
-     *  @param[in] l   the level number
-     */
-    NuclideID( int z, int a, int l ) :
-      isotope_( z, a ), level_( verifyLevel( l ) ) {}
+    #include "elementary/NuclideID/src/ctor.hpp"
 
     /* methods */
 
@@ -132,6 +124,9 @@ namespace elementary {
       return this->hash() != right.hash();
     }
   };
+
+  // register the regex
+  #include "elementary/NuclideID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
