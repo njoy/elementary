@@ -1,17 +1,9 @@
-protected:
-
-/**
- *  @brief Private constructor
- */
-NuclideID( IsotopeID&& isotope, int l ) :
-  isotope_( std::move( isotope ) ), level_( verifyLevel( l ) ) {}
-
 private:
 
 /**
  *  @brief Private constructor
  */
-NuclideID( const std::pair< std::string, int >&& pair ) :
+NucleusID( const std::pair< std::string, int >&& pair ) :
   NuclideID( IsotopeID( pair.first ), pair.second ) {}
 
 public:
@@ -26,7 +18,7 @@ public:
  *  @param[in] a   the mass number
  *  @param[in] l   the level number
  */
-NuclideID( int z, int a, int l ) : NuclideID( IsotopeID( z, a ), l ) {}
+NucleusID( int z, int a, int l ) : NuclideID( z, a, l ) {}
 
 /**
  *  @brief Constructor
@@ -36,5 +28,5 @@ NuclideID( int z, int a, int l ) : NuclideID( IsotopeID( z, a ), l ) {}
  *
  *  @param[in] string   the string representation of the isotope
  */
-NuclideID( const std::string& string ) :
-  NuclideID( matchIdentifier( string ) ) {}
+NucleusID( const std::string& string ) :
+  NucleusID( matchIdentifier( string ) ) {}

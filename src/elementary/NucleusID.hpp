@@ -20,21 +20,16 @@ namespace elementary {
    */
   class NucleusID : protected NuclideID {
 
+    /* regex */
+    static const std::regex regex;
+
+    /* auxiliary functions */
+    #include "elementary/NucleusID/src/matchIdentifier.hpp"
+
   public:
 
     /* constructor */
-
-    /**
-     *  @brief Constructor
-     *
-     *  This function throws an invalid_argument exception if invalid data is
-     *  used.
-     *
-     *  @param[in] z   the element number
-     *  @param[in] a   the mass number
-     *  @param[in] l   the level number
-     */
-    NucleusID( int z, int a, int l ) : NuclideID( z, a, l ) {}
+    #include "elementary/NucleusID/src/ctor.hpp"
 
     /* methods */
 
@@ -91,6 +86,9 @@ namespace elementary {
       return this->hash() != right.hash();
     }
   };
+
+  // register the regex
+  #include "elementary/NucleusID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
