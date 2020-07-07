@@ -32,15 +32,7 @@ namespace elementary {
   public:
 
     /* constructor */
-
-    /**
-     *  @brief Constructor
-     *
-     *  @param[in] identifier   a fundamental particle, nucleus or nuclide
-     *                          identifier
-     */
-    ParticleID( IdentifierVariant&& identifier ) :
-      identifier_( std::move( identifier ) ) {}
+    #include "elementary/ParticleID/src/ctor.hpp"
 
     /* methods */
 
