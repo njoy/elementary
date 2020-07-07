@@ -20,21 +20,16 @@ namespace elementary {
    */
   class NucleusID : protected NuclideID {
 
+    /* regex */
+    static const std::regex regex;
+
+    /* auxiliary functions */
+    #include "elementary/NucleusID/src/matchIdentifier.hpp"
+
   public:
 
     /* constructor */
-
-    /**
-     *  @brief Constructor
-     *
-     *  This function throws an invalid_argument exception if invalid data is
-     *  used.
-     *
-     *  @param[in] z   the element number
-     *  @param[in] a   the mass number
-     *  @param[in] l   the level number
-     */
-    NucleusID( int z, int a, int l ) : NuclideID( z, a, l ) {}
+    #include "elementary/NucleusID/src/ctor.hpp"
 
     /* methods */
 
@@ -44,12 +39,22 @@ namespace elementary {
     using NuclideID::level;
 
     /**
+     *  @brief return the nucleus symbol
+     */
+    std::string symbol() const noexcept {
+
+      return tolower( NuclideID::symbol() );
+    }
+
+    /**
      *  @brief return the nucleus name
      */
     std::string name() const noexcept {
 
-      return tolower( NuclideID::name() );
+      return this->symbol();
     }
+
+    using NuclideID::hash;
 
     /**
      *  @brief operator<()
@@ -58,7 +63,7 @@ namespace elementary {
      */
     bool operator<( const NucleusID& right ) const noexcept {
 
-      return this->zal() < right.zal();
+      return this->hash() < right.hash();
     }
 
     /**
@@ -68,7 +73,7 @@ namespace elementary {
      */
     bool operator==( const NucleusID& right ) const noexcept {
 
-      return this->zal() == right.zal();
+      return this->hash() == right.hash();
     }
 
     /**
@@ -78,9 +83,12 @@ namespace elementary {
      */
     bool operator!=( const NucleusID& right ) const noexcept {
 
-      return this->zal() != right.zal();
+      return this->hash() != right.hash();
     }
   };
+
+  // register the regex
+  #include "elementary/NucleusID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 

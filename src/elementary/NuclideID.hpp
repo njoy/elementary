@@ -24,39 +24,21 @@ namespace elementary {
     /* type aliases */
     using LevelNumber = unsigned char;
 
+    /* regex */
+    static const std::regex regex;
+
     /* fields */
     IsotopeID isotope_;
     LevelNumber level_;
 
     /* auxiliary functions */
     #include "elementary/NuclideID/src/verifyLevel.hpp"
-
-  protected:
-    
-    /**
-     *  @brief Private helper function used in comparison
-     */
-    int zal() const noexcept {
-
-      return this->isotope_.za() * 10 + this->level_;
-    }
+    #include "elementary/NuclideID/src/matchIdentifier.hpp"
 
   public:
 
     /* constructor */
-
-    /**
-     *  @brief Constructor
-     *
-     *  This function throws an invalid_argument exception if invalid data is
-     *  used.
-     *
-     *  @param[in] z   the element number
-     *  @param[in] a   the mass number
-     *  @param[in] l   the level number
-     */
-    NuclideID( int z, int a, int l ) :
-      isotope_( z, a ), level_( verifyLevel( l ) ) {}
+    #include "elementary/NuclideID/src/ctor.hpp"
 
     /* methods */
 
@@ -87,13 +69,29 @@ namespace elementary {
     auto level() const noexcept { return this->level_; }
 
     /**
-     *  @brief return the nuclide name
+     *  @brief return the nuclide symbol
      */
-    std::string name() const noexcept {
+    std::string symbol() const noexcept {
 
       return this->isotope().name()
              + ( this->level() ? "_e" + std::to_string( this->level() )
                                : "" );
+    }
+
+    /**
+     *  @brief return the nuclide name
+     */
+    std::string name() const noexcept {
+
+      return this->symbol();
+    }
+
+    /**
+     *  @brief return the nuclide hash value
+     */
+    int hash() const noexcept {
+
+      return this->isotope_.za() * 100 + this->level_;
     }
 
     /**
@@ -103,7 +101,7 @@ namespace elementary {
      */
     bool operator<( const NuclideID& right ) const noexcept {
 
-      return this->zal() < right.zal();
+      return this->hash() < right.hash();
     }
 
     /**
@@ -113,7 +111,7 @@ namespace elementary {
      */
     bool operator==( const NuclideID& right ) const noexcept {
 
-      return this->zal() == right.zal();
+      return this->hash() == right.hash();
     }
 
     /**
@@ -123,9 +121,12 @@ namespace elementary {
      */
     bool operator!=( const NuclideID& right ) const noexcept {
 
-      return this->zal() != right.zal();
+      return this->hash() != right.hash();
     }
   };
+
+  // register the regex
+  #include "elementary/NuclideID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 

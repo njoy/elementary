@@ -5,3 +5,4 @@
 #include "elementary/src/IsotopeID.hpp"
 #include "elementary/src/NucleusID.hpp"
 #include "elementary/src/NuclideID.hpp"
+#include "elementary/src/ParticleID.hpp"
