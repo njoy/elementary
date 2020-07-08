@@ -14,15 +14,15 @@ SCENARIO( "ParticleTupleID" ) {
 
     THEN( "a ParticleTupleID can be created" ) {
 
-      ParticleTupleID id( "n,Fe56->n,Fe56" );
-      CHECK( "n,Fe56->n,Fe56" == id.symbol() );
+      ParticleTupleID id( "n,Fe56" );
+      CHECK( "n,Fe56" == id.symbol() );
     } // THEN
   } // GIVEN
 
   GIVEN( "valid ParticleTupleID instances" ) {
 
-    ParticleTupleID id1( "n,Fe56->n,Fe56" );
-    ParticleTupleID id2( "n,Fe56->n,Fe56_e1" );
+    ParticleTupleID id1( "n,Fe56" );
+    ParticleTupleID id2( "n,Fe56_e1" );
 
     THEN( "instances can be compared" ) {
 
