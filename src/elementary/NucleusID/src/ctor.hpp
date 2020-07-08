@@ -26,7 +26,7 @@ NucleusID( int z, int a, int l ) : NuclideID( z, a, l ) {}
  *  This function throws an invalid_argument exception if invalid data is
  *  used.
  *
- *  @param[in] string   the string representation of the isotope
+ *  @param[in] string   the string representation of the nucleus
  */
 NucleusID( const std::string& string ) :
   NucleusID( matchIdentifier( string ) ) {}
