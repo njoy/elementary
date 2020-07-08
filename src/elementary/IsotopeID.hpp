@@ -72,7 +72,7 @@ namespace elementary {
      */
     int za() const noexcept {
 
-      return this->element_.number() * 1000 + this->mass_ * 10;
+      return this->element_.number() * 1000 + this->mass_;
     }
 
     /**

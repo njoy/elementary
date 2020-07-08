@@ -87,11 +87,19 @@ namespace elementary {
     }
 
     /**
+     *  @brief return the nuclide za value
+     */
+    int za() const noexcept {
+
+      return this->isotope_.za();
+    }
+
+    /**
      *  @brief return the nuclide hash value
      */
     int hash() const noexcept {
 
-      return this->isotope_.za() * 100 + this->level_;
+      return this->za() * 100 + this->level_;
     }
 
     /**

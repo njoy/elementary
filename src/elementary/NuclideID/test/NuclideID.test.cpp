@@ -23,6 +23,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 0 == id.level() );
+      CHECK( 1001 == id.za() );
       CHECK( "H1" == id.symbol() );
       CHECK( "H1" == id.name() );
 
@@ -31,6 +32,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 0 == id.level() );
+      CHECK( 1001 == id.za() );
       CHECK( "H1" == id.symbol() );
       CHECK( "H1" == id.name() );
 
@@ -39,6 +41,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 0 == id.level() );
+      CHECK( 1001 == id.za() );
       CHECK( "H1" == id.symbol() );
       CHECK( "H1" == id.name() );
 
@@ -47,6 +50,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 1 == id.level() );
+      CHECK( 1001 == id.za() );
       CHECK( "H1_e1" == id.symbol() );
       CHECK( "H1_e1" == id.name() );
 
@@ -55,6 +59,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
       CHECK( 1 == id.level() );
+      CHECK( 1001 == id.za() );
       CHECK( "H1_e1" == id.symbol() );
       CHECK( "H1_e1" == id.name() );
 
@@ -63,6 +68,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 0 == id.mass() );
       CHECK( 0 == id.level() );
+      CHECK( 1000 == id.za() );
       CHECK( "H0" == id.symbol() );
       CHECK( "H0" == id.name() );
 
@@ -71,6 +77,7 @@ SCENARIO( "NuclideID" ) {
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 0 == id.mass() );
       CHECK( 0 == id.level() );
+      CHECK( 1000 == id.za() );
       CHECK( "H0" == id.symbol() );
       CHECK( "H0" == id.name() );
     } // THEN
@@ -78,8 +85,8 @@ SCENARIO( "NuclideID" ) {
 
   GIVEN( "valid NuclideID instances" ) {
 
-    NuclideID id1( 1, 1, 0 );
-    NuclideID id2( 2, 4, 0 );
+    NuclideID id1( "H1" );
+    NuclideID id2( "He4" );
 
     THEN( "instances can be compared" ) {
 

@@ -41,9 +41,14 @@ namespace elementary {
     /* methods */
 
     /**
+     *  @brief return the fundamental particle za value
+     */
+    int za() const noexcept { return this->hash_; }
+
+    /**
      *  @brief return the fundamental particle hash value
      */
-    int hash() const noexcept { return this->hash_; }
+    int hash() const noexcept { return this->za(); }
 
     /**
      *  @brief return the fundamental particle symbol

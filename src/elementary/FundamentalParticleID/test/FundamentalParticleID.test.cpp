@@ -15,31 +15,37 @@ SCENARIO( "FundamentalParticleID" ) {
       FundamentalParticleID id( "n" );
       CHECK( "n" == id.symbol() );
       CHECK( "neutron" == id.name() );
-      CHECK( 10 == id.hash() );
+      CHECK( 1 == id.za() );
+      CHECK( 1 == id.hash() );
 
       id = FundamentalParticleID( "photon" );
       CHECK( "photon" == id.symbol() );
       CHECK( "photon" == id.name() );
+      CHECK( 0 == id.za() );
       CHECK( 0 == id.hash() );
 
       id = FundamentalParticleID( "g" );
       CHECK( "photon" == id.symbol() );
       CHECK( "photon" == id.name() );
+      CHECK( 0 == id.za() );
       CHECK( 0 == id.hash() );
 
       id = FundamentalParticleID( "gamma" );
       CHECK( "photon" == id.symbol() );
       CHECK( "photon" == id.name() );
+      CHECK( 0 == id.za() );
       CHECK( 0 == id.hash() );
 
       id = FundamentalParticleID( "GAMMA" );
       CHECK( "photon" == id.symbol() );
       CHECK( "photon" == id.name() );
+      CHECK( 0 == id.za() );
       CHECK( 0 == id.hash() );
 
       id = FundamentalParticleID( "x-ray" );
       CHECK( "photon" == id.symbol() );
       CHECK( "photon" == id.name() );
+      CHECK( 0 == id.za() );
       CHECK( 0 == id.hash() );
     } // THEN
   } // GIVEN
