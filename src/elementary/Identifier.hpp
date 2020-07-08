@@ -2,7 +2,6 @@
 #define NJOY_ELEMENTARY_IDENTIFIER
 
 // system includes
-#include <iostream>
 #include <stdexcept>
 #include <string>
 
