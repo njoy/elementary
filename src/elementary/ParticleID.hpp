@@ -22,12 +22,15 @@ namespace elementary {
   class ParticleID {
 
     /* type aliases */
-    using IdentifierVariant = std::variant< FundamentalParticleID, NucleusID, NuclideID >;
+    using IdentifierVariant = std::variant< FundamentalParticleID,
+                                            NucleusID,
+                                            NuclideID >;
 
     /* fields */
     IdentifierVariant identifier_;
 
     /* auxiliary functions */
+    #include "elementary/ParticleID/src/matchIdentifier.hpp"
 
   public:
 

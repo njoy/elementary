@@ -24,11 +24,23 @@ SCENARIO( "ParticleID" ) {
       CHECK( "n" == id.symbol() );
       CHECK( "neutron" == id.name() );
 
-      id = ParticleID( NucleusID( 1, 2, 0 ) );
+      id = ParticleID( "n" );
+      CHECK( "n" == id.symbol() );
+      CHECK( "neutron" == id.name() );
+
+      id = ParticleID( NucleusID( "h2" ) );
       CHECK( "h2" == id.symbol() );
       CHECK( "h2" == id.name() );
 
-      id = ParticleID( NuclideID( 1, 2, 0 ) );
+      id = ParticleID( "h2" );
+      CHECK( "h2" == id.symbol() );
+      CHECK( "h2" == id.name() );
+
+      id = ParticleID( NuclideID( "H2" ) );
+      CHECK( "H2" == id.symbol() );
+      CHECK( "H2" == id.name() );
+
+      id = ParticleID( "H2" );
       CHECK( "H2" == id.symbol() );
       CHECK( "H2" == id.name() );
     } // THEN
