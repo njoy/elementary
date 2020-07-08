@@ -41,7 +41,8 @@ IsotopeID( int za ) : IsotopeID( ( za - za%1000 ) / 1000, za%1000 ) {}
  *  This function throws an invalid_argument exception if invalid data is
  *  used.
  *
- *  @param[in] string   the string representation of the isotope
+ *  @param[in] string   the string representation of the isotope (case
+ *                      insensitive)
  */
 IsotopeID( const std::string& string ) :
   IsotopeID( matchIdentifier( string ) ) {}

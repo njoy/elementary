@@ -34,6 +34,12 @@ SCENARIO( "IsotopeID" ) {
       CHECK( "H1" == id.symbol() );
       CHECK( "H1" == id.name() );
 
+      id = IsotopeID( "h1" );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( "H1" == id.symbol() );
+      CHECK( "H1" == id.name() );
+
       id = IsotopeID( 1, 0 );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 0 == id.mass() );
@@ -51,13 +57,31 @@ SCENARIO( "IsotopeID" ) {
       CHECK( 0 == id.mass() );
       CHECK( "H0" == id.symbol() );
       CHECK( "H0" == id.name() );
+
+      id = IsotopeID( "h0" );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 0 == id.mass() );
+      CHECK( "H0" == id.symbol() );
+      CHECK( "H0" == id.name() );
+
+      id = IsotopeID( "H" );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 0 == id.mass() );
+      CHECK( "H0" == id.symbol() );
+      CHECK( "H0" == id.name() );
+
+      id = IsotopeID( "h" );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 0 == id.mass() );
+      CHECK( "H0" == id.symbol() );
+      CHECK( "H0" == id.name() );
     } // THEN
   } // GIVEN
 
   GIVEN( "valid IsotopeID instances" ) {
 
-    IsotopeID id1( 1, 1 );
-    IsotopeID id2( 2, 4 );
+    IsotopeID id1( "H1" );
+    IsotopeID id2( "He4" );
 
     THEN( "instances can be compared" ) {
 

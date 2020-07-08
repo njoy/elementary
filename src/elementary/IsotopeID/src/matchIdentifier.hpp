@@ -7,7 +7,8 @@ matchIdentifier( const std::string& string ) {
   std::smatch match;
   if ( std::regex_match( string, match, IsotopeID::regex ) ) {
 
-    return std::make_pair( match[1], std::stoi( match[2] ) );
+    return std::make_pair( match[1],
+                           match[2] != "" ? std::stoi( match[2] ) : 0 );
   }
 
   throw std::invalid_argument(
