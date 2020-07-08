@@ -25,10 +25,12 @@ namespace elementary {
     /* auxialiary functions */
     #include "elementary/Identifier/src/validate.hpp"
 
-  public:
+  protected:
 
     /* constructor */
     #include "elementary/Identifier/src/ctor.hpp"
+
+  public:
 
     /* methods */
 

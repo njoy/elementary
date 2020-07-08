@@ -29,10 +29,13 @@ namespace elementary {
   public:
 
     /* constructor */
-    using Identifier::Identifier;
+    ParticleTupleID( const std::string& identifier ) : Identifier( identifier ) {};
 
     /* methods */
-
+    using Identifier::symbol;
+    using Identifier::operator<;
+    using Identifier::operator==;
+    using Identifier::operator!=;
   };
 } // elementary namespace
 } // njoy namespace

@@ -16,7 +16,7 @@ class TestID : public Identifier< TestID > {
 
 public:
 
-  using Identifier::Identifier;
+  TestID( const std::string& identifier ) : Identifier( identifier ) {};
 };
 
 class Size5ID : public Identifier< Size5ID > {
@@ -31,7 +31,7 @@ class Size5ID : public Identifier< Size5ID > {
 
 public:
 
-  using Identifier::Identifier;
+  Size5ID( const std::string& identifier ) : Identifier( identifier ) {};
 };
 
 SCENARIO( "Identifier" ) {
