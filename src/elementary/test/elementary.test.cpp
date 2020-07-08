@@ -23,6 +23,7 @@ SCENARIO( "absorb" ) {
   GIVEN( "valid identifiers" ) {
 
     FundamentalParticleID n( "n" );
+    IsotopeID isotope_h2( "h2" );
     IsotopeID isotope_h1( "h1" );
     NucleusID h1( "h1" );
     NuclideID H1( "H1" );
@@ -30,10 +31,10 @@ SCENARIO( "absorb" ) {
 
     THEN( "an IsotopeID can be created by absorption" ) {
 
-      CHECK( IsotopeID( 1002 ) == njoy::elementary::absorb( isotope_h1, n ) );
-      CHECK( IsotopeID( 1002 ) == njoy::elementary::absorb( h1, n ) );
-      CHECK( IsotopeID( 1002 ) == njoy::elementary::absorb( H1, n ) );
-      CHECK( IsotopeID( 1002 ) == njoy::elementary::absorb( particle_h1, n ) );
+      CHECK( isotope_h2 == njoy::elementary::absorb( isotope_h1, n ) );
+      CHECK( isotope_h2 == njoy::elementary::absorb( h1, n ) );
+      CHECK( isotope_h2 == njoy::elementary::absorb( H1, n ) );
+      CHECK( isotope_h2 == njoy::elementary::absorb( particle_h1, n ) );
     } // THEN
   } // GIVEN
 } // SCENARIO
@@ -43,6 +44,7 @@ SCENARIO( "emit" ) {
   GIVEN( "valid identifiers" ) {
 
     FundamentalParticleID n( "n" );
+    IsotopeID isotope_h1( "h1" );
     IsotopeID isotope_h2( "h2" );
     NucleusID h2( "h2" );
     NuclideID H2( "H2" );
@@ -50,10 +52,10 @@ SCENARIO( "emit" ) {
 
     THEN( "an IsotopeID can be created by emission" ) {
 
-      CHECK( IsotopeID( 1001 ) == njoy::elementary::emit( isotope_h2, n ) );
-      CHECK( IsotopeID( 1001 ) == njoy::elementary::emit( h2, n ) );
-      CHECK( IsotopeID( 1001 ) == njoy::elementary::emit( H2, n ) );
-      CHECK( IsotopeID( 1001 ) == njoy::elementary::emit( particle_h2, n ) );
+      CHECK( isotope_h1 == njoy::elementary::emit( isotope_h2, n ) );
+      CHECK( isotope_h1 == njoy::elementary::emit( h2, n ) );
+      CHECK( isotope_h1 == njoy::elementary::emit( H2, n ) );
+      CHECK( isotope_h1 == njoy::elementary::emit( particle_h2, n ) );
     } // THEN
   } // GIVEN
 } // SCENARIO
