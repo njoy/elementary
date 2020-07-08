@@ -23,26 +23,12 @@ namespace elementary {
     std::string id_;
 
     /* auxialiary functions */
+    #include "elementary/Identifier/src/validate.hpp"
 
   public:
 
     /* constructor */
-    /**
-     *  @brief Constructor
-     *
-     *  @param[in] identifier   the identifier string
-     */
-    Identifier( const std::string& identifier ) :
-      id_( identifier ) {
-
-      if ( not static_cast< const Derived* >( this )->validate( this->id_ ) ) {
-
-        auto name = static_cast< const Derived* >( this )->name();
-        throw std::invalid_argument( "The string '" + this->id_ + "' is not a "
-                                     "valid identifier string for a " +
-                                     name );
-      }
-    }
+    #include "elementary/Identifier/src/ctor.hpp"
 
     /* methods */
 
