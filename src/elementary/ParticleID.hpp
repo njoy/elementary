@@ -50,12 +50,22 @@ namespace elementary {
     }
 
     /**
-     *  @brief return the nuclide name
+     *  @brief return the particle name
      */
     std::string name() const noexcept {
 
       return std::visit( [] ( const auto& identifier )
                             { return identifier.name(); },
+                         this->identifier_ );
+    }
+
+    /**
+     *  @brief return the particle za value
+     */
+    int za() const noexcept {
+
+      return std::visit( [] ( const auto& identifier )
+                            { return identifier.za(); },
                          this->identifier_ );
     }
 

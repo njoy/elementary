@@ -23,34 +23,40 @@ SCENARIO( "ParticleID" ) {
       ParticleID id( FundamentalParticleID( "n" ) );
       CHECK( "n" == id.symbol() );
       CHECK( "neutron" == id.name() );
+      CHECK( 1 == id.za() );
 
       id = ParticleID( "n" );
       CHECK( "n" == id.symbol() );
       CHECK( "neutron" == id.name() );
+      CHECK( 1 == id.za() );
 
       id = ParticleID( NucleusID( "h2" ) );
       CHECK( "h2" == id.symbol() );
       CHECK( "h2" == id.name() );
+      CHECK( 1002 == id.za() );
 
       id = ParticleID( "h2" );
       CHECK( "h2" == id.symbol() );
       CHECK( "h2" == id.name() );
+      CHECK( 1002 == id.za() );
 
       id = ParticleID( NuclideID( "H2" ) );
       CHECK( "H2" == id.symbol() );
       CHECK( "H2" == id.name() );
+      CHECK( 1002 == id.za() );
 
       id = ParticleID( "H2" );
       CHECK( "H2" == id.symbol() );
       CHECK( "H2" == id.name() );
+      CHECK( 1002 == id.za() );
     } // THEN
   } // GIVEN
 
   GIVEN( "valid ParticleID instances" ) {
 
     // fundamental particle < nucleus
-    ParticleID id1 = ParticleID( FundamentalParticleID( "n" ) );
-    ParticleID id2 = ParticleID( NucleusID( 2, 4, 0 ) );
+    ParticleID id1 = ParticleID( "n" );
+    ParticleID id2 = ParticleID( "he4" );
 
     THEN( "instances can be compared" ) {
 
@@ -66,8 +72,8 @@ SCENARIO( "ParticleID" ) {
     } // THEN
 
     // nucleus < nuclide for the same isotope
-    id1 = ParticleID( NucleusID( 2, 4, 0 ) );
-    id2 = ParticleID( NuclideID( 2, 4, 0 ) );
+    id1 = ParticleID( "he4" );
+    id2 = ParticleID( "He4" );
 
     THEN( "instances can be compared" ) {
 

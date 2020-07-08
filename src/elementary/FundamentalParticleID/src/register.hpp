@@ -6,8 +6,8 @@ FundamentalParticleID::particle_dictionary{
 
   { 0, FundamentalParticleID::Entry{ 0, "photon", "photon",
                                      { "g", "gamma", "x-ray" } } },
-  { 10, FundamentalParticleID::Entry{ 10, "n", "neutron" } },
-  { 10010, FundamentalParticleID::Entry{ 10010, "p", "proton" } }
+  { 1, FundamentalParticleID::Entry{ 1, "n", "neutron" } },
+  { 1001, FundamentalParticleID::Entry{ 1001, "p", "proton" } }
 };
 
 // register the alternatives (stored in lower case)

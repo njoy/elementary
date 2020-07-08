@@ -54,6 +54,7 @@ namespace elementary {
       return this->symbol();
     }
 
+    using NuclideID::za;
     using NuclideID::hash;
 
     /**
