@@ -34,6 +34,17 @@ NuclideID( int z, int a, int l ) : NuclideID( IsotopeID( z, a ), l ) {}
  *  This function throws an invalid_argument exception if invalid data is
  *  used.
  *
+ *  @param[in] za   the za number
+ *  @param[in] l    the level number
+ */
+NuclideID( int za, int l ) : NuclideID( IsotopeID( za ), l ) {}
+
+/**
+ *  @brief Constructor
+ *
+ *  This function throws an invalid_argument exception if invalid data is
+ *  used.
+ *
  *  @param[in] string   the string representation of the nuclide
  */
 NuclideID( const std::string& string ) :

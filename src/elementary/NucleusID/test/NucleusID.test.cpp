@@ -27,6 +27,15 @@ SCENARIO( "NucleusID" ) {
       CHECK( "h1" == id.symbol() );
       CHECK( "h1" == id.name() );
 
+      id = NucleusID( 1001, 0 );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( 0 == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "h1" == id.symbol() );
+      CHECK( "h1" == id.name() );
+
       id = NucleusID( "h1" );
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
@@ -36,7 +45,25 @@ SCENARIO( "NucleusID" ) {
       CHECK( "h1" == id.symbol() );
       CHECK( "h1" == id.name() );
 
+      id = NucleusID( "h1_e0" );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( 0 == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "h1" == id.symbol() );
+      CHECK( "h1" == id.name() );
+
       id = NucleusID( 1, 1, 1 );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( 1 == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "h1_e1" == id.symbol() );
+      CHECK( "h1_e1" == id.name() );
+
+      id = NucleusID( 1001, 1 );
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
