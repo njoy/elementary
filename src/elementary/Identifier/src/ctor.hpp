@@ -3,7 +3,8 @@
  *
  *  @param[in] identifier   the identifier string
  */
-Identifier( const std::string& identifier ) : id_( identifier ) {
+Identifier( const std::string& identifier, bool validate = true ) :
+  id_( identifier ) {
 
-  this->validate();
+  if ( validate ) { this->validate(); }
 }

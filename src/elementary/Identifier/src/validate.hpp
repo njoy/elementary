@@ -1,5 +1,5 @@
 /**
- *  @brief Private helper function to valdiate the string as an ID or throw an
+ *  @brief Private helper function to validate the string as an ID or throw an
  *         error.
  */
 void validate() const {
