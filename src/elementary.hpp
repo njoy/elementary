@@ -1,5 +1,3 @@
-#include "elementary/src/Identifier.hpp"
-
 // identifier classes
 #include "elementary/FundamentalParticleID.hpp"
 #include "elementary/ElementID.hpp"
@@ -7,6 +5,7 @@
 #include "elementary/NucleusID.hpp"
 #include "elementary/NuclideID.hpp"
 #include "elementary/ParticleID.hpp"
+#include "elementary/ParticleTupleID.hpp"
 
 // free functions to produce new identifiers
 #include "elementary/src/absorb.hpp"
