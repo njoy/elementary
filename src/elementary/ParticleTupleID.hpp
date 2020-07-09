@@ -25,7 +25,6 @@ namespace elementary {
     /* fields */
 
     /* auxiliary functions */
-    static bool validate( const std::string& ) { return true; }
     static std::string name() { return "tuple of particles"; }
     static std::string separator() { return ","; }
     #include "elementary/ParticleTupleID/src/generate.hpp"
@@ -36,6 +35,16 @@ namespace elementary {
     #include "elementary/ParticleTupleID/src/ctor.hpp"
 
     /* methods */
+    /**
+     *  @brief Verify if a string is a valid ParticleTupleID
+     *
+     *  @param[in] string   the string to be valdiated
+     */
+    static bool validate( const std::string& ) {
+
+      return true;
+    }
+
     using JoinedIdentifier::symbol;
     using JoinedIdentifier::operator<;
     using JoinedIdentifier::operator==;

@@ -3,7 +3,7 @@
  *
  *  @param[in] id1           a first particle identifier
  *  @param[in] id2           a second particle identifier
- *  @param[in] identifiers   a list of particle identifiers
+ *  @param[in] identifiers   additional particle identifiers (optional)
  */
  template< typename... IDs,
            typename = std::enable_if_t<

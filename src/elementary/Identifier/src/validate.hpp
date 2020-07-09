@@ -4,7 +4,7 @@
  */
 void validate() const {
 
-  if ( not static_cast< const Derived* >( this )->validate( this->id_ ) ) {
+  if ( not Derived::validate( this->id_ ) ) {
 
     auto name = Derived::name();
     throw std::invalid_argument( "The string '" + this->id_ + "' is not a "
