@@ -4,9 +4,11 @@
 #include "elementary/ParticleTupleID.hpp"
 
 // other includes
+#include "elementary/ParticleID.hpp"
 
 // convenience typedefs
 using ParticleTupleID = njoy::elementary::ParticleTupleID;
+using ParticleID = njoy::elementary::ParticleID;
 
 SCENARIO( "ParticleTupleID" ) {
 
@@ -14,15 +16,31 @@ SCENARIO( "ParticleTupleID" ) {
 
     THEN( "a ParticleTupleID can be created" ) {
 
-      ParticleTupleID id( "n,Fe56" );
-      CHECK( "n,Fe56" == id.symbol() );
+      // particle identifiers as separate arguments
+      ParticleTupleID id1( ParticleID( "n" ), ParticleID( "Fe56" ) );
+      CHECK( "n,Fe56" == id1.symbol() );
+
+      ParticleTupleID id2( ParticleID( "n" ), ParticleID( "p" ),
+                           ParticleID( "Fe56" ) );
+      CHECK( "n,p,Fe56" == id2.symbol() );
+
+      ParticleTupleID id3( ParticleID( "n" ), ParticleID( "p" ),
+                           ParticleID( "he4" ), ParticleID( "Fe56" ) );
+      CHECK( "n,p,he4,Fe56" == id3.symbol() );
+
+      // using a vector
+      std::vector< ParticleID > identifiers = {
+        ParticleID( "n" ), ParticleID( "p" ),
+        ParticleID( "he4" ), ParticleID( "Fe56" ) };
+      ParticleTupleID id4( identifiers );
+      CHECK( "n,p,he4,Fe56" == id4.symbol() );
     } // THEN
   } // GIVEN
 
   GIVEN( "valid ParticleTupleID instances" ) {
 
-    ParticleTupleID id1( "n,Fe56" );
-    ParticleTupleID id2( "n,Fe56_e1" );
+    ParticleTupleID id1( ParticleID( "n" ), ParticleID( "Fe56" ) );
+    ParticleTupleID id2( ParticleID( "n" ), ParticleID( "Fe56_e1" ) );
 
     THEN( "instances can be compared" ) {
 

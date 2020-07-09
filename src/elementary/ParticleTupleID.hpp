@@ -27,11 +27,13 @@ namespace elementary {
     /* auxiliary functions */
     static bool validate( const std::string& ) { return true; }
     static std::string name() { return "tuple of particles"; }
+    static std::string separator() { return ","; }
+    #include "elementary/ParticleTupleID/src/generate.hpp"
 
   public:
 
     /* constructor */
-    ParticleTupleID( const std::string& identifier ) : JoinedIdentifier( identifier ) {};
+    #include "elementary/ParticleTupleID/src/ctor.hpp"
 
     /* methods */
     using JoinedIdentifier::symbol;
