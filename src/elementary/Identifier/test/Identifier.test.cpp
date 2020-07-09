@@ -11,8 +11,8 @@ class TestID : public Identifier< TestID > {
 
   friend Identifier< TestID >;
 
-  bool validate( const std::string& ) const { return true; }
-  std::string name() const { return "test ID"; }
+  static bool validate( const std::string& ) { return true; }
+  static std::string name() { return "test ID"; }
 
 public:
 
@@ -23,11 +23,11 @@ class Size5ID : public Identifier< Size5ID > {
 
   friend Identifier< Size5ID >;
 
-  bool validate( const std::string& string ) const {
+  static bool validate( const std::string& string ) {
 
     return string.size() == 5;
   }
-  std::string name() const { return "test ID"; }
+  static std::string name() { return "test ID"; }
 
 public:
 

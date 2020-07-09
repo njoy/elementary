@@ -3,9 +3,12 @@
  */
 std::string generate( std::vector< std::string >&& strings ) const {
 
-  auto seperator = static_cast< const Derived* >( this )->seperator();
-  return std::accumulate( strings.begin(), strings.end(), std::string( "" ),
+  auto iter = strings.begin();
+  auto end = strings.end();
+  auto start = iter != strings.end() ? *iter++ : std::string( "" );
+  auto separator = Derived::separator();
+  return std::accumulate( iter, end, start,
                           [&] ( auto&& result, const auto& append )
                               { return std::move( result ) +
-                                       seperator + append; } );
+                                       separator + append; } );
 }

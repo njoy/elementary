@@ -25,8 +25,8 @@ namespace elementary {
     /* fields */
 
     /* auxiliary functions */
-    bool validate( const std::string& ) const { return true; }
-    std::string name() const { return "tuple of particles"; }
+    static bool validate( const std::string& ) { return true; }
+    static std::string name() { return "tuple of particles"; }
 
   public:
 
