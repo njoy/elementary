@@ -16,6 +16,15 @@ namespace elementary {
   /**
    *  @class
    *  @brief The identifier for a reaction
+   *
+   *  A reaction is represented by an two body entrance reaction channel and
+   *  an n-body exit reaction channel.
+   *
+   *  The symbol of the reaction identifier consists of two valid particle
+   *  tuple identifiers separated by an arrow. For example:
+   *    - "n,Fe56->n,Fe56" for elastic neutron scattering on Fe56
+   *    - "n,he4->h2,h3" for a neutron on alpha resulting in a deuteron and
+   *      triton
    */
   class ReactionID : public Identifier< ReactionID > {
 
@@ -33,6 +42,22 @@ namespace elementary {
 
     /* methods */
     #include "elementary/ReactionID/src/validate.hpp"
+
+    /**
+     *  @brief Return the incident particle pair identifier for the reaction
+     */
+    ParticlePairID incident() const noexcept {
+
+      return ParticlePairID( split( this->symbol(), "->" ).front() );
+    }
+
+    /**
+     *  @brief Return the exit particle tuple identifier for the reaction
+     */
+    ParticleTupleID outgoing() const noexcept {
+
+      return ParticleTupleID( split( this->symbol(), "->" ).back() );
+    }
 
     using Identifier::symbol;
     using Identifier::operator<;

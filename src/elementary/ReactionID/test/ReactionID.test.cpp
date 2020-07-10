@@ -28,6 +28,17 @@ SCENARIO( "ParticlePairID" ) {
     } // THEN
   } // GIVEN
 
+  GIVEN( "valid ReactionID" ) {
+
+    THEN( "the incident and outgoing identifiers can be extracted" ) {
+
+      ReactionID id( "n,Fe56->n,Fe56_e1" );
+
+      CHECK( ParticlePairID( "n,Fe56" ) == id.incident() );
+      CHECK( ParticleTupleID( "n,Fe56_e1" ) == id.outgoing() );
+    } // THEN
+  } // GIVEN
+
   GIVEN( "valid ReactionID instances" ) {
 
     ReactionID id1( ParticlePairID( "n,Fe56" ), ParticlePairID( "n,Fe56" ) );
