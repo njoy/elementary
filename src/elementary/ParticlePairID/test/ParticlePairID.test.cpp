@@ -19,14 +19,21 @@ SCENARIO( "ParticlePairID" ) {
       // particle identifiers as separate arguments
       ParticlePairID id1( ParticleID( "n" ), ParticleID( "Fe56" ) );
       CHECK( "n,Fe56" == id1.symbol() );
-      CHECK( ParticleID( "n" ) == id1.particle() );
-      CHECK( ParticleID( "Fe56" ) == id1.residual() );
 
       // using a string
       ParticlePairID id2( "n,Fe56" );
       CHECK( "n,Fe56" == id2.symbol() );
-      CHECK( ParticleID( "n" ) == id2.particle() );
-      CHECK( ParticleID( "Fe56" ) == id2.residual() );
+    } // THEN
+  } // GIVEN
+
+  GIVEN( "valid ParticlePairID" ) {
+
+    THEN( "the particles and residual identifiers can be extracted" ) {
+
+      ParticlePairID id( "n,Fe56" );
+
+      CHECK( ParticleID( "n" ) == id.particle() );
+      CHECK( ParticleID( "Fe56" ) == id.residual() );
     } // THEN
   } // GIVEN
 

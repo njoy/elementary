@@ -49,17 +49,17 @@ namespace elementary {
     #include "elementary/ParticlePairID/src/validate.hpp"
 
     /**
-     *  @brief Return the particle identifier for the particle
+     *  @brief Return the particle identifier for the particle in the pair
      */
-    ParticleID particle() {
+    ParticleID particle() const noexcept {
 
       return ParticleID( split( this->symbol(), "," ).front() );
     }
 
     /**
-     *  @brief Return the particle identifier for the residual
+     *  @brief Return the particle identifier for the residual in the pair
      */
-    ParticleID residual() {
+    ParticleID residual() const noexcept {
 
       return ParticleID( split( this->symbol(), "," ).back() );
     }

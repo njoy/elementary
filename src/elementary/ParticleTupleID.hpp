@@ -17,8 +17,19 @@ namespace elementary {
 
   /**
    *  @class
-   *  @brief The identifier for a tuple of particles (a particle pair being a
-   *         special case)
+   *  @brief The identifier for a tuple of particles
+   *
+   *  A particle tuple represents an n-body exit reaction channel. The tuple
+   *  consists of a number of "small" particles (e.g. a neutron, photon, alpha,
+   *  etc.) and a "larger" residual nucleus (e.g. H1, He4, U235, etc.).
+   *
+   *  The symbol of the particle identifier consists of at least two valid
+   *  particle identifiers separated by a comma. For example:
+   *    - "n,Fe56" for a neutron and the Fe56 nuclide
+   *    - "n,p,he4" for a neutron, proton and an alpha particle
+   *
+   *  The order in which these are given is important. The last one is
+   *  considered the "residual", all others are considered "particles".
    */
   class ParticleTupleID : public Identifier< ParticleTupleID > {
 
@@ -37,6 +48,15 @@ namespace elementary {
 
     /* methods */
     #include "elementary/ParticleTupleID/src/validate.hpp"
+    #include "elementary/ParticleTupleID/src/particles.hpp"
+
+    /**
+     *  @brief Return the particle identifier for the residual in the tuple
+     */
+    ParticleID residual() const noexcept {
+
+      return ParticleID( split( this->symbol(), "," ).back() );
+    }
 
     using Identifier::symbol;
     using Identifier::operator<;
