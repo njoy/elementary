@@ -6,6 +6,10 @@
 static bool validate( const std::string& string ) {
 
   auto strings = split( string, "," );
+  if ( strings.size() < 2 ) {
+
+    return false;
+  }
   for ( const auto& value : strings ) {
 
     try {

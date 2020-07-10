@@ -71,6 +71,7 @@ SCENARIO( "ParticleTupleID" ) {
     THEN( "an exception is thrown" ) {
 
       CHECK_THROWS( ParticleTupleID( "not a particle tuple ID" ) );
+      CHECK_THROWS( ParticleTupleID( "Fe56" ) );      // single valid particle
     } // THEN
   } // GIVEN
 } // SCENARIO

@@ -51,6 +51,7 @@ SCENARIO( "ParticlePairID" ) {
 
       CHECK_THROWS( ParticlePairID( "not a particle pair ID" ) );
       CHECK_THROWS( ParticlePairID( "n,p,Fe56" ) );  // particle tuple, not pair
+      CHECK_THROWS( ParticlePairID( "Fe56" ) );      // single valid particle
     } // THEN
   } // GIVEN
 } // SCENARIO
