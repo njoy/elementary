@@ -88,4 +88,14 @@ SCENARIO( "ParticleID" ) {
       CHECK( ( id2 != id1 ) == true );
     } // THEN
   } // GIVEN
+
+  GIVEN( "invalid data for an ParticleID" ) {
+
+    THEN( "an exception is thrown" ) {
+
+      CHECK_THROWS( ParticleID( "not a particle ID" ) ); // bad string
+      CHECK_THROWS( ParticleID( "H400" ) ); // bad string: mass to high
+      CHECK_THROWS( ParticleID( "h400" ) ); // bad string: mass to high
+    } // THEN
+  } // GIVEN
 } // SCENARIO

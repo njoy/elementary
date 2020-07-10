@@ -5,8 +5,9 @@
 #include <string>
 
 // other includes
+#include "elementary/src/join.hpp"
+#include "elementary/src/split.hpp"
 #include "elementary/Identifier.hpp"
-#include "elementary/JoinedIdentifier.hpp"
 #include "elementary/ParticleID.hpp"
 
 namespace njoy {
@@ -17,16 +18,14 @@ namespace elementary {
    *  @brief The identifier for a tuple of particles (a particle pair being a
    *         special case)
    */
-  class ParticleTupleID : public JoinedIdentifier< ParticleTupleID > {
+  class ParticleTupleID : public Identifier< ParticleTupleID > {
 
     friend Identifier< ParticleTupleID >;
-    friend JoinedIdentifier< ParticleTupleID >;
 
     /* fields */
 
     /* auxiliary functions */
     static std::string name() { return "tuple of particles"; }
-    static std::string separator() { return ","; }
     #include "elementary/ParticleTupleID/src/generate.hpp"
 
   public:
@@ -35,20 +34,12 @@ namespace elementary {
     #include "elementary/ParticleTupleID/src/ctor.hpp"
 
     /* methods */
-    /**
-     *  @brief Verify if a string is a valid ParticleTupleID
-     *
-     *  @param[in] string   the string to be valdiated
-     */
-    static bool validate( const std::string& ) {
+    #include "elementary/ParticleTupleID/src/validate.hpp"
 
-      return true;
-    }
-
-    using JoinedIdentifier::symbol;
-    using JoinedIdentifier::operator<;
-    using JoinedIdentifier::operator==;
-    using JoinedIdentifier::operator!=;
+    using Identifier::symbol;
+    using Identifier::operator<;
+    using Identifier::operator==;
+    using Identifier::operator!=;
   };
 } // elementary namespace
 } // njoy namespace

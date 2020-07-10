@@ -34,6 +34,10 @@ SCENARIO( "ParticleTupleID" ) {
         ParticleID( "he4" ), ParticleID( "Fe56" ) };
       ParticleTupleID id4( identifiers );
       CHECK( "n,p,he4,Fe56" == id4.symbol() );
+
+      // using a string
+      ParticleTupleID id5( "n,Fe56" );
+      CHECK( "n,Fe56" == id5.symbol() );
     } // THEN
   } // GIVEN
 

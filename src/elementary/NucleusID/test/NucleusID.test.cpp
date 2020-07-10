@@ -119,4 +119,20 @@ SCENARIO( "NucleusID" ) {
       CHECK( ( id2 != id1 ) == true );
     } // THEN
   } // GIVEN
+
+  GIVEN( "invalid data for an NucleusID" ) {
+
+    THEN( "an exception is thrown" ) {
+
+      CHECK_THROWS( NucleusID( -1, 0, 0 ) );  // negative element number
+      CHECK_THROWS( NucleusID( 1, -1, 0 ) );  // negative mass number
+      CHECK_THROWS( NucleusID( 119, 1, 0 ) ); // element above 118
+      CHECK_THROWS( NucleusID( 1, 400, 0 ) ); // mass above 300
+      CHECK_THROWS( NucleusID( 0, 0 ) );      // zero za
+      CHECK_THROWS( NucleusID( -1, 0 ) );     // negative za
+      CHECK_THROWS( NucleusID( "not a nuclide" ) ); // bad string
+      CHECK_THROWS( NucleusID( "H1" ) );   // bad string: capital element
+      CHECK_THROWS( NucleusID( "H400" ) ); // bad string: mass to high
+    } // THEN
+  } // GIVEN
 } // SCENARIO

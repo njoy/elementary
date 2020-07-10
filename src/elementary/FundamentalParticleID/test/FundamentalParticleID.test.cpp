@@ -68,4 +68,14 @@ SCENARIO( "FundamentalParticleID" ) {
       CHECK( ( id2 != id1 ) == true );
     } // THEN
   } // GIVEN
+
+  GIVEN( "invalid data for an FundamentalParticleID" ) {
+
+    THEN( "an exception is thrown" ) {
+
+      CHECK_THROWS(
+        FundamentalParticleID(
+          "not a fundamental particle name, symbol or alternative" ) );
+    } // THEN
+  } // GIVEN
 } // SCENARIO

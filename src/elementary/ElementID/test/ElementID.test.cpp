@@ -67,4 +67,12 @@ SCENARIO( "ElementID" ) {
       CHECK( ( id2 != id1 ) == true );
     } // THEN
   } // GIVEN
+
+  GIVEN( "invalid data for an ElementID" ) {
+
+    THEN( "an exception is thrown" ) {
+
+      CHECK_THROWS( ElementID( "not an element name, symbol or alternative" ) );
+    } // THEN
+  } // GIVEN
 } // SCENARIO
