@@ -22,3 +22,11 @@ ParticleTupleID( const ParticleID& id1, const ParticleID& id2,
  */
 ParticleTupleID( const std::vector< ParticleID >& identifiers ) :
   Identifier( generate( identifiers ), false ) {}
+
+/**
+ *  @brief Constructor
+ *
+ *  @param[in] string   the identifier string
+ */
+ParticleTupleID( const std::string& string ) :
+  Identifier( string ) {}

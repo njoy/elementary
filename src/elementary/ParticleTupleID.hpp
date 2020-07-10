@@ -6,6 +6,7 @@
 
 // other includes
 #include "elementary/src/join.hpp"
+#include "elementary/src/split.hpp"
 #include "elementary/Identifier.hpp"
 #include "elementary/ParticleID.hpp"
 

@@ -106,4 +106,19 @@ SCENARIO( "IsotopeID" ) {
       CHECK( ( id2 != id1 ) == true );
     } // THEN
   } // GIVEN
+
+  GIVEN( "invalid data for an IsotopeID" ) {
+
+    THEN( "an exception is thrown" ) {
+
+      CHECK_THROWS( IsotopeID( -1, 0 ) );  // negative element number
+      CHECK_THROWS( IsotopeID( 1, -1 ) );  // negative mass number
+      CHECK_THROWS( IsotopeID( 119, 1 ) ); // element above 118
+      CHECK_THROWS( IsotopeID( 1, 400 ) ); // mass above 300
+      CHECK_THROWS( IsotopeID( 0 ) );      // zero za
+      CHECK_THROWS( IsotopeID( -1 ) );     // negative za
+      CHECK_THROWS( IsotopeID( "not an isotope" ) ); // bad string
+      CHECK_THROWS( IsotopeID( "H400" ) ); // bad string: mass to high
+    } // THEN
+  } // GIVEN
 } // SCENARIO
