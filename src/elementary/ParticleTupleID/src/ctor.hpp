@@ -12,8 +12,8 @@
                                         typename std::decay< IDs >::type>... > > >
 ParticleTupleID( const ParticleID& id1, const ParticleID& id2,
                  IDs... identifiers ) :
-  JoinedIdentifier(
-    generate( std::vector< ParticleID >{ id1, id2, identifiers... } ), false ) {}
+  Identifier( generate( std::vector< ParticleID >{ id1, id2,
+                                                   identifiers... } ), false ) {}
 
 /**
  *  @brief Constructor
@@ -21,4 +21,4 @@ ParticleTupleID( const ParticleID& id1, const ParticleID& id2,
  *  @param[in] identifiers   a vector of particle identifiers
  */
 ParticleTupleID( const std::vector< ParticleID >& identifiers ) :
-  JoinedIdentifier( generate( identifiers ), false ) {}
+  Identifier( generate( identifiers ), false ) {}
