@@ -5,6 +5,7 @@
 #include "elementary/src/emit.hpp"
 #include "elementary/src/join.hpp"
 #include "elementary/src/split.hpp"
+#include "elementary/src/toEndfReactionNumber.hpp"
 
 // other includes
 #include "elementary/FundamentalParticleID.hpp"
@@ -12,6 +13,7 @@
 #include "elementary/NucleusID.hpp"
 #include "elementary/NuclideID.hpp"
 #include "elementary/ParticleID.hpp"
+#include "elementary/ReactionID.hpp"
 
 // convenience typedefs
 using FundamentalParticleID = njoy::elementary::FundamentalParticleID;
@@ -19,6 +21,7 @@ using IsotopeID = njoy::elementary::IsotopeID;
 using NucleusID = njoy::elementary::NucleusID;
 using NuclideID = njoy::elementary::NuclideID;
 using ParticleID = njoy::elementary::ParticleID;
+using ReactionID = njoy::elementary::ReactionID;
 
 SCENARIO( "absorb" ) {
 
@@ -125,6 +128,19 @@ SCENARIO( "split" ) {
       CHECK( "cd" == result[1] );
       CHECK( "ef" == result[2] );
       CHECK( "" == result[3] );
+    } // THEN
+  } // GIVEN
+} // SCENARIO
+
+SCENARIO( "toEndfReactionNumber" ) {
+
+  GIVEN( "a valid reaction identifier" ) {
+
+    ReactionID elastic( "n,Fe56->n,Fe56" );
+
+    THEN( "the ENDF MT number can be retrieved" ) {
+
+      CHECK( 2 == njoy::elementary::toEndfReactionNumber( elastic ) );
     } // THEN
   } // GIVEN
 } // SCENARIO
