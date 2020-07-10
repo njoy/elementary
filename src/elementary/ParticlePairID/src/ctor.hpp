@@ -12,5 +12,4 @@ ParticlePairID( const ParticleID& id1, const ParticleID& id2 ) :
  *
  *  @param[in] string   the identifier string
  */
-ParticlePairID( const std::string& string ) :
-  Identifier( string ) {}
+ParticlePairID( const std::string& string ) : Identifier( string ) {}

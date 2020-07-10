@@ -28,8 +28,7 @@ ParticleTupleID( const std::vector< ParticleID >& identifiers ) :
  *
  *  @param[in] string   the identifier string
  */
-ParticleTupleID( const std::string& string ) :
-  Identifier( string ) {}
+ParticleTupleID( const std::string& string ) : Identifier( string ) {}
 
 /**
  *  @brief Constructor
