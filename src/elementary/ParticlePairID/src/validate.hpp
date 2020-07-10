@@ -10,5 +10,14 @@ static bool validate( const std::string& string ) {
 
     return false;
   }
-  return ParticleTupleID::validate( string );
+  try {
+
+    ParticleID test1( strings[0] );
+    ParticleID test2( strings[1] );
+  }
+  catch ( ... ) {
+
+    return false;
+  }
+  return true;
 }

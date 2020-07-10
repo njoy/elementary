@@ -44,4 +44,13 @@ SCENARIO( "ParticlePairID" ) {
       CHECK( ( id2 != id1 ) == true );
     } // THEN
   } // GIVEN
+
+  GIVEN( "invalid data for an ParticlePairID" ) {
+
+    THEN( "an exception is thrown" ) {
+
+      CHECK_THROWS( ParticlePairID( "not a particle pair ID" ) );
+      CHECK_THROWS( ParticlePairID( "n,p,Fe56" ) );  // particle tuple, not pair
+    } // THEN
+  } // GIVEN
 } // SCENARIO

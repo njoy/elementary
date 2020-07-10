@@ -5,6 +5,7 @@
 #include "elementary/NucleusID.hpp"
 #include "elementary/NuclideID.hpp"
 #include "elementary/ParticleID.hpp"
+#include "elementary/ParticlePairID.hpp"
 #include "elementary/ParticleTupleID.hpp"
 
 // free functions to produce new identifiers

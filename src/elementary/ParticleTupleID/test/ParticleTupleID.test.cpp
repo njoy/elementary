@@ -7,6 +7,7 @@
 #include "elementary/ParticleID.hpp"
 
 // convenience typedefs
+using ParticlePairID = njoy::elementary::ParticlePairID;
 using ParticleTupleID = njoy::elementary::ParticleTupleID;
 using ParticleID = njoy::elementary::ParticleID;
 
@@ -36,8 +37,13 @@ SCENARIO( "ParticleTupleID" ) {
       CHECK( "n,p,he4,Fe56" == id4.symbol() );
 
       // using a string
-      ParticleTupleID id5( "n,Fe56" );
-      CHECK( "n,Fe56" == id5.symbol() );
+      ParticleTupleID id5( "n,p,Fe56" );
+      CHECK( "n,p,Fe56" == id5.symbol() );
+
+      // using a particle pair
+      ParticleTupleID id6( ParticlePairID( ParticleID( "n" ),
+                                           ParticleID( "Fe56" ) ) );
+      CHECK( "n,Fe56" == id6.symbol() );
     } // THEN
   } // GIVEN
 
@@ -57,6 +63,14 @@ SCENARIO( "ParticleTupleID" ) {
       CHECK( ( id2 <  id1 ) == false );
       CHECK( ( id2 == id1 ) == false );
       CHECK( ( id2 != id1 ) == true );
+    } // THEN
+  } // GIVEN
+
+  GIVEN( "invalid data for an ParticleTupleID" ) {
+
+    THEN( "an exception is thrown" ) {
+
+      CHECK_THROWS( ParticleTupleID( "not a particle tuple ID" ) );
     } // THEN
   } // GIVEN
 } // SCENARIO

@@ -5,7 +5,7 @@
  *  @param[in] id2           a second particle identifier
  */
 ParticlePairID( const ParticleID& id1, const ParticleID& id2 ) :
-  ParticleTupleID( id1, id2 ) {}
+  Identifier( id1.symbol() + "," + id2.symbol(), false ) {}
 
 /**
  *  @brief Constructor
@@ -13,4 +13,4 @@ ParticlePairID( const ParticleID& id1, const ParticleID& id2 ) :
  *  @param[in] string   the identifier string
  */
 ParticlePairID( const std::string& string ) :
-  ParticleTupleID( string ) {}
+  Identifier( string ) {}
