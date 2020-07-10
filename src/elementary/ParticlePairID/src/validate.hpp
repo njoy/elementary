@@ -1,5 +1,5 @@
 /**
- *  @brief Verify if a string is a valid ParticlePairID
+ *  @brief Verify if a string is a valid identifier string for a particle pair
  *
  *  @param[in] string   the string to be validated
  */

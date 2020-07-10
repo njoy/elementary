@@ -15,6 +15,21 @@ namespace elementary {
   /**
    *  @class
    *  @brief The identifier for the special case of a particle pair
+   *
+   *  A particle pair represents the two particles involved in a entrance
+   *  reaction channel or two body exit reaction channel. The pair consists of
+   *  a "small" incident or outgoing particle (e.g. a neutron, photon, alpha,
+   *  etc.) and a "larger" target or residual nucleus (e.g. H1, He4, U235,
+   *  etc.).
+   *
+   *  The symbol of the particle identifier consists of two valid particle
+   *  identifiers separated by a comma. For example:
+   *    - "n,Fe56" for a neutron and the Fe56 nuclide
+   *    - "n,he4" for a neutron and an alpha particle
+   *    - "h3,h2" for a triton and a deuteron particle
+   *
+   *  The order in which these are given determines which particle is
+   *  considered the "particle" and which is the "residual".
    */
   class ParticlePairID : public Identifier< ParticlePairID > {
 
@@ -32,6 +47,22 @@ namespace elementary {
 
     /* methods */
     #include "elementary/ParticlePairID/src/validate.hpp"
+
+    /**
+     *  @brief Return the particle identifier for the particle
+     */
+    ParticleID particle() {
+
+      return ParticleID( split( this->symbol(), "," ).front() );
+    }
+
+    /**
+     *  @brief Return the particle identifier for the residual
+     */
+    ParticleID residual() {
+
+      return ParticleID( split( this->symbol(), "," ).back() );
+    }
 
     using Identifier::symbol;
     using Identifier::operator<;
