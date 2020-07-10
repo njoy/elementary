@@ -3,6 +3,8 @@
 #include "catch.hpp"
 #include "elementary/src/absorb.hpp"
 #include "elementary/src/emit.hpp"
+#include "elementary/src/join.hpp"
+#include "elementary/src/split.hpp"
 
 // other includes
 #include "elementary/FundamentalParticleID.hpp"
@@ -56,6 +58,73 @@ SCENARIO( "emit" ) {
       CHECK( isotope_h1 == njoy::elementary::emit( h2, n ) );
       CHECK( isotope_h1 == njoy::elementary::emit( H2, n ) );
       CHECK( isotope_h1 == njoy::elementary::emit( particle_h2, n ) );
+    } // THEN
+  } // GIVEN
+} // SCENARIO
+
+SCENARIO( "join" ) {
+
+  GIVEN( "a vector of strings" ) {
+
+    std::vector< std::string > empty = {};
+    std::vector< std::string > one = { "ab" };
+    std::vector< std::string > strings = { "ab", "cd", "ef" };
+
+    THEN( "the strings can be joined together with a separator" ) {
+
+      CHECK( "" == njoy::elementary::join( empty, "->" ) );
+      CHECK( "ab" == njoy::elementary::join( one, "->" ) );
+      CHECK( "ab->cd->ef" == njoy::elementary::join( strings, "->" ) );
+    } // THEN
+
+    THEN( "the strings can be joined together without a separator" ) {
+
+      CHECK( "" == njoy::elementary::join( empty ) );
+      CHECK( "ab" == njoy::elementary::join( one ) );
+      CHECK( "abcdef" == njoy::elementary::join( strings ) );
+    } // THEN
+  } // GIVEN
+} // SCENARIO
+
+SCENARIO( "split" ) {
+
+  GIVEN( "a string" ) {
+
+    std::string empty = "";
+    std::string none = "abcdef";
+    std::string middle = "ab->cd->ef";
+    std::string start = "->ab->cd->ef";
+    std::string end = "ab->cd->ef->";
+
+    THEN( "the strings can be split" ) {
+
+      auto result = njoy::elementary::split( empty, "->" );
+      CHECK( 1 == result.size() );
+      CHECK( "" == result[0] );
+
+      result = njoy::elementary::split( none, "->" );
+      CHECK( 1 == result.size() );
+      CHECK( "abcdef" == result[0] );
+
+      result = njoy::elementary::split( middle, "->" );
+      CHECK( 3 == result.size() );
+      CHECK( "ab" == result[0] );
+      CHECK( "cd" == result[1] );
+      CHECK( "ef" == result[2] );
+
+      result = njoy::elementary::split( start, "->" );
+      CHECK( 4 == result.size() );
+      CHECK( "" == result[0] );
+      CHECK( "ab" == result[1] );
+      CHECK( "cd" == result[2] );
+      CHECK( "ef" == result[3] );
+
+      result = njoy::elementary::split( end, "->" );
+      CHECK( 4 == result.size() );
+      CHECK( "ab" == result[0] );
+      CHECK( "cd" == result[1] );
+      CHECK( "ef" == result[2] );
+      CHECK( "" == result[3] );
     } // THEN
   } // GIVEN
 } // SCENARIO
