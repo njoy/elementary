@@ -205,6 +205,47 @@ SCENARIO( "toEndfReactionNumber" ) {
 
       CHECK( 37 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,n,n,Co53" ) ) );
 
+      CHECK( 51 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e1" ) ) );
+      CHECK( 52 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e2" ) ) );
+      CHECK( 53 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e3" ) ) );
+      CHECK( 54 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e4" ) ) );
+      CHECK( 55 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e5" ) ) );
+      CHECK( 56 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e6" ) ) );
+      CHECK( 57 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e7" ) ) );
+      CHECK( 58 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e8" ) ) );
+      CHECK( 59 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e9" ) ) );
+      CHECK( 60 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e10" ) ) );
+      CHECK( 61 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e11" ) ) );
+      CHECK( 62 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e12" ) ) );
+      CHECK( 63 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e13" ) ) );
+      CHECK( 64 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e14" ) ) );
+      CHECK( 65 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e15" ) ) );
+      CHECK( 66 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e16" ) ) );
+      CHECK( 67 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e17" ) ) );
+      CHECK( 68 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e18" ) ) );
+      CHECK( 69 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e19" ) ) );
+      CHECK( 70 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e20" ) ) );
+      CHECK( 71 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e21" ) ) );
+      CHECK( 72 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e22" ) ) );
+      CHECK( 73 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e23" ) ) );
+      CHECK( 74 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e24" ) ) );
+      CHECK( 75 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e25" ) ) );
+      CHECK( 76 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e26" ) ) );
+      CHECK( 77 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e27" ) ) );
+      CHECK( 78 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e28" ) ) );
+      CHECK( 79 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e29" ) ) );
+      CHECK( 80 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e30" ) ) );
+      CHECK( 81 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e31" ) ) );
+      CHECK( 82 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e32" ) ) );
+      CHECK( 83 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e33" ) ) );
+      CHECK( 84 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e34" ) ) );
+      CHECK( 85 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e35" ) ) );
+      CHECK( 86 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e36" ) ) );
+      CHECK( 87 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e37" ) ) );
+      CHECK( 88 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e38" ) ) );
+      CHECK( 89 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e39" ) ) );
+      CHECK( 90 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e40" ) ) );
+
       CHECK( 875 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55" ) ) );
       CHECK( 876 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e1" ) ) );
       CHECK( 877 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e2" ) ) );
