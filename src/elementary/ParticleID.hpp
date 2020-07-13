@@ -70,6 +70,21 @@ namespace elementary {
     }
 
     /**
+     *  @brief return the particle excited state number
+     */
+    int level() const noexcept {
+
+      return std::visit(
+               overload{ [] ( const FundamentalParticleID& )
+                            { return 0; },
+                         [] ( const NucleusID& identifier ) -> int
+                            { return identifier.level(); },
+                         [] ( const NuclideID& identifier ) -> int
+                            { return identifier.level(); } },
+               this->identifier_ );
+    }
+
+    /**
      *  @brief return the nuclide hash value
      */
     int hash() const noexcept {

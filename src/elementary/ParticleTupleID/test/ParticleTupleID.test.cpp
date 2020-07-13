@@ -47,6 +47,32 @@ SCENARIO( "ParticleTupleID" ) {
     } // THEN
   } // GIVEN
 
+  GIVEN( "valid ParticleTupleID" ) {
+
+    THEN( "the particles and residual identifiers can be extracted" ) {
+
+      ParticleTupleID id1( "n,Fe56" );
+
+      auto particles = id1.particles();
+      auto residual = id1.residual();
+
+      CHECK( 1 == particles.size() );
+      CHECK( ParticleID( "n" ) == particles[0] );
+      CHECK( ParticleID( "Fe56" ) == residual );
+
+      ParticleTupleID id2( "n,p,he4,Fe56" );
+
+      particles = id2.particles();
+      residual = id2.residual();
+
+      CHECK( 3 == particles.size() );
+      CHECK( ParticleID( "n" ) == particles[0] );
+      CHECK( ParticleID( "p" ) == particles[1] );
+      CHECK( ParticleID( "he4" ) == particles[2] );
+      CHECK( ParticleID( "Fe56" ) == residual );
+    } // THEN
+  } // GIVEN
+
   GIVEN( "valid ParticleTupleID instances" ) {
 
     ParticleTupleID id1( ParticleID( "n" ), ParticleID( "Fe56" ) );

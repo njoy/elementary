@@ -24,31 +24,61 @@ SCENARIO( "ParticleID" ) {
       CHECK( "n" == id.symbol() );
       CHECK( "neutron" == id.name() );
       CHECK( 1 == id.za() );
+      CHECK( 0 == id.level() );
 
       id = ParticleID( "n" );
       CHECK( "n" == id.symbol() );
       CHECK( "neutron" == id.name() );
       CHECK( 1 == id.za() );
+      CHECK( 0 == id.level() );
 
       id = ParticleID( NucleusID( "h2" ) );
       CHECK( "h2" == id.symbol() );
       CHECK( "h2" == id.name() );
       CHECK( 1002 == id.za() );
+      CHECK( 0 == id.level() );
 
       id = ParticleID( "h2" );
       CHECK( "h2" == id.symbol() );
       CHECK( "h2" == id.name() );
       CHECK( 1002 == id.za() );
+      CHECK( 0 == id.level() );
+
+      id = ParticleID( NucleusID( "h2_e1" ) );
+      CHECK( "h2_e1" == id.symbol() );
+      CHECK( "h2_e1" == id.name() );
+      CHECK( 1002 == id.za() );
+      CHECK( 1 == id.level() );
+
+      id = ParticleID( "h2_e1" );
+      CHECK( "h2_e1" == id.symbol() );
+      CHECK( "h2_e1" == id.name() );
+      CHECK( 1002 == id.za() );
+      CHECK( 1 == id.level() );
 
       id = ParticleID( NuclideID( "H2" ) );
       CHECK( "H2" == id.symbol() );
       CHECK( "H2" == id.name() );
       CHECK( 1002 == id.za() );
+      CHECK( 0 == id.level() );
 
       id = ParticleID( "H2" );
       CHECK( "H2" == id.symbol() );
       CHECK( "H2" == id.name() );
       CHECK( 1002 == id.za() );
+      CHECK( 0 == id.level() );
+
+      id = ParticleID( NuclideID( "H2_e1" ) );
+      CHECK( "H2_e1" == id.symbol() );
+      CHECK( "H2_e1" == id.name() );
+      CHECK( 1002 == id.za() );
+      CHECK( 1 == id.level() );
+
+      id = ParticleID( "H2_e1" );
+      CHECK( "H2_e1" == id.symbol() );
+      CHECK( "H2_e1" == id.name() );
+      CHECK( 1002 == id.za() );
+      CHECK( 1 == id.level() );
     } // THEN
   } // GIVEN
 
