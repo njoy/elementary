@@ -3,12 +3,14 @@
 
 // system includes
 #include <string>
+#include <vector>
 
 // other includes
 #include "elementary/src/join.hpp"
 #include "elementary/src/split.hpp"
 #include "elementary/Identifier.hpp"
 #include "elementary/ParticleID.hpp"
+#include "elementary/ParticlePairID.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -25,7 +27,7 @@ namespace elementary {
     /* fields */
 
     /* auxiliary functions */
-    static std::string name() { return "tuple of particles"; }
+    static std::string name() { return "a tuple of particles"; }
     #include "elementary/ParticleTupleID/src/generate.hpp"
 
   public:

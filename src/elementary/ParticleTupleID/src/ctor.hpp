@@ -30,3 +30,11 @@ ParticleTupleID( const std::vector< ParticleID >& identifiers ) :
  */
 ParticleTupleID( const std::string& string ) :
   Identifier( string ) {}
+
+/**
+ *  @brief Constructor
+ *
+ *  @param[in] pair   a particle pair identifier
+ */
+ParticleTupleID( const ParticlePairID& identifier ) :
+  Identifier( identifier.symbol(), false ) {}
