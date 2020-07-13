@@ -11,5 +11,7 @@ ParticlePairID( const ParticleID& id1, const ParticleID& id2 ) :
  *  @brief Constructor
  *
  *  @param[in] string   the identifier string
+ *  @param[in] validate     the optional flag to switch off validation
  */
-ParticlePairID( const std::string& string ) : Identifier( string ) {}
+ParticlePairID( const std::string& string, bool validate = true ) :
+  Identifier( string, validate ) {}

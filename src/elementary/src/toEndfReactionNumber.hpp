@@ -31,38 +31,10 @@ namespace elementary {
     const auto outgoingParticles = outgoing.particles();
     const auto outgoingResidual = outgoing.residual();
 
-    // calculate the total za value of the secondary particles
-    int za = 0;
-    for ( const auto& id : outgoingParticles ) {
-
-      za += id.za();
-    }
-
     // elastic scattering
     if ( incidentResidual == outgoingResidual ) {
 
       return 2;
-    }
-
-    // lookup based on emitted particles
-    switch ( za ) {
-
-      // a single neutron - potential inelastic scattering
-      case 1 : {
-
-        const auto level = outgoingResidual.level();
-        if ( level <= 50 ) { return 50 + level; }
-        break;
-      }
-      case 2 : {
-
-        const auto level = outgoingResidual.level();
-        if ( level <= 15 ) { return 875 + level; }
-        break;
-      }
-      case 3 : { return 17; }
-      case 4 : { return 37; }
-      default : { break; }
     }
 
     return 0;

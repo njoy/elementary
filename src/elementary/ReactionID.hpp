@@ -48,7 +48,7 @@ namespace elementary {
      */
     ParticlePairID incident() const noexcept {
 
-      return ParticlePairID( split( this->symbol(), "->" ).front() );
+      return ParticlePairID( split( this->symbol(), "->" ).front(), false );
     }
 
     /**
@@ -56,7 +56,7 @@ namespace elementary {
      */
     ParticleTupleID outgoing() const noexcept {
 
-      return ParticleTupleID( split( this->symbol(), "->" ).back() );
+      return ParticleTupleID( split( this->symbol(), "->" ).back(), false );
     }
 
     using Identifier::symbol;
