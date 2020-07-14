@@ -14,7 +14,7 @@ namespace elementary {
 
   /**
    *  @class
-   *  @brief The element identifier, with associated element symbol and name
+   *  @brief The ENDF reaction number, with associated information
    */
   class ReactionNumber {
 

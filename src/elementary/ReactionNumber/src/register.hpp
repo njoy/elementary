@@ -12,6 +12,7 @@ ReactionNumber::mt_dictionary{
     ParticleID t( "h3" );
     ParticleID h( "he3" );
     ParticleID a( "he4" );
+    ParticleID g( "photon" );
 
     return
     std::map< ReactionNumber::Number, ReactionNumber::Entry > {
@@ -83,7 +84,14 @@ ReactionNumber::mt_dictionary{
       { 87, ReactionNumber::Entry{ 87, "z,n37", { "n,n'(37)", "n,n37", "z,n'(37)" }, { n }, 37 } },
       { 88, ReactionNumber::Entry{ 88, "z,n38", { "n,n'(38)", "n,n38", "z,n'(38)" }, { n }, 38 } },
       { 89, ReactionNumber::Entry{ 89, "z,n39", { "n,n'(39)", "n,n39", "z,n'(39)" }, { n }, 39 } },
-      { 90, ReactionNumber::Entry{ 90, "z,n40", { "n,n'(40)", "n,n40", "z,n'(40)" }, { n }, 40 } }
+      { 90, ReactionNumber::Entry{ 90, "z,n40", { "n,n'(40)", "n,n40", "z,n'(40)" }, { n }, 40 } },
+      //{ 91, ReactionNumber::Entry{ "mt": 91, "z,nc", { "n,n'(c)", "n,nc", "z,n'(c)" }, { n } } },
+      { 102, ReactionNumber::Entry{ 102, "capture", { "n,g", "n,gamma", "z,g", "z,gamma" }, { g } } },
+      { 103, ReactionNumber::Entry{ 103, "z,p", { "n,p", "n,proton", "z,proton" }, { p } } },
+      { 104, ReactionNumber::Entry{ 104, "z,d", { "n,d", "n,deuteron", "z,deuteron" }, { d } } },
+      { 105, ReactionNumber::Entry{ 105, "z,t", { "n,t", "n,triton", "z,triton" }, { t } } },
+      { 106, ReactionNumber::Entry{ 106, "z,h", { "n,3he", "n,h", "n,he3", "n,helion", "z,3he", "z,he3", "z,helion" }, { h } } },
+      { 107, ReactionNumber::Entry{ 107, "z,a", { "n,a", "n,alpha", "z,alpha" }, { a } } }
      }; }()
 };
 
