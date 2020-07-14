@@ -56,6 +56,30 @@ SCENARIO( "ReactionNumber" ) {
       CHECK( neutron == id17.particles()[1] );
       CHECK( neutron == id17.particles()[2] );
 
+      ReactionNumber id22( 22 );
+      CHECK( 22 == id22.mt() );
+      CHECK( "z,na" == id22.name() );
+      CHECK( 2 == id22.particles().size() );
+      CHECK( neutron == id22.particles()[0] );
+      CHECK( alpha == id22.particles()[1] );
+
+      ReactionNumber id23( 23 );
+      CHECK( 23 == id23.mt() );
+      CHECK( "z,n3a" == id23.name() );
+      CHECK( 4 == id23.particles().size() );
+      CHECK( neutron == id23.particles()[0] );
+      CHECK( alpha == id23.particles()[1] );
+      CHECK( alpha == id23.particles()[2] );
+      CHECK( alpha == id23.particles()[3] );
+
+      ReactionNumber id24( 24 );
+      CHECK( 24 == id24.mt() );
+      CHECK( "z,2na" == id24.name() );
+      CHECK( 3 == id24.particles().size() );
+      CHECK( neutron == id24.particles()[0] );
+      CHECK( neutron == id24.particles()[1] );
+      CHECK( alpha == id24.particles()[2] );
+
       ReactionNumber id37( 37 );
       CHECK( 37 == id37.mt() );
       CHECK( "z,4n" == id37.name() );
