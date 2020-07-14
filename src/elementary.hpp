@@ -11,3 +11,5 @@
 // free functions to produce new identifiers
 #include "elementary/src/absorb.hpp"
 #include "elementary/src/emit.hpp"
+#include "elementary/src/fromEndfReactionNumber.hpp"
+#include "elementary/src/toEndfReactionNumber.hpp"
