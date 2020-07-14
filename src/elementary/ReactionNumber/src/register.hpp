@@ -1,6 +1,6 @@
 //! @todo this could be initialised using a json property file
 
-// register the element numbers, names and symbols
+// register the mt numbers, names, etc.
 const std::map< ReactionNumber::Number, ReactionNumber::Entry >
 ReactionNumber::mt_dictionary{
 
