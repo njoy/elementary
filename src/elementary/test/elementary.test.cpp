@@ -141,12 +141,16 @@ SCENARIO( "fromEndfReactionNumber" ) {
       // incident neutrons
       CHECK( ReactionID( "n,Fe56->n,Fe56" ) == fromEndfReactionNumber( neutron, Fe56_e0, 2 ) );
 
+      CHECK( ReactionID( "n,Fe56->n,n,h2,Mn53" ) == fromEndfReactionNumber( neutron, Fe56_e0, 11 ) );
+
       CHECK( ReactionID( "n,Fe56->n,n,n,Fe54" ) == fromEndfReactionNumber( neutron, Fe56_e0, 17 ) );
 
       CHECK( ReactionID( "n,Fe56->n,n,n,n,Fe53" ) == fromEndfReactionNumber( neutron, Fe56_e0, 37 ) );
 
       // incident protons
       CHECK( ReactionID( "p,Fe56->p,Fe56" ) == fromEndfReactionNumber( proton, Fe56_e0, 2 ) );
+
+      CHECK( ReactionID( "p,Fe56->n,n,h2,Fe53" ) == fromEndfReactionNumber( proton, Fe56_e0, 11 ) );
 
       CHECK( ReactionID( "p,Fe56->n,n,n,Co54" ) == fromEndfReactionNumber( proton, Fe56_e0, 17 ) );
 

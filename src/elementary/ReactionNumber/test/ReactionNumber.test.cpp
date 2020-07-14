@@ -13,6 +13,11 @@ using ParticleID = njoy::elementary::ParticleID;
 SCENARIO( "ReactionNumber" ) {
 
   const ParticleID neutron( "n" );
+  const ParticleID proton( "p" );
+  const ParticleID deuteron( "h2" );
+  const ParticleID triton( "h3" );
+  const ParticleID helion( "he3" );
+  const ParticleID alpha( "he4" );
 
   GIVEN( "valid data for a ReactionNumber" ) {
 
@@ -27,6 +32,14 @@ SCENARIO( "ReactionNumber" ) {
       CHECK( 2 == id2.mt() );
       CHECK( "elastic" == id2.name() );
       CHECK( 0 == id2.particles().size() );
+
+      ReactionNumber id11( 11 );
+      CHECK( 11 == id11.mt() );
+      CHECK( "z,2nd" == id11.name() );
+      CHECK( 3 == id11.particles().size() );
+      CHECK( neutron == id11.particles()[0] );
+      CHECK( neutron == id11.particles()[1] );
+      CHECK( deuteron == id11.particles()[2] );
 
       ReactionNumber id16( 16 );
       CHECK( 16 == id16.mt() );
