@@ -151,6 +151,47 @@ SCENARIO( "fromEndfReactionNumber" ) {
 
       CHECK( ReactionID( "n,Fe56->n,n,n,n,Fe53" ) == fromEndfReactionNumber( neutron, Fe56_e0, 37 ) );
 
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e1" ) == fromEndfReactionNumber( neutron, Fe56_e0, 51 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e2" ) == fromEndfReactionNumber( neutron, Fe56_e0, 52 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e3" ) == fromEndfReactionNumber( neutron, Fe56_e0, 53 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e4" ) == fromEndfReactionNumber( neutron, Fe56_e0, 54 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e5" ) == fromEndfReactionNumber( neutron, Fe56_e0, 55 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e6" ) == fromEndfReactionNumber( neutron, Fe56_e0, 56 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e7" ) == fromEndfReactionNumber( neutron, Fe56_e0, 57 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e8" ) == fromEndfReactionNumber( neutron, Fe56_e0, 58 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e9" ) == fromEndfReactionNumber( neutron, Fe56_e0, 59 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e10" ) == fromEndfReactionNumber( neutron, Fe56_e0, 60 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e11" ) == fromEndfReactionNumber( neutron, Fe56_e0, 61 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e12" ) == fromEndfReactionNumber( neutron, Fe56_e0, 62 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e13" ) == fromEndfReactionNumber( neutron, Fe56_e0, 63 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e14" ) == fromEndfReactionNumber( neutron, Fe56_e0, 64 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e15" ) == fromEndfReactionNumber( neutron, Fe56_e0, 65 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e16" ) == fromEndfReactionNumber( neutron, Fe56_e0, 66 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e17" ) == fromEndfReactionNumber( neutron, Fe56_e0, 67 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e18" ) == fromEndfReactionNumber( neutron, Fe56_e0, 68 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e19" ) == fromEndfReactionNumber( neutron, Fe56_e0, 69 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e20" ) == fromEndfReactionNumber( neutron, Fe56_e0, 70 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e21" ) == fromEndfReactionNumber( neutron, Fe56_e0, 71 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e22" ) == fromEndfReactionNumber( neutron, Fe56_e0, 72 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e23" ) == fromEndfReactionNumber( neutron, Fe56_e0, 73 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e24" ) == fromEndfReactionNumber( neutron, Fe56_e0, 74 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e25" ) == fromEndfReactionNumber( neutron, Fe56_e0, 75 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e26" ) == fromEndfReactionNumber( neutron, Fe56_e0, 76 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e27" ) == fromEndfReactionNumber( neutron, Fe56_e0, 77 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e28" ) == fromEndfReactionNumber( neutron, Fe56_e0, 78 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e29" ) == fromEndfReactionNumber( neutron, Fe56_e0, 79 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e30" ) == fromEndfReactionNumber( neutron, Fe56_e0, 80 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e31" ) == fromEndfReactionNumber( neutron, Fe56_e0, 81 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e32" ) == fromEndfReactionNumber( neutron, Fe56_e0, 82 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e33" ) == fromEndfReactionNumber( neutron, Fe56_e0, 83 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e34" ) == fromEndfReactionNumber( neutron, Fe56_e0, 84 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e35" ) == fromEndfReactionNumber( neutron, Fe56_e0, 85 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e36" ) == fromEndfReactionNumber( neutron, Fe56_e0, 86 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e37" ) == fromEndfReactionNumber( neutron, Fe56_e0, 87 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e38" ) == fromEndfReactionNumber( neutron, Fe56_e0, 88 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e39" ) == fromEndfReactionNumber( neutron, Fe56_e0, 89 ) );
+      CHECK( ReactionID( "n,Fe56->n,Fe56_e40" ) == fromEndfReactionNumber( neutron, Fe56_e0, 90 ) );
+
       // incident protons
       CHECK( ReactionID( "p,Fe56->p,Fe56" ) == fromEndfReactionNumber( proton, Fe56_e0, 2 ) );
 
@@ -163,6 +204,47 @@ SCENARIO( "fromEndfReactionNumber" ) {
       CHECK( ReactionID( "p,Fe56->n,n,he4,Mn51" ) == fromEndfReactionNumber( proton, Fe56_e0, 24 ) );
 
       CHECK( ReactionID( "p,Fe56->n,n,n,n,Co53" ) == fromEndfReactionNumber( proton, Fe56_e0, 37 ) );
+
+      CHECK( ReactionID( "p,Fe56->n,Co56_e1" ) == fromEndfReactionNumber( proton, Fe56_e0, 51 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e2" ) == fromEndfReactionNumber( proton, Fe56_e0, 52 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e3" ) == fromEndfReactionNumber( proton, Fe56_e0, 53 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e4" ) == fromEndfReactionNumber( proton, Fe56_e0, 54 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e5" ) == fromEndfReactionNumber( proton, Fe56_e0, 55 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e6" ) == fromEndfReactionNumber( proton, Fe56_e0, 56 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e7" ) == fromEndfReactionNumber( proton, Fe56_e0, 57 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e8" ) == fromEndfReactionNumber( proton, Fe56_e0, 58 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e9" ) == fromEndfReactionNumber( proton, Fe56_e0, 59 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e10" ) == fromEndfReactionNumber( proton, Fe56_e0, 60 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e11" ) == fromEndfReactionNumber( proton, Fe56_e0, 61 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e12" ) == fromEndfReactionNumber( proton, Fe56_e0, 62 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e13" ) == fromEndfReactionNumber( proton, Fe56_e0, 63 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e14" ) == fromEndfReactionNumber( proton, Fe56_e0, 64 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e15" ) == fromEndfReactionNumber( proton, Fe56_e0, 65 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e16" ) == fromEndfReactionNumber( proton, Fe56_e0, 66 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e17" ) == fromEndfReactionNumber( proton, Fe56_e0, 67 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e18" ) == fromEndfReactionNumber( proton, Fe56_e0, 68 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e19" ) == fromEndfReactionNumber( proton, Fe56_e0, 69 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e20" ) == fromEndfReactionNumber( proton, Fe56_e0, 70 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e21" ) == fromEndfReactionNumber( proton, Fe56_e0, 71 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e22" ) == fromEndfReactionNumber( proton, Fe56_e0, 72 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e23" ) == fromEndfReactionNumber( proton, Fe56_e0, 73 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e24" ) == fromEndfReactionNumber( proton, Fe56_e0, 74 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e25" ) == fromEndfReactionNumber( proton, Fe56_e0, 75 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e26" ) == fromEndfReactionNumber( proton, Fe56_e0, 76 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e27" ) == fromEndfReactionNumber( proton, Fe56_e0, 77 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e28" ) == fromEndfReactionNumber( proton, Fe56_e0, 78 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e29" ) == fromEndfReactionNumber( proton, Fe56_e0, 79 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e30" ) == fromEndfReactionNumber( proton, Fe56_e0, 80 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e31" ) == fromEndfReactionNumber( proton, Fe56_e0, 81 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e32" ) == fromEndfReactionNumber( proton, Fe56_e0, 82 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e33" ) == fromEndfReactionNumber( proton, Fe56_e0, 83 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e34" ) == fromEndfReactionNumber( proton, Fe56_e0, 84 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e35" ) == fromEndfReactionNumber( proton, Fe56_e0, 85 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e36" ) == fromEndfReactionNumber( proton, Fe56_e0, 86 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e37" ) == fromEndfReactionNumber( proton, Fe56_e0, 87 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e38" ) == fromEndfReactionNumber( proton, Fe56_e0, 88 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e39" ) == fromEndfReactionNumber( proton, Fe56_e0, 89 ) );
+      CHECK( ReactionID( "p,Fe56->n,Co56_e40" ) == fromEndfReactionNumber( proton, Fe56_e0, 90 ) );
     } // THEN
   } // GIVEN
 } // SCENARIO

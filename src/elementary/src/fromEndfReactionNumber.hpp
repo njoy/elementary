@@ -64,13 +64,13 @@ namespace elementary {
 
       throw std::invalid_argument(
                 "The reaction identifier for '" + incidentPair.symbol() + "' "
-                "for MT=" + std::to_string( mt ) + " could not be created" );
+                "and MT=" + std::to_string( mt ) + " could not be created" );
     }
 
     // throw exception if we get to this point
     throw std::invalid_argument(
               "The reaction identifier for '" + incidentPair.symbol() + "' "
-              "for MT=" + std::to_string( mt ) + " could not be created" );
+              "and MT=" + std::to_string( mt ) + " could not be created" );
   }
 } // elementary namespace
 } // njoy namespace
