@@ -8,7 +8,7 @@ static Number lookup( const std::string& string ) {
 
     return ReactionNumber::conversion_dictionary.at( tolower( string ) );
   }
-  catch ( ... ) {
+  catch ( const std::out_of_range& ) {
 
     throw std::invalid_argument(
               "The string '" + string + "' is not a registered ENDF reaction "
