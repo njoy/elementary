@@ -65,6 +65,14 @@ namespace elementary {
 
       return ReactionNumber::mt_dictionary.at( this->mt() ).particles();
     }
+
+    /**
+     *  @brief return the excited level number of the outgoing residual
+     */
+    auto level() const noexcept {
+
+      return ReactionNumber::mt_dictionary.at( this->mt() ).level();
+    }
   };
 
   // register the element numbers, symbols, names and alternatives

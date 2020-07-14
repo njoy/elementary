@@ -5,6 +5,7 @@
 #include "elementary/src/emit.hpp"
 #include "elementary/src/join.hpp"
 #include "elementary/src/split.hpp"
+#include "elementary/src/fromEndfReactionNumber.hpp"
 #include "elementary/src/toEndfReactionNumber.hpp"
 
 // other includes
@@ -123,6 +124,33 @@ SCENARIO( "split" ) {
       CHECK( "cd" == result[1] );
       CHECK( "ef" == result[2] );
       CHECK( "" == result[3] );
+    } // THEN
+  } // GIVEN
+} // SCENARIO
+
+SCENARIO( "fromEndfReactionNumber" ) {
+
+  GIVEN( "a valid incident particle, target and MT number " ) {
+
+    THEN( "the reaction identifier can be retrieved" ) {
+
+      ParticleID neutron( "n" );
+      ParticleID proton( "p" );
+      ParticleID Fe56_e0( "Fe56" );
+
+      // incident neutrons
+      CHECK( ReactionID( "n,Fe56->n,Fe56" ) == fromEndfReactionNumber( neutron, Fe56_e0, 2 ) );
+
+      CHECK( ReactionID( "n,Fe56->n,n,n,Fe54" ) == fromEndfReactionNumber( neutron, Fe56_e0, 17 ) );
+
+      CHECK( ReactionID( "n,Fe56->n,n,n,n,Fe53" ) == fromEndfReactionNumber( neutron, Fe56_e0, 37 ) );
+
+      // incident protons
+      CHECK( ReactionID( "p,Fe56->p,Fe56" ) == fromEndfReactionNumber( proton, Fe56_e0, 2 ) );
+
+      CHECK( ReactionID( "p,Fe56->n,n,n,Co54" ) == fromEndfReactionNumber( proton, Fe56_e0, 17 ) );
+
+      CHECK( ReactionID( "p,Fe56->n,n,n,n,Co53" ) == fromEndfReactionNumber( proton, Fe56_e0, 37 ) );
     } // THEN
   } // GIVEN
 } // SCENARIO
