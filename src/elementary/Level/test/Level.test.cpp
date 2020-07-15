@@ -50,6 +50,11 @@ SCENARIO( "Level" ) {
       CHECK( continuum == id.number() );
       CHECK( "[continuum]" == id.symbol() );
       CHECK( "[continuum]" == id.name() );
+
+      id = Level( "[continuum]" );
+      CHECK( continuum == id.number() );
+      CHECK( "[continuum]" == id.symbol() );
+      CHECK( "[continuum]" == id.name() );
     } // THEN
   } // GIVEN
 

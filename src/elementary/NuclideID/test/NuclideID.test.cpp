@@ -100,6 +100,35 @@ SCENARIO( "NuclideID" ) {
       CHECK( 1000 == id.za() );
       CHECK( "H0" == id.symbol() );
       CHECK( "H0" == id.name() );
+
+      auto continuum = njoy::elementary::Level::continuum;
+
+      id = NuclideID( 1, 1, continuum );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( Level( continuum ) == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "H1[continuum]" == id.symbol() );
+      CHECK( "H1[continuum]" == id.name() );
+
+      id = NuclideID( 1001, continuum );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( Level( continuum ) == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "H1[continuum]" == id.symbol() );
+      CHECK( "H1[continuum]" == id.name() );
+
+      id = NuclideID( "H1[continuum]" );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( Level( continuum ) == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "H1[continuum]" == id.symbol() );
+      CHECK( "H1[continuum]" == id.name() );
     } // THEN
   } // GIVEN
 
