@@ -91,6 +91,9 @@ namespace elementary {
       return  this->number() != right.number();
     }
   };
+
+  // register the regex
+  #include "elementary/LevelNumber/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
