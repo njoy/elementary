@@ -2,6 +2,9 @@
 #define NJOY_ELEMENTARY_LEVELNUMBER
 
 // system includes
+#include <regex>
+#include <stdexcept>
+#include <string>
 
 // other includes
 

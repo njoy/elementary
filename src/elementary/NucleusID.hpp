@@ -2,6 +2,8 @@
 #define NJOY_ELEMENTARY_NUCLEUSID
 
 // system includes
+#include <regex>
+#include <stdexcept>
 #include <string>
 
 // other includes
