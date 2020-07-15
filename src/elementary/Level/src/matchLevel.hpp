@@ -5,9 +5,9 @@ static int
 matchLevel( const std::string& string ) {
 
   std::smatch match;
-  if ( std::regex_match( string, match, LevelNumber::regex ) ) {
+  if ( std::regex_match( string, match, Level::regex ) ) {
 
-    return std::stoi( match[1] );
+    return match[3] == "" ? std::stoi( match[2] ) : continuum;
   }
 
   throw std::invalid_argument(

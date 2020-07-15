@@ -6,12 +6,12 @@
 // other includes
 #include "elementary/ElementID.hpp"
 #include "elementary/IsotopeID.hpp"
-#include "elementary/LevelNumber.hpp"
+#include "elementary/Level.hpp"
 
 // convenience typedefs
 using ElementID = njoy::elementary::ElementID;
 using IsotopeID = njoy::elementary::IsotopeID;
-using LevelNumber = njoy::elementary::LevelNumber;
+using Level = njoy::elementary::Level;
 using NucleusID = njoy::elementary::NucleusID;
 
 SCENARIO( "NucleusID" ) {
@@ -24,7 +24,7 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
       CHECK( 1001 == id.za() );
       CHECK( "h1" == id.symbol() );
       CHECK( "h1" == id.name() );
@@ -33,7 +33,7 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
       CHECK( 1001 == id.za() );
       CHECK( "h1" == id.symbol() );
       CHECK( "h1" == id.name() );
@@ -42,7 +42,7 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
       CHECK( 1001 == id.za() );
       CHECK( "h1" == id.symbol() );
       CHECK( "h1" == id.name() );
@@ -51,7 +51,7 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
       CHECK( 1001 == id.za() );
       CHECK( "h1" == id.symbol() );
       CHECK( "h1" == id.name() );
@@ -60,7 +60,7 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
-      CHECK( LevelNumber( 1 ) == id.level() );
+      CHECK( Level( 1 ) == id.level() );
       CHECK( 1001 == id.za() );
       CHECK( "h1_e1" == id.symbol() );
       CHECK( "h1_e1" == id.name() );
@@ -69,7 +69,7 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
-      CHECK( LevelNumber( 1 ) == id.level() );
+      CHECK( Level( 1 ) == id.level() );
       CHECK( 1001 == id.za() );
       CHECK( "h1_e1" == id.symbol() );
       CHECK( "h1_e1" == id.name() );
@@ -78,7 +78,7 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 1 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 1 == id.mass() );
-      CHECK( LevelNumber( 1 ) == id.level() );
+      CHECK( Level( 1 ) == id.level() );
       CHECK( 1001 == id.za() );
       CHECK( "h1_e1" == id.symbol() );
       CHECK( "h1_e1" == id.name() );
@@ -87,7 +87,7 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 0 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 0 == id.mass() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
       CHECK( 1000 == id.za() );
       CHECK( "h0" == id.symbol() );
       CHECK( "h0" == id.name() );
@@ -96,10 +96,39 @@ SCENARIO( "NucleusID" ) {
       CHECK( IsotopeID( 1, 0 ) == id.isotope() );
       CHECK( ElementID( 1 ) == id.element() );
       CHECK( 0 == id.mass() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
       CHECK( 1000 == id.za() );
       CHECK( "h0" == id.symbol() );
       CHECK( "h0" == id.name() );
+
+      auto continuum = njoy::elementary::Level::continuum;
+
+      id = NucleusID( 1, 1, continuum );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( Level( continuum ) == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "h1[continuum]" == id.symbol() );
+      CHECK( "h1[continuum]" == id.name() );
+
+      id = NucleusID( 1001, continuum );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( Level( continuum ) == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "h1[continuum]" == id.symbol() );
+      CHECK( "h1[continuum]" == id.name() );
+
+      id = NucleusID( "h1[continuum]" );
+      CHECK( IsotopeID( 1, 1 ) == id.isotope() );
+      CHECK( ElementID( 1 ) == id.element() );
+      CHECK( 1 == id.mass() );
+      CHECK( Level( continuum ) == id.level() );
+      CHECK( 1001 == id.za() );
+      CHECK( "h1[continuum]" == id.symbol() );
+      CHECK( "h1[continuum]" == id.name() );
     } // THEN
   } // GIVEN
 

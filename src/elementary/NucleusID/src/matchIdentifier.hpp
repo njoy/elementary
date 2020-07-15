@@ -8,7 +8,11 @@ matchIdentifier( const std::string& string ) {
   if ( std::regex_match( string, match, NucleusID::regex ) ) {
 
     return std::make_pair( match[1],
-                           match[3] != "" ? std::stoi( match[3] ) : 0 );
+                           match[2] != ""
+                             ? match[4] != ""
+                                 ? std::stoi( match[4] )
+                                 : Level::continuum
+                             : 0 );
   }
 
   throw std::invalid_argument(

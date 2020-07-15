@@ -7,14 +7,14 @@
 #include "elementary/FundamentalParticleID.hpp"
 #include "elementary/NucleusID.hpp"
 #include "elementary/NuclideID.hpp"
-#include "elementary/LevelNumber.hpp"
+#include "elementary/Level.hpp"
 
 // convenience typedefs
 using ParticleID = njoy::elementary::ParticleID;
 using FundamentalParticleID = njoy::elementary::FundamentalParticleID;
 using NucleusID = njoy::elementary::NucleusID;
 using NuclideID = njoy::elementary::NuclideID;
-using LevelNumber = njoy::elementary::LevelNumber;
+using Level = njoy::elementary::Level;
 
 SCENARIO( "ParticleID" ) {
 
@@ -26,61 +26,61 @@ SCENARIO( "ParticleID" ) {
       CHECK( "n" == id.symbol() );
       CHECK( "neutron" == id.name() );
       CHECK( 1 == id.za() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
 
       id = ParticleID( "n" );
       CHECK( "n" == id.symbol() );
       CHECK( "neutron" == id.name() );
       CHECK( 1 == id.za() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
 
       id = ParticleID( NucleusID( "h2" ) );
       CHECK( "h2" == id.symbol() );
       CHECK( "h2" == id.name() );
       CHECK( 1002 == id.za() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
 
       id = ParticleID( "h2" );
       CHECK( "h2" == id.symbol() );
       CHECK( "h2" == id.name() );
       CHECK( 1002 == id.za() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
 
       id = ParticleID( NucleusID( "h2_e1" ) );
       CHECK( "h2_e1" == id.symbol() );
       CHECK( "h2_e1" == id.name() );
       CHECK( 1002 == id.za() );
-      CHECK( LevelNumber( 1 ) == id.level() );
+      CHECK( Level( 1 ) == id.level() );
 
       id = ParticleID( "h2_e1" );
       CHECK( "h2_e1" == id.symbol() );
       CHECK( "h2_e1" == id.name() );
       CHECK( 1002 == id.za() );
-      CHECK( LevelNumber( 1 ) == id.level() );
+      CHECK( Level( 1 ) == id.level() );
 
       id = ParticleID( NuclideID( "H2" ) );
       CHECK( "H2" == id.symbol() );
       CHECK( "H2" == id.name() );
       CHECK( 1002 == id.za() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
 
       id = ParticleID( "H2" );
       CHECK( "H2" == id.symbol() );
       CHECK( "H2" == id.name() );
       CHECK( 1002 == id.za() );
-      CHECK( LevelNumber( 0 ) == id.level() );
+      CHECK( Level( 0 ) == id.level() );
 
       id = ParticleID( NuclideID( "H2_e1" ) );
       CHECK( "H2_e1" == id.symbol() );
       CHECK( "H2_e1" == id.name() );
       CHECK( 1002 == id.za() );
-      CHECK( LevelNumber( 1 ) == id.level() );
+      CHECK( Level( 1 ) == id.level() );
 
       id = ParticleID( "H2_e1" );
       CHECK( "H2_e1" == id.symbol() );
       CHECK( "H2_e1" == id.name() );
       CHECK( 1002 == id.za() );
-      CHECK( LevelNumber( 1 ) == id.level() );
+      CHECK( Level( 1 ) == id.level() );
     } // THEN
   } // GIVEN
 
@@ -106,6 +106,23 @@ SCENARIO( "ParticleID" ) {
     // nucleus < nuclide for the same isotope
     id1 = ParticleID( "he4" );
     id2 = ParticleID( "He4" );
+
+    THEN( "instances can be compared" ) {
+
+      CHECK( ( id1 <  id1 ) == false );
+      CHECK( ( id1 == id1 ) == true );
+      CHECK( ( id1 != id1 ) == false );
+      CHECK( ( id1 <  id2 ) == true );
+      CHECK( ( id1 == id2 ) == false );
+      CHECK( ( id1 != id2 ) == true );
+      CHECK( ( id2 <  id1 ) == false );
+      CHECK( ( id2 == id1 ) == false );
+      CHECK( ( id2 != id1 ) == true );
+    } // THEN
+
+    // dicrete level < continuum for the same isotope
+    id1 = ParticleID( "He4_e5" );
+    id2 = ParticleID( "He4[continuum]" );
 
     THEN( "instances can be compared" ) {
 

@@ -72,11 +72,11 @@ namespace elementary {
     /**
      *  @brief return the particle excited state number
      */
-    LevelNumber level() const noexcept {
+    Level level() const noexcept {
 
       return std::visit(
                overload{ [] ( const FundamentalParticleID& )
-                            { return LevelNumber( 0 ); },
+                            { return Level( 0 ); },
                          [] ( const NucleusID& identifier )
                             { return identifier.level(); },
                          [] ( const NuclideID& identifier )

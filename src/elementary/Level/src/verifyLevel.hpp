@@ -4,8 +4,8 @@
  */
 static Number verifyLevel( int number ) {
 
-  if ( ( number >= 0 ) and
-       ( number < 100 ) ) {
+  if ( ( ( number >= 0 ) and ( number < 100 ) ) or
+       ( number == continuum ) ) {
 
     return static_cast< Number >( number );
   }
