@@ -8,6 +8,7 @@
 // other includes
 #include "elementary/ElementID.hpp"
 #include "elementary/IsotopeID.hpp"
+#include "elementary/LevelNumber.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -21,9 +22,6 @@ namespace elementary {
    */
   class NuclideID {
 
-    /* type aliases */
-    using LevelNumber = unsigned char;
-
     /* regex */
     static const std::regex regex;
 
@@ -32,7 +30,6 @@ namespace elementary {
     LevelNumber level_;
 
     /* auxiliary functions */
-    #include "elementary/NuclideID/src/verifyLevel.hpp"
     #include "elementary/NuclideID/src/matchIdentifier.hpp"
 
   public:
@@ -73,9 +70,7 @@ namespace elementary {
      */
     std::string symbol() const noexcept {
 
-      return this->isotope().name()
-             + ( this->level() ? "_e" + std::to_string( this->level() )
-                               : "" );
+      return this->isotope().name() + this->level().symbol();
     }
 
     /**
@@ -99,7 +94,7 @@ namespace elementary {
      */
     int hash() const noexcept {
 
-      return this->za() * 100 + this->level_;
+      return this->za() * 100 + this->level_.number();
     }
 
     /**
