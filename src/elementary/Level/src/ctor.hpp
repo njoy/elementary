@@ -6,7 +6,7 @@
  *
  *  @param[in] l   the level number
  */
-LevelNumber( int l ) : level_( verifyLevel( l ) ) {}
+Level( int l ) : level_( verifyLevel( l ) ) {}
 
 /**
  *  @brief Constructor
@@ -16,5 +16,5 @@ LevelNumber( int l ) : level_( verifyLevel( l ) ) {}
  *
  *  @param[in] string   the string representation of a level number
  */
-LevelNumber( const std::string& string ) :
-  LevelNumber( matchLevel( string ) ) {}
+Level( const std::string& string ) :
+  Level( matchLevel( string ) ) {}

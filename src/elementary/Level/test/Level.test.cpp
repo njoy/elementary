@@ -1,55 +1,62 @@
 #define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
-#include "elementary/LevelNumber.hpp"
+#include "elementary/Level.hpp"
 
 // other includes
 
 // convenience typedefs
-using LevelNumber = njoy::elementary::LevelNumber;
+using Level = njoy::elementary::Level;
 
-SCENARIO( "LevelNumber" ) {
+SCENARIO( "Level" ) {
 
-  GIVEN( "valid data for a LevelNumber" ) {
+  GIVEN( "valid data for a Level" ) {
 
-    THEN( "a LevelNumber can be created" ) {
+    THEN( "a Level can be created" ) {
 
-      LevelNumber id( 0 );
+      Level id( 0 );
       CHECK( 0 == id.number() );
       CHECK( "" == id.symbol() );
       CHECK( "e0" == id.name() );
 
-      id = LevelNumber( "e0" );
+      id = Level( "e0" );
       CHECK( 0 == id.number() );
       CHECK( "" == id.symbol() );
       CHECK( "e0" == id.name() );
 
-      id = LevelNumber( "_e0" );
+      id = Level( "_e0" );
       CHECK( 0 == id.number() );
       CHECK( "" == id.symbol() );
       CHECK( "e0" == id.name() );
 
-      id = LevelNumber( 1 );
+      id = Level( 1 );
       CHECK( 1 == id.number() );
       CHECK( "_e1" == id.symbol() );
       CHECK( "e1" == id.name() );
 
-      id = LevelNumber( "e1" );
+      id = Level( "e1" );
       CHECK( 1 == id.number() );
       CHECK( "_e1" == id.symbol() );
       CHECK( "e1" == id.name() );
 
-      id = LevelNumber( "_e1" );
+      id = Level( "_e1" );
       CHECK( 1 == id.number() );
       CHECK( "_e1" == id.symbol() );
       CHECK( "e1" == id.name() );
+
+      auto continuum = njoy::elementary::Level::continuum;
+
+      id = Level( continuum );
+      CHECK( continuum == id.number() );
+      CHECK( "[continuum]" == id.symbol() );
+      CHECK( "[continuum]" == id.name() );
     } // THEN
   } // GIVEN
 
-  GIVEN( "valid LevelNumber instances" ) {
+  GIVEN( "valid Level instances" ) {
 
-    LevelNumber id1( 0 );
-    LevelNumber id2( 1 );
+    Level id1( 0 );
+    Level id2( 1 );
 
     THEN( "instances can be compared" ) {
 
@@ -65,13 +72,13 @@ SCENARIO( "LevelNumber" ) {
     } // THEN
   } // GIVEN
 
-  GIVEN( "invalid data for an LevelNumber" ) {
+  GIVEN( "invalid data for an Level" ) {
 
     THEN( "an exception is thrown" ) {
 
-      CHECK_THROWS( LevelNumber( "not a valid level number" ) );
-      CHECK_THROWS( LevelNumber( -1 ) );  // negative level
-      CHECK_THROWS( LevelNumber( 100 ) );  // too high
+      CHECK_THROWS( Level( "not a valid level number" ) );
+      CHECK_THROWS( Level( -1 ) );  // negative level
+      CHECK_THROWS( Level( 100 ) );  // too high
     } // THEN
   } // GIVEN
 } // SCENARIO

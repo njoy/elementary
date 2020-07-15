@@ -9,7 +9,7 @@ enable_testing()
 #######################################################################
 # Unit testing directories
 #######################################################################
-add_subdirectory( src/elementary/LevelNumber/test )
+add_subdirectory( src/elementary/Level/test )
 add_subdirectory( src/elementary/Identifier/test )
 add_subdirectory( src/elementary/FundamentalParticleID/test )
 add_subdirectory( src/elementary/ElementID/test )

@@ -1,10 +1,11 @@
-#ifndef NJOY_ELEMENTARY_LEVELNUMBER
-#define NJOY_ELEMENTARY_LEVELNUMBER
+#ifndef NJOY_ELEMENTARY_LEVEL
+#define NJOY_ELEMENTARY_LEVEL
 
 // system includes
 #include <regex>
 #include <stdexcept>
 #include <string>
+#include <limits>
 
 // other includes
 
@@ -15,7 +16,7 @@ namespace elementary {
    *  @class
    *  @brief The nuclear level number
    */
-  class LevelNumber {
+  class Level {
 
     /* type aliases */
     using Number = unsigned char;
@@ -27,13 +28,15 @@ namespace elementary {
     Number level_;
 
     /* auxiliary functions */
-    #include "elementary/LevelNumber/src/verifyLevel.hpp"
-    #include "elementary/LevelNumber/src/matchLevel.hpp"
+    #include "elementary/Level/src/verifyLevel.hpp"
+    #include "elementary/Level/src/matchLevel.hpp"
 
   public:
 
+    static constexpr Number continuum = std::numeric_limits< Number >::max();
+
     /* constructor */
-    #include "elementary/LevelNumber/src/ctor.hpp"
+    #include "elementary/Level/src/ctor.hpp"
 
     /* methods */
 
@@ -50,7 +53,11 @@ namespace elementary {
      */
     std::string symbol() const noexcept {
 
-      return this->number() ? "_e" + std::to_string( this->number() ) : "";
+      return this->number() != continuum
+               ? this->number()
+                   ? "_e" + std::to_string( this->number() )
+                   : ""
+               : "[continuum]";
     }
 
     /**
@@ -58,7 +65,9 @@ namespace elementary {
      */
     std::string name() const noexcept {
 
-      return "e" + std::to_string( this->number() );
+      return this->number() != continuum
+               ? "e" + std::to_string( this->number() )
+               : "[continuum]";
     }
 
     /**
@@ -66,7 +75,7 @@ namespace elementary {
      *
      *  @param[in] right   the identifier on the right hand side
      */
-    bool operator<( const LevelNumber& right ) const noexcept {
+    bool operator<( const Level& right ) const noexcept {
 
       return this->number() < right.number();
     }
@@ -76,7 +85,7 @@ namespace elementary {
      *
      *  @param[in] right   the identifier on the right hand side
      */
-    bool operator==( const LevelNumber& right ) const noexcept {
+    bool operator==( const Level& right ) const noexcept {
 
       return this->number() == right.number();
     }
@@ -86,14 +95,14 @@ namespace elementary {
      *
      *  @param[in] right   the identifier on the right hand side
      */
-    bool operator!=( const LevelNumber& right ) const noexcept {
+    bool operator!=( const Level& right ) const noexcept {
 
       return  this->number() != right.number();
     }
   };
 
   // register the regex
-  #include "elementary/LevelNumber/src/register.hpp"
+  #include "elementary/Level/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 

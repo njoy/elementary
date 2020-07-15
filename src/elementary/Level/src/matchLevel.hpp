@@ -5,7 +5,7 @@ static int
 matchLevel( const std::string& string ) {
 
   std::smatch match;
-  if ( std::regex_match( string, match, LevelNumber::regex ) ) {
+  if ( std::regex_match( string, match, Level::regex ) ) {
 
     return std::stoi( match[1] );
   }

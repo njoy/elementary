@@ -9,7 +9,7 @@
 // other includes
 #include "elementary/ElementID.hpp"
 #include "elementary/IsotopeID.hpp"
-#include "elementary/LevelNumber.hpp"
+#include "elementary/Level.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -28,7 +28,7 @@ namespace elementary {
 
     /* fields */
     IsotopeID isotope_;
-    LevelNumber level_;
+    Level level_;
 
     /* auxiliary functions */
     #include "elementary/NuclideID/src/matchIdentifier.hpp"
@@ -95,7 +95,7 @@ namespace elementary {
      */
     int hash() const noexcept {
 
-      return this->za() * 100 + this->level_.number();
+      return this->za() * 1000 + this->level_.number();
     }
 
     /**
