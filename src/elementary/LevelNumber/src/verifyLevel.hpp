@@ -2,12 +2,12 @@
  *  @brief Private helper function to convert a user provided number into a
  *         level number
  */
-static LevelNumber verifyLevel( int number ) {
+static Number verifyLevel( int number ) {
 
   if ( ( number >= 0 ) and
        ( number < 100 ) ) {
 
-    return static_cast< LevelNumber >( number );
+    return static_cast< Number >( number );
   }
   else {
 

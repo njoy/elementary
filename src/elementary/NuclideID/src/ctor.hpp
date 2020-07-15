@@ -4,7 +4,7 @@ protected:
  *  @brief Private constructor
  */
 NuclideID( IsotopeID&& isotope, int l ) :
-  isotope_( std::move( isotope ) ), level_( verifyLevel( l ) ) {}
+  isotope_( std::move( isotope ) ), level_( l ) {}
 
 private:
 
