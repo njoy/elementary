@@ -416,8 +416,8 @@ ReactionNumber::mt_dictionary{
       { 887, ReactionNumber::Entry{ 887, "z,2n12", { "n,2n12" }, { n, n }, 12 } },
       { 888, ReactionNumber::Entry{ 888, "z,2n13", { "n,2n13" }, { n, n }, 13 } },
       { 889, ReactionNumber::Entry{ 889, "z,2n14", { "n,2n14" }, { n, n }, 14 } },
-      { 890, ReactionNumber::Entry{ 890, "z,2n15", { "n,2n15" }, { n, n }, 15 } }//,
-      //{ 891, ReactionNumber::Entry{ 891, "z,2nc", { "n,2nc" }, { n, n } } }
+      { 890, ReactionNumber::Entry{ 890, "z,2n15", { "n,2n15" }, { n, n }, 15 } },
+      { 891, ReactionNumber::Entry{ 891, "z,2nc", { "n,2nc" }, { n, n }, continuum } }
   }; }()
 };
 
