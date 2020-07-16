@@ -13,6 +13,7 @@ ReactionNumber::mt_dictionary{
     ParticleID h( "he3" );
     ParticleID a( "he4" );
     ParticleID g( "photon" );
+    auto continuum = Level::continuum;
 
     return
     std::map< ReactionNumber::Number, ReactionNumber::Entry > {
@@ -85,7 +86,7 @@ ReactionNumber::mt_dictionary{
       { 88, ReactionNumber::Entry{ 88, "z,n38", { "n,n'(38)", "n,n38", "z,n'(38)" }, { n }, 38 } },
       { 89, ReactionNumber::Entry{ 89, "z,n39", { "n,n'(39)", "n,n39", "z,n'(39)" }, { n }, 39 } },
       { 90, ReactionNumber::Entry{ 90, "z,n40", { "n,n'(40)", "n,n40", "z,n'(40)" }, { n }, 40 } },
-      //{ 91, ReactionNumber::Entry{ "mt": 91, "z,nc", { "n,n'(c)", "n,nc", "z,n'(c)" }, { n } } },
+      { 91, ReactionNumber::Entry{ 91, "z,nc", { "n,n'(c)", "n,nc", "z,n'(c)" }, { n }, continuum } },
       { 102, ReactionNumber::Entry{ 102, "capture", { "n,g", "n,gamma", "z,g", "z,gamma" }, { g } } },
       { 103, ReactionNumber::Entry{ 103, "z,p", { "n,p", "n,proton", "z,proton" }, { p } } },
       { 104, ReactionNumber::Entry{ 104, "z,d", { "n,d", "n,deuteron", "z,deuteron" }, { d } } },
@@ -199,7 +200,7 @@ ReactionNumber::mt_dictionary{
       { 646, ReactionNumber::Entry{ 646, "z,p46", { "n,p46" }, { p }, 46 } },
       { 647, ReactionNumber::Entry{ 647, "z,p47", { "n,p47" }, { p }, 47 } },
       { 648, ReactionNumber::Entry{ 648, "z,p48", { "n,p48" }, { p }, 48 } },
-      //{ 649, ReactionNumber::Entry{ 649, "z,pc", { "n,pc" }, { p } } },
+      { 649, ReactionNumber::Entry{ 649, "z,pc", { "n,pc" }, { p }, continuum } },
       { 650, ReactionNumber::Entry{ 650, "z,d0", { "n,d0" }, { d }, 0 } },
       { 651, ReactionNumber::Entry{ 651, "z,d1", { "n,d1" }, { d }, 1 } },
       { 652, ReactionNumber::Entry{ 652, "z,d2", { "n,d2" }, { d }, 2 } },
@@ -249,7 +250,7 @@ ReactionNumber::mt_dictionary{
       { 696, ReactionNumber::Entry{ 656, "z,d46", { "n,d46" }, { d }, 46 } },
       { 697, ReactionNumber::Entry{ 657, "z,d47", { "n,d47" }, { d }, 47 } },
       { 698, ReactionNumber::Entry{ 658, "z,d48", { "n,d48" }, { d }, 48 } },
-      //{ 699, ReactionNumber::Entry{ 699, "z,dc", { "n,dc" }, { d } } },
+      { 699, ReactionNumber::Entry{ 699, "z,dc", { "n,dc" }, { d }, continuum } },
       { 700, ReactionNumber::Entry{ 700, "z,t0", { "n,t0" }, { t }, 0 } },
       { 701, ReactionNumber::Entry{ 701, "z,t1", { "n,t1" }, { t }, 1 } },
       { 702, ReactionNumber::Entry{ 702, "z,t2", { "n,t2" }, { t }, 2 } },
@@ -299,7 +300,7 @@ ReactionNumber::mt_dictionary{
       { 746, ReactionNumber::Entry{ 746, "z,t46", { "n,t46" }, { t }, 46 } },
       { 747, ReactionNumber::Entry{ 747, "z,t47", { "n,t47" }, { t }, 47 } },
       { 748, ReactionNumber::Entry{ 748, "z,t48", { "n,t48" }, { t }, 48 } },
-      //{ 749, ReactionNumber::Entry{ 749, "z,tc", { "n,tc" }, { t } } },
+      { 749, ReactionNumber::Entry{ 749, "z,tc", { "n,tc" }, { t }, continuum } },
       { 750, ReactionNumber::Entry{ 750, "z,h0", { "n,h0" }, { h }, 0 } },
       { 751, ReactionNumber::Entry{ 751, "z,h1", { "n,h1" }, { h }, 1 } },
       { 752, ReactionNumber::Entry{ 752, "z,h2", { "n,h2" }, { h }, 2 } },
@@ -349,7 +350,7 @@ ReactionNumber::mt_dictionary{
       { 796, ReactionNumber::Entry{ 756, "z,h46", { "n,h46" }, { h }, 46 } },
       { 797, ReactionNumber::Entry{ 757, "z,h47", { "n,h47" }, { h }, 47 } },
       { 798, ReactionNumber::Entry{ 758, "z,h48", { "n,h48" }, { h }, 48 } },
-      //{ 799, ReactionNumber::Entry{ 799, "z,hc", { "n,hc" }, { h } } },
+      { 799, ReactionNumber::Entry{ 799, "z,hc", { "n,hc" }, { h }, continuum } },
       { 800, ReactionNumber::Entry{ 800, "z,a0", { "n,a0" }, { a }, 0 } },
       { 801, ReactionNumber::Entry{ 801, "z,a1", { "n,a1" }, { a }, 1 } },
       { 802, ReactionNumber::Entry{ 802, "z,a2", { "n,a2" }, { a }, 2 } },
@@ -399,7 +400,7 @@ ReactionNumber::mt_dictionary{
       { 846, ReactionNumber::Entry{ 846, "z,a46", { "n,a46" }, { a }, 46 } },
       { 847, ReactionNumber::Entry{ 847, "z,a47", { "n,a47" }, { a }, 47 } },
       { 848, ReactionNumber::Entry{ 848, "z,a48", { "n,a48" }, { a }, 48 } },
-      //{ 849, ReactionNumber::Entry{ 849, "z,ac", { "n,ac" }, { a } } },
+      { 849, ReactionNumber::Entry{ 849, "z,ac", { "n,ac" }, { a }, continuum } },
       { 875, ReactionNumber::Entry{ 875, "z,2n0", { "n,2n0" }, { n, n }, 0 } },
       { 876, ReactionNumber::Entry{ 876, "z,2n1", { "n,2n1" }, { n, n }, 1 } },
       { 877, ReactionNumber::Entry{ 877, "z,2n2", { "n,2n2" }, { n, n }, 2 } },
@@ -415,8 +416,8 @@ ReactionNumber::mt_dictionary{
       { 887, ReactionNumber::Entry{ 887, "z,2n12", { "n,2n12" }, { n, n }, 12 } },
       { 888, ReactionNumber::Entry{ 888, "z,2n13", { "n,2n13" }, { n, n }, 13 } },
       { 889, ReactionNumber::Entry{ 889, "z,2n14", { "n,2n14" }, { n, n }, 14 } },
-      { 890, ReactionNumber::Entry{ 890, "z,2n15", { "n,2n15" }, { n, n }, 15 } }//,
-      //{ 891, ReactionNumber::Entry{ 891, "z,2nc", { "n,2nc" }, { n, n } } }
+      { 890, ReactionNumber::Entry{ 890, "z,2n15", { "n,2n15" }, { n, n }, 15 } },
+      { 891, ReactionNumber::Entry{ 891, "z,2nc", { "n,2nc" }, { n, n }, continuum } }
   }; }()
 };
 

@@ -7,6 +7,7 @@
 
 // other includes
 #include "elementary/src/tolower.hpp"
+#include "elementary/Level.hpp"
 #include "elementary/ParticleID.hpp"
 
 namespace njoy {
