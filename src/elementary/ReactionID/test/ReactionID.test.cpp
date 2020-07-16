@@ -25,7 +25,7 @@ SCENARIO( "ParticlePairID" ) {
       CHECK( "n,Fe56->n,Fe56" == id1.symbol() );
 
       // particle pair and tuple identifiers as separate arguments
-      ReactionID id2( ParticlePairID( "n,Fe56" ), ParticlePairID( "n,Fe56" ) );
+      ReactionID id2( ParticlePairID( "n,Fe56" ), ParticleTupleID( "n,Fe56" ) );
       CHECK( "n,Fe56->n,Fe56" == id2.symbol() );
 
       // using a string
