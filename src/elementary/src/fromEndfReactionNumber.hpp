@@ -5,12 +5,8 @@
 
 // other includes
 #include "elementary/ParticleID.hpp"
-#include "elementary/ParticlePairID.hpp"
-#include "elementary/ParticleTupleID.hpp"
 #include "elementary/ReactionType.hpp"
 #include "elementary/ReactionID.hpp"
-#include "elementary/src/absorb.hpp"
-#include "elementary/src/emit.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -31,34 +27,7 @@ namespace elementary {
 
     try {
 
-      // get the MT number
-      ReactionType endf( mt );
-
-      // special cases: no particles given
-      std::vector< ParticleID > particles = endf.particles();
-      if ( not particles.size() ) {
-
-        if ( endf.name() == "elastic" ) {
-
-          return ReactionID( incidentPair, incidentPair );
-        }
-      }
-      else {
-
-        // produce the residual
-        auto isotope = absorb( target, incident );
-        for ( const auto& particle : particles ) {
-
-          isotope = emit( isotope, particle );
-        }
-        ParticleID residual( NuclideID( isotope.za(), endf.level() ) );
-
-        // create the outgoing particle tuple
-        particles.push_back( residual );
-        ParticleTupleID outgoingTuple( particles );
-
-        return ReactionID( incidentPair, outgoingTuple );
-      }
+      return ReactionID( incident, target, ReactionType( mt ) );
     }
     catch ( const std::invalid_argument& ) {
 
@@ -66,11 +35,6 @@ namespace elementary {
                 "The reaction identifier for '" + incidentPair.symbol() + "' "
                 "and MT=" + std::to_string( mt ) + " could not be created" );
     }
-
-    // throw exception if we get to this point
-    throw std::invalid_argument(
-              "The reaction identifier for '" + incidentPair.symbol() + "' "
-              "and MT=" + std::to_string( mt ) + " could not be created" );
   }
 } // elementary namespace
 } // njoy namespace

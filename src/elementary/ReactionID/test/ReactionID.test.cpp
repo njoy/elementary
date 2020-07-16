@@ -8,8 +8,10 @@
 #include "elementary/ParticleTupleID.hpp"
 
 // convenience typedefs
+using ParticleID = njoy::elementary::ParticleID;
 using ParticlePairID = njoy::elementary::ParticlePairID;
 using ParticleTupleID = njoy::elementary::ParticleTupleID;
+using ReactionType = njoy::elementary::ReactionType;
 using ReactionID = njoy::elementary::ReactionID;
 
 SCENARIO( "ParticlePairID" ) {
@@ -18,13 +20,42 @@ SCENARIO( "ParticlePairID" ) {
 
     THEN( "a ReactionID can be created" ) {
 
-      // particle identifiers as separate arguments
+      // particle pair identifiers as separate arguments
       ReactionID id1( ParticlePairID( "n,Fe56" ), ParticlePairID( "n,Fe56" ) );
       CHECK( "n,Fe56->n,Fe56" == id1.symbol() );
 
-      // using a string
-      ReactionID id2( "n,Fe56->n,Fe56" );
+      // particle pair and tuple identifiers as separate arguments
+      ReactionID id2( ParticlePairID( "n,Fe56" ), ParticlePairID( "n,Fe56" ) );
       CHECK( "n,Fe56->n,Fe56" == id2.symbol() );
+
+      // using a string
+      ReactionID id3( "n,Fe56->n,Fe56" );
+      CHECK( "n,Fe56->n,Fe56" == id3.symbol() );
+
+      // using a reaction type
+      ReactionID id4( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( "elastic" ) );
+      CHECK( "n,Fe56->n,Fe56" == id4.symbol() );
+
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 51 ) );
+      CHECK( "n,Fe56->n,Fe56_e1" == id4.symbol() );
+
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 1 ) );
+      CHECK( "n,Fe56->total" == id4.symbol() );
+
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 5 ) );
+      CHECK( "n,Fe56->anything" == id4.symbol() );
+
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 4 ) );
+      CHECK( "n,Fe56->inelastic" == id4.symbol() );
+
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 102 ) );
+      CHECK( "n,Fe56->capture" == id4.symbol() );
+
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 16 ) );
+      CHECK( "n,Fe56->n,n,Fe55" == id4.symbol() );
+
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 649 ) );
+      CHECK( "n,Fe56->p,Mn56[continuum]" == id4.symbol() );
     } // THEN
   } // GIVEN
 
