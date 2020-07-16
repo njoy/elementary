@@ -35,7 +35,7 @@ SCENARIO( "ReactionNumber" ) {
 
       ReactionNumber id11( 11 );
       CHECK( 11 == id11.mt() );
-      CHECK( "z,2nd" == id11.name() );
+      CHECK( "2nd" == id11.name() );
       CHECK( 3 == id11.particles().size() );
       CHECK( neutron == id11.particles()[0] );
       CHECK( neutron == id11.particles()[1] );
@@ -43,14 +43,14 @@ SCENARIO( "ReactionNumber" ) {
 
       ReactionNumber id16( 16 );
       CHECK( 16 == id16.mt() );
-      CHECK( "z,2n" == id16.name() );
+      CHECK( "2n" == id16.name() );
       CHECK( 2 == id16.particles().size() );
       CHECK( neutron == id16.particles()[0] );
       CHECK( neutron == id16.particles()[1] );
 
       ReactionNumber id17( 17 );
       CHECK( 17 == id17.mt() );
-      CHECK( "z,3n" == id17.name() );
+      CHECK( "3n" == id17.name() );
       CHECK( 3 == id17.particles().size() );
       CHECK( neutron == id17.particles()[0] );
       CHECK( neutron == id17.particles()[1] );
@@ -58,14 +58,14 @@ SCENARIO( "ReactionNumber" ) {
 
       ReactionNumber id22( 22 );
       CHECK( 22 == id22.mt() );
-      CHECK( "z,na" == id22.name() );
+      CHECK( "na" == id22.name() );
       CHECK( 2 == id22.particles().size() );
       CHECK( neutron == id22.particles()[0] );
       CHECK( alpha == id22.particles()[1] );
 
       ReactionNumber id23( 23 );
       CHECK( 23 == id23.mt() );
-      CHECK( "z,n3a" == id23.name() );
+      CHECK( "n3a" == id23.name() );
       CHECK( 4 == id23.particles().size() );
       CHECK( neutron == id23.particles()[0] );
       CHECK( alpha == id23.particles()[1] );
@@ -74,7 +74,7 @@ SCENARIO( "ReactionNumber" ) {
 
       ReactionNumber id24( 24 );
       CHECK( 24 == id24.mt() );
-      CHECK( "z,2na" == id24.name() );
+      CHECK( "2na" == id24.name() );
       CHECK( 3 == id24.particles().size() );
       CHECK( neutron == id24.particles()[0] );
       CHECK( neutron == id24.particles()[1] );
@@ -82,7 +82,7 @@ SCENARIO( "ReactionNumber" ) {
 
       ReactionNumber id37( 37 );
       CHECK( 37 == id37.mt() );
-      CHECK( "z,4n" == id37.name() );
+      CHECK( "4n" == id37.name() );
       CHECK( 4 == id37.particles().size() );
       CHECK( neutron == id37.particles()[0] );
       CHECK( neutron == id37.particles()[1] );
