@@ -1,8 +1,8 @@
 //! @todo this could be initialised using a json property file
 
 // register the mt numbers, names, etc.
-const std::map< ReactionNumber::Number, ReactionNumber::Entry >
-ReactionNumber::mt_dictionary{
+const std::map< ReactionNumber::Name, ReactionNumber::Entry >
+ReactionNumber::name_dictionary{
 
   [] () {
 
@@ -418,27 +418,43 @@ ReactionNumber::mt_dictionary{
       { ReactionNumber::Entry{ 890, "2n(15)",           { "z,2n15", "n,2n15" }, { n, n }, 15 } },
       { ReactionNumber::Entry{ 891, "2n(c)",            { "z,2nc", "n,2nc" }, { n, n }, continuum } } };
 
-    std::map< ReactionNumber::Number, ReactionNumber::Entry > map;
+    std::map< ReactionNumber::Name, ReactionNumber::Entry > map;
     for ( auto&& entry : data ) {
 
-      map.insert( { entry.number(), std::move( entry ) } );
+      map.insert( { entry.name(), std::move( entry ) } );
     }
     return map;
   }()
 };
 
 // register the alternatives (stored in lower case)
-const std::map< std::string, ReactionNumber::Number >
-ReactionNumber::conversion_dictionary = [] ( const auto& dictionary ) {
+const std::map< std::string, ReactionNumber::Name >
+ReactionNumber::name_conversion_dictionary = [] ( const auto& dictionary ) {
 
-  std::map< std::string, ReactionNumber::Number > conversion;
-  for ( const auto& [ number, entry ] : dictionary ) {
+  std::map< std::string, ReactionNumber::Name > conversion;
+  for ( const auto& [ name, entry ] : dictionary ) {
 
-    conversion[ tolower( entry.name() ) ] = number;
+    conversion[ tolower( entry.name() ) ] = name;
     for ( const auto& alternative : entry.alternatives() ) {
 
-      conversion[ tolower( alternative ) ] = number;
+      conversion[ tolower( alternative ) ] = name;
     }
   }
   return conversion;
-}( ReactionNumber::mt_dictionary );
+}( ReactionNumber::name_dictionary );
+
+// register the mt numbers
+const std::map< ReactionNumber::Number, ReactionNumber::Name >
+ReactionNumber::mt_conversion_dictionary = [] ( const auto& dictionary ) {
+
+  std::map< ReactionNumber::Number, ReactionNumber::Name > conversion;
+  for ( const auto& [ name, entry ] : dictionary ) {
+
+    auto mt = entry.number();
+    if ( mt ) {
+
+      conversion[ mt ] = name;
+    }
+  }
+  return conversion;
+}( ReactionNumber::name_dictionary );

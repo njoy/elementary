@@ -20,6 +20,7 @@ namespace elementary {
   class ReactionNumber {
 
     /* type aliases */
+    using Name = std::string;
     using Number = unsigned short;
     using LevelNumber = unsigned char;
 
@@ -27,11 +28,12 @@ namespace elementary {
     #include "elementary/ReactionNumber/Entry.hpp"
 
     /* static fields */
-    static const std::map< Number, Entry > mt_dictionary;
-    static const std::map< std::string, Number > conversion_dictionary;
+    static const std::map< Name, Entry > name_dictionary;
+    static const std::map< std::string, Name > name_conversion_dictionary;
+    static const std::map< Number, Name > mt_conversion_dictionary;
 
     /* fields */
-    Number mt_;
+    Name name_;
 
     /* auxiliary functions */
     #include "elementary/ReactionNumber/src/lookup.hpp"
@@ -44,19 +46,19 @@ namespace elementary {
     /* methods */
 
     /**
+     *  @brief return the element name
+     */
+    const Name& name() const noexcept {
+
+      return this->name_;
+    }
+
+    /**
      *  @brief return the mt number
      */
     auto mt() const noexcept {
 
-      return this->mt_;
-    }
-
-    /**
-     *  @brief return the element name
-     */
-    const std::string& name() const noexcept {
-
-      return ReactionNumber::mt_dictionary.at( this->mt() ).name();
+      return ReactionNumber::name_dictionary.at( this->name() ).number();
     }
 
     /**
@@ -64,7 +66,7 @@ namespace elementary {
      */
     const std::vector< ParticleID >& particles() const noexcept {
 
-      return ReactionNumber::mt_dictionary.at( this->mt() ).particles();
+      return ReactionNumber::name_dictionary.at( this->name() ).particles();
     }
 
     /**
@@ -72,11 +74,11 @@ namespace elementary {
      */
     auto level() const noexcept {
 
-      return ReactionNumber::mt_dictionary.at( this->mt() ).level();
+      return ReactionNumber::name_dictionary.at( this->name() ).level();
     }
   };
 
-  // register the element numbers, symbols, names and alternatives
+  // register the reaction type names, mt numbers and alternatives
   #include "elementary/ReactionNumber/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
