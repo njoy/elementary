@@ -34,9 +34,4 @@ static std::string fromReactionType( const ParticleID& incident,
 
     return incidentPair.symbol() + "->" + outgoingTuple.symbol();
   }
-
-  // throw exception if we get to this point
-  throw std::invalid_argument(
-            "The reaction identifier for '" + incidentPair.symbol() + "' "
-            "and reaction type " + type.name() + " could not be created" );
 }
