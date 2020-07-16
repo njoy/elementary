@@ -7,7 +7,7 @@
 #include "elementary/ParticleID.hpp"
 #include "elementary/ParticlePairID.hpp"
 #include "elementary/ParticleTupleID.hpp"
-#include "elementary/ReactionNumber.hpp"
+#include "elementary/ReactionType.hpp"
 #include "elementary/ReactionID.hpp"
 #include "elementary/src/absorb.hpp"
 #include "elementary/src/emit.hpp"
@@ -32,7 +32,7 @@ namespace elementary {
     try {
 
       // get the MT number
-      ReactionNumber endf( mt );
+      ReactionType endf( mt );
 
       // special cases: no particles given
       std::vector< ParticleID > particles = endf.particles();

@@ -6,7 +6,7 @@ static const std::string& lookup( const std::string& string ) {
 
   try {
 
-    return ReactionNumber::name_conversion_dictionary.at( tolower( string ) );
+    return ReactionType::name_conversion_dictionary.at( tolower( string ) );
   }
   catch ( const std::out_of_range& ) {
 
@@ -24,7 +24,7 @@ static const std::string& lookup( int number ) {
 
   try {
 
-    return ReactionNumber::mt_conversion_dictionary.at( number );
+    return ReactionType::mt_conversion_dictionary.at( number );
   }
   catch ( const std::out_of_range& ) {
 

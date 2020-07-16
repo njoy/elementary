@@ -1,5 +1,5 @@
-#ifndef NJOY_ELEMENTARY_REACTIONNUMBER
-#define NJOY_ELEMENTARY_REACTIONNUMBER
+#ifndef NJOY_ELEMENTARY_REACTIONTYPE
+#define NJOY_ELEMENTARY_REACTIONTYPE
 
 // system includes
 #include <stdexcept>
@@ -17,7 +17,7 @@ namespace elementary {
    *  @class
    *  @brief The ENDF reaction number, with associated information
    */
-  class ReactionNumber {
+  class ReactionType {
 
     /* type aliases */
     using Name = std::string;
@@ -25,7 +25,7 @@ namespace elementary {
     using LevelNumber = unsigned char;
 
     /* helper class */
-    #include "elementary/ReactionNumber/Entry.hpp"
+    #include "elementary/ReactionType/Entry.hpp"
 
     /* static fields */
     static const std::map< Name, Entry > name_dictionary;
@@ -36,12 +36,12 @@ namespace elementary {
     Name name_;
 
     /* auxiliary functions */
-    #include "elementary/ReactionNumber/src/lookup.hpp"
+    #include "elementary/ReactionType/src/lookup.hpp"
 
   public:
 
     /* constructor */
-    #include "elementary/ReactionNumber/src/ctor.hpp"
+    #include "elementary/ReactionType/src/ctor.hpp"
 
     /* methods */
 
@@ -58,7 +58,7 @@ namespace elementary {
      */
     auto mt() const noexcept {
 
-      return ReactionNumber::name_dictionary.at( this->name() ).number();
+      return ReactionType::name_dictionary.at( this->name() ).number();
     }
 
     /**
@@ -66,7 +66,7 @@ namespace elementary {
      */
     const std::vector< ParticleID >& particles() const noexcept {
 
-      return ReactionNumber::name_dictionary.at( this->name() ).particles();
+      return ReactionType::name_dictionary.at( this->name() ).particles();
     }
 
     /**
@@ -74,12 +74,12 @@ namespace elementary {
      */
     auto level() const noexcept {
 
-      return ReactionNumber::name_dictionary.at( this->name() ).level();
+      return ReactionType::name_dictionary.at( this->name() ).level();
     }
   };
 
   // register the reaction type names, mt numbers and alternatives
-  #include "elementary/ReactionNumber/src/register.hpp"
+  #include "elementary/ReactionType/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
