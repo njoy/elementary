@@ -49,6 +49,14 @@ namespace elementary {
     #include "elementary/ReactionID/src/validate.hpp"
 
     /**
+     *  @brief Return whether or not the identifier is a special reaction
+     */
+    bool isSpecial() const noexcept {
+
+      return not ParticleTupleID::validate( split( this->symbol(), "->" ).back() );
+    }
+
+    /**
      *  @brief Return the incident particle pair identifier for the reaction
      */
     ParticlePairID incident() const noexcept {

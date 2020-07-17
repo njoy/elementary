@@ -46,6 +46,29 @@ namespace elementary {
     /* methods */
 
     /**
+     *  @brief Verify if a given string is registered as a reaction
+     *
+     *  @param[in] string   the name or alternative name of the reaction
+     *                      (case insensitive)
+     */
+    static bool isRegistered( const std::string& string ) {
+
+      return ReactionType::name_conversion_dictionary.find( tolower( string ) )
+             != ReactionType::name_conversion_dictionary.end();
+    }
+
+    /**
+     *  @brief Verify if a given string is registered as a reaction
+     *
+     *  @param[in] number   the mt number
+     */
+    static bool isRegistered( int number ) {
+
+      return ReactionType::mt_conversion_dictionary.find( number )
+             != ReactionType::mt_conversion_dictionary.end();
+    }
+
+    /**
      *  @brief return the element name
      */
     const Name& name() const noexcept {

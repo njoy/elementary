@@ -12,7 +12,6 @@ ReactionType::name_dictionary{
     ParticleID t( "h3" );
     ParticleID h( "he3" );
     ParticleID a( "he4" );
-    ParticleID g( "photon" );
     auto continuum = Level::continuum;
 
     std::vector< ReactionType::Entry > data = {
@@ -27,7 +26,7 @@ ReactionType::name_dictionary{
       { ReactionType::Entry{  38, "fission[3n]",    { "fission4", "n,3nf" } } },
       { ReactionType::Entry{ 102, "capture",        { "n,g", "n,gamma", "z,g", "z,gamma" } } },
       { ReactionType::Entry{  11, "2nd",            { "z,2nd", "n,2nd" }, { n, n, d } } },
-      { ReactionType::Entry{  16, "2n",             { "z,2n", "n,2n" }, { n, n } } },
+      { ReactionType::Entry{  16, "2n(t)",          { "z,2n", "n,2n" }, { n, n } } },
       { ReactionType::Entry{  17, "3n",             { "z,3n", "n,3n" }, { n, n, n } } },
       { ReactionType::Entry{  22, "na",             { "z,na", "n,na" }, { n, a } } },
       { ReactionType::Entry{  23, "n3a",            { "z,n3a", "n,n3a" }, { n, a, a, a } } },
@@ -87,11 +86,11 @@ ReactionType::name_dictionary{
       { ReactionType::Entry{  89, "n(39)",          { "z,n39", "n,n'(39)", "n,n39", "z,n'(39)" }, { n }, 39 } },
       { ReactionType::Entry{  90, "n(40)",          { "z,n40", "n,n'(40)", "n,n40", "z,n'(40)" }, { n }, 40 } },
       { ReactionType::Entry{  91, "n(c)",           { "z,nc", "n,n'(c)", "n,nc", "z,n'(c)" }, { n }, continuum } },
-      { ReactionType::Entry{ 103, "p",              { "z,p", "n,p", "n,proton", "z,proton" }, { p } } },
-      { ReactionType::Entry{ 104, "d",              { "z,d", "n,d", "n,deuteron", "z,deuteron" }, { d } } },
-      { ReactionType::Entry{ 105, "t",              { "z,t", "n,t", "n,triton", "z,triton" }, { t } } },
-      { ReactionType::Entry{ 106, "h",              { "z,h", "n,3he", "n,h", "n,he3", "n,helion", "z,3he", "z,he3", "z,helion" }, { h } } },
-      { ReactionType::Entry{ 107, "a",              { "z,a", "n,a", "n,alpha", "z,alpha" }, { a } } },
+      { ReactionType::Entry{ 103, "p(t)",           { "z,p", "n,p", "n,proton", "z,proton" }, { p } } },
+      { ReactionType::Entry{ 104, "d(t)",           { "z,d", "n,d", "n,deuteron", "z,deuteron" }, { d } } },
+      { ReactionType::Entry{ 105, "t(t)",           { "z,t", "n,t", "n,triton", "z,triton" }, { t } } },
+      { ReactionType::Entry{ 106, "h(t)",           { "z,h", "n,3he", "n,h", "n,he3", "n,helion", "z,3he", "z,he3", "z,helion" }, { h } } },
+      { ReactionType::Entry{ 107, "a(t)",           { "z,a", "n,a", "n,alpha", "z,alpha" }, { a } } },
       { ReactionType::Entry{ 108, "2a",             { "z,2a", "n,2a" }, { a, a } } },
       { ReactionType::Entry{ 109, "3a",             { "z,3a", "n,3a" }, { a, a, a } } },
       { ReactionType::Entry{ 111, "2p",             { "z,2p", "n,2p" }, { p, p } } },

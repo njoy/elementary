@@ -19,6 +19,18 @@ SCENARIO( "ReactionType" ) {
   const ParticleID helion( "he3" );
   const ParticleID alpha( "he4" );
 
+  GIVEN( "strings and ints" ) {
+
+    THEN( "it can be verified of they are registered" ) {
+
+      CHECK( true == ReactionType::isRegistered( "total" ) );
+      CHECK( true == ReactionType::isRegistered( 1 ) );
+
+      CHECK( false == ReactionType::isRegistered( "not registered" ) );
+      CHECK( false == ReactionType::isRegistered( 999 ) );
+    } // THEN
+  } // GIVEN
+
   GIVEN( "valid data for a ReactionType" ) {
 
     THEN( "a ReactionType can be created" ) {
@@ -43,7 +55,7 @@ SCENARIO( "ReactionType" ) {
 
       ReactionType id16( 16 );
       CHECK( 16 == id16.mt() );
-      CHECK( "2n" == id16.name() );
+      CHECK( "2n(t)" == id16.name() );
       CHECK( 2 == id16.particles().size() );
       CHECK( neutron == id16.particles()[0] );
       CHECK( neutron == id16.particles()[1] );

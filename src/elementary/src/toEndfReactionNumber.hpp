@@ -2,6 +2,7 @@
 #define NJOY_ELEMENTARY_TOENDFREACTIONNUMBER
 
 // system includes
+#include <algorithm>
 
 // other includes
 #include "elementary/src/split.hpp"
@@ -19,22 +20,69 @@ namespace elementary {
    */
   int toEndfReactionNumber( const ReactionID& identifier ) {
 
-    // treat special cases
+    if ( not identifier.isSpecial() ) {
 
-    // other cases
+      // get the incident and outgoing particle information
+      const auto incident = identifier.incident();
+      const auto outgoing = identifier.outgoing();
+      const auto incidentResidual = incident.residual();
+      const auto outgoingParticles = outgoing.particles();
+      const auto outgoingResidual = outgoing.residual();
 
-    // get the incident and outgoing particle information
-    const auto incident = identifier.incident();
-    const auto outgoing = identifier.outgoing();
-//    const auto incidentParticle = incident.particle();
-    const auto incidentResidual = incident.residual();
-    const auto outgoingParticles = outgoing.particles();
-    const auto outgoingResidual = outgoing.residual();
+      // elastic scattering is a special case
+      if ( incidentResidual == outgoingResidual ) {
 
-    // elastic scattering
-    if ( incidentResidual == outgoingResidual ) {
+        return 2;
+      }
+      else {
 
-      return 2;
+        std::map< char, unsigned int > counts;
+        for ( const auto& particle : outgoingParticles ) {
+
+          auto za = particle.za();
+          if ( za == 1 ) { ++counts[ 'n' ]; }
+          else if ( za == 1001 ) { ++counts[ 'p' ]; }
+          else if ( za == 1002 ) { ++counts[ 'd' ]; }
+          else if ( za == 1003 ) { ++counts[ 't' ]; }
+          else if ( za == 2003 ) { ++counts[ 'h' ]; }
+          else if ( za == 2004 ) { ++counts[ 'a' ]; }
+          else {
+
+            return 0;
+          }
+        }
+
+        std::string p;
+        for ( const auto& [ particle, number ] : counts ) {
+
+          if ( number != 0 ) {
+
+            p += number > 1 ? std::to_string( number ) : "";
+            p += particle;
+          }
+        }
+        auto level = outgoingResidual.level().number();
+        std::string e = p + ( outgoingResidual.level() == Level::continuum
+                                ? "(c)"
+                                : "(" + std::to_string( level ) + ")" );
+
+        if ( ReactionType::isRegistered( e ) ) {
+
+          return ReactionType( e ).mt();
+        }
+        else if ( ReactionType::isRegistered( p ) ) {
+
+          return ReactionType( p ).mt();
+        }
+      }
+    }
+    else {
+
+      auto special = split( identifier.symbol(), "->" ).back();
+      if ( ReactionType::isRegistered( special ) ) {
+
+        return ReactionType( special ).mt();
+      }
     }
 
     return 0;

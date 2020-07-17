@@ -796,7 +796,7 @@ SCENARIO( "toEndfReactionNumber" ) {
       // incident neutrons
       CHECK( 2 == toEndfReactionNumber( ReactionID( "n,Fe56->n,Fe56" ) ) );
 
-/*      CHECK( 17 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,n,Fe54" ) ) );
+      CHECK( 17 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,n,Fe54" ) ) );
 
       CHECK( 37 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,n,n,Fe53" ) ) );
 
@@ -856,12 +856,12 @@ SCENARIO( "toEndfReactionNumber" ) {
       CHECK( 887 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,Fe55_e12" ) ) );
       CHECK( 888 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,Fe55_e13" ) ) );
       CHECK( 889 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,Fe55_e14" ) ) );
-      CHECK( 890 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,Fe55_e15" ) ) );*/
+      CHECK( 890 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,Fe55_e15" ) ) );
 
       // incident protons
       CHECK( 2 == toEndfReactionNumber( ReactionID( "p,Fe56->p,Fe56" ) ) );
 
-/*      CHECK( 17 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,n,Co54" ) ) );
+      CHECK( 17 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,n,Co54" ) ) );
 
       CHECK( 37 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,n,n,Co53" ) ) );
 
@@ -921,7 +921,7 @@ SCENARIO( "toEndfReactionNumber" ) {
       CHECK( 887 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e12" ) ) );
       CHECK( 888 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e13" ) ) );
       CHECK( 889 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e14" ) ) );
-      CHECK( 890 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e15" ) ) );*/
+      CHECK( 890 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e15" ) ) );
     } // THEN
   } // GIVEN
 } // SCENARIO
