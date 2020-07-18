@@ -7,8 +7,12 @@
 // other includes
 #include "elementary/src/split.hpp"
 #include "elementary/Identifier.hpp"
+#include "elementary/ParticleID.hpp"
+#include "elementary/ReactionType.hpp"
 #include "elementary/ParticlePairID.hpp"
 #include "elementary/ParticleTupleID.hpp"
+#include "elementary/src/absorb.hpp"
+#include "elementary/src/emit.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -34,6 +38,7 @@ namespace elementary {
 
     /* auxiliary functions */
     static std::string name() { return "a reaction"; }
+    #include "elementary/ReactionID/src/fromReactionType.hpp"
 
   public:
 
@@ -42,6 +47,14 @@ namespace elementary {
 
     /* methods */
     #include "elementary/ReactionID/src/validate.hpp"
+
+    /**
+     *  @brief Return whether or not the identifier is a special reaction
+     */
+    bool isSpecial() const noexcept {
+
+      return not ParticleTupleID::validate( split( this->symbol(), "->" ).back() );
+    }
 
     /**
      *  @brief Return the incident particle pair identifier for the reaction
