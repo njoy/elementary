@@ -1,3 +1,5 @@
+![Continuous Integration](https://github.com/njoy/elementary/workflows/Continuous%20Integration/badge.svg)
+
 # elementary
 Generic identifiers for elements, nuclides and reactions
 
