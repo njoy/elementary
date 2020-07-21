@@ -15,8 +15,9 @@ ReactionType::name_dictionary{
     auto continuum = Level::continuum;
 
     std::vector< ReactionType::Entry > data = {
-      { ReactionType::Entry{   1, "total",          { "z,total", "n,total" } } },
+      { ReactionType::Entry{   1, "total",          { "n,total" } } },
       { ReactionType::Entry{   2, "elastic",        { "z,z0" } } },
+      { ReactionType::Entry{   3, "non-elastic",    { "z,nonelas" } } },
       { ReactionType::Entry{   4, "inelastic",      { "z,n", "n,n'", "z,n'" } } },
       { ReactionType::Entry{   5, "anything" } },
       { ReactionType::Entry{  18, "fission[total]", { "n,fission", "z,fission" } } },
