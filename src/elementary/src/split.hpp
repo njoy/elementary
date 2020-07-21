@@ -16,7 +16,6 @@ namespace elementary {
    *  @param[in] string      the strings to be split
    *  @param[in] separator   the separator to be used
    */
-  inline
   std::vector< std::string > split( const std::string& string,
                                     const std::string& separator ) {
 

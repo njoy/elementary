@@ -18,7 +18,6 @@ namespace elementary {
    *  @param[in] target     the target particle identifier
    *  @param[in] mt         the MT number
    */
-  inline
   ReactionID fromEndfReactionNumber( const ParticleID& incident,
                                      const ParticleID& target,
                                      int mt ) {

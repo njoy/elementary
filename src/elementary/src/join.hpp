@@ -16,7 +16,6 @@ namespace elementary {
    *  @param[in] strings     the strings to be joined together
    *  @param[in] separator   the separator to be used
    */
-  inline
   std::string join( const std::vector< std::string >& strings,
                     const std::string& separator ) {
 

@@ -18,7 +18,6 @@ namespace elementary {
    *
    *  @param[in] string   the string to be converted to lower case
    */
-  inline
   std::string tolower( const std::string& string ) {
 
     std::string lower;
