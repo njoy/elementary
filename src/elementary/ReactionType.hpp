@@ -99,6 +99,36 @@ namespace elementary {
 
       return ReactionType::name_dictionary.at( this->name() ).level();
     }
+
+    /**
+     *  @brief operator<()
+     *
+     *  @param[in] right   the type on the right hand side
+     */
+    bool operator<( const ReactionType& right ) const noexcept {
+
+      return this->name() < right.name();
+    }
+
+    /**
+     *  @brief operator==()
+     *
+     *  @param[in] right   the type on the right hand side
+     */
+    bool operator==( const ReactionType& right ) const noexcept {
+
+      return this->name() == right.name();
+    }
+
+    /**
+     *  @brief operator!=()
+     *
+     *  @param[in] right   the type on the right hand side
+     */
+    bool operator!=( const ReactionType& right ) const noexcept {
+
+      return  this->name() != right.name();
+    }
   };
 
   // register the reaction type names, mt numbers and alternatives

@@ -8,6 +8,15 @@ static bool validate( const std::string& string ) {
   auto strings = split( string, "," );
   if ( strings.size() < 2 ) {
 
+    if ( ReactionType::isRegistered( string ) ) {
+
+      ReactionType type( string );
+      if ( ( not type.particles().size() ) and
+           ( type != ReactionType( "elastic" ) ) ) {
+
+        return true;
+      }
+    }
     return false;
   }
   for ( const auto& value : strings ) {
