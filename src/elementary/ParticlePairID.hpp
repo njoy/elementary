@@ -8,6 +8,7 @@
 #include "elementary/src/split.hpp"
 #include "elementary/ParticleID.hpp"
 #include "elementary/Identifier.hpp"
+#include "elementary/ReactionType.hpp"
 
 namespace njoy {
 namespace elementary {

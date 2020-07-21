@@ -11,6 +11,7 @@
 #include "elementary/Identifier.hpp"
 #include "elementary/ParticleID.hpp"
 #include "elementary/ParticlePairID.hpp"
+#include "elementary/ReactionType.hpp"
 
 namespace njoy {
 namespace elementary {

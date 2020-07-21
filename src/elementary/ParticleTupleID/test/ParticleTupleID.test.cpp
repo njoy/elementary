@@ -36,14 +36,18 @@ SCENARIO( "ParticleTupleID" ) {
       ParticleTupleID id4( identifiers );
       CHECK( "n,p,he4,Fe56" == id4.symbol() );
 
-      // using a string
+      // using a string - multiple particles
       ParticleTupleID id5( "n,p,Fe56" );
       CHECK( "n,p,Fe56" == id5.symbol() );
 
+      // using a string - from a registered reaction type
+      ParticleTupleID id6( "total" );
+      CHECK( "total" == id6.symbol() );
+
       // using a particle pair
-      ParticleTupleID id6( ParticlePairID( ParticleID( "n" ),
+      ParticleTupleID id7( ParticlePairID( ParticleID( "n" ),
                                            ParticleID( "Fe56" ) ) );
-      CHECK( "n,Fe56" == id6.symbol() );
+      CHECK( "n,Fe56" == id7.symbol() );
     } // THEN
   } // GIVEN
 
@@ -97,7 +101,8 @@ SCENARIO( "ParticleTupleID" ) {
     THEN( "an exception is thrown" ) {
 
       CHECK_THROWS( ParticleTupleID( "not a particle tuple ID" ) );
-      CHECK_THROWS( ParticleTupleID( "Fe56" ) );      // single valid particle
+      CHECK_THROWS( ParticleTupleID( "Fe56" ) );    // single valid particle
+      CHECK_THROWS( ParticleTupleID( "elastic" ) ); // registered, not allowed
     } // THEN
   } // GIVEN
 } // SCENARIO
