@@ -53,7 +53,7 @@ namespace elementary {
      */
     bool isSpecial() const noexcept {
 
-      return not ParticleTupleID::validate( split( this->symbol(), "->" ).back() );
+      return split( split( this->symbol(), "->" ).back(), "," ).size() == 1;
     }
 
     /**
