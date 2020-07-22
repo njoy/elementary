@@ -6,6 +6,8 @@ SCENARIO( "toEndfReactionNumber" ) {
 
       // incident neutrons
       CHECK( 2 == toEndfReactionNumber( ReactionID( "n,Fe56->n,Fe56" ) ) );
+      CHECK( 3 == toEndfReactionNumber( ReactionID( "n,Fe56->non-elastic" ) ) );
+      CHECK( 5 == toEndfReactionNumber( ReactionID( "n,Fe56->anything" ) ) );
 
       CHECK( 11 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,h2,Mn53" ) ) );
       CHECK( 875 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,Fe55" ) ) ); // not 16
