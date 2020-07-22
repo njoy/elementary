@@ -21,6 +21,8 @@ SCENARIO( "fromEndfReactionNumber" ) {
       CHECK( ReactionID( "n,Fe56->n,n,he4,Cr51" ) == fromEndfReactionNumber( neutron, Fe56_e0, 24 ) );
 
       CHECK( ReactionID( "n,Fe56->n,n,n,n,Fe53" ) == fromEndfReactionNumber( neutron, Fe56_e0, 37 ) );
+      CHECK( ReactionID( "n,Fe56->disappearance" ) == fromEndfReactionNumber( neutron, Fe56_e0, 101 ) );
+      CHECK( ReactionID( "n,Fe56->absorption" ) == fromEndfReactionNumber( neutron, Fe56_e0, 27 ) );
 
       CHECK( ReactionID( "n,Fe56->n,Fe56_e1" ) == fromEndfReactionNumber( neutron, Fe56_e0, 51 ) );
       CHECK( ReactionID( "n,Fe56->n,Fe56_e2" ) == fromEndfReactionNumber( neutron, Fe56_e0, 52 ) );

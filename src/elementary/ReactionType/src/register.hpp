@@ -25,6 +25,8 @@ ReactionType::name_dictionary{
       { ReactionType::Entry{  20, "fission[n]",     { "fission2", "n,nf", "z,nf" } } },
       { ReactionType::Entry{  21, "fission[2n]",    { "fission3", "n,2nf", "z,2nf" } } },
       { ReactionType::Entry{  38, "fission[3n]",    { "fission4", "n,3nf" } } },
+      { ReactionType::Entry{  27, "absorption",     { "n,absorption" } } },
+      { ReactionType::Entry{ 101, "disappearance",  { "n,disappearance" } } },
       { ReactionType::Entry{ 102, "capture",        { "n,g", "n,gamma", "z,g", "z,gamma" } } },
       { ReactionType::Entry{  11, "2nd",            { "z,2nd", "n,2nd" }, { n, n, d } } },
       { ReactionType::Entry{  16, "2n(t)",          { "z,2n", "n,2n" }, { n, n } } },
