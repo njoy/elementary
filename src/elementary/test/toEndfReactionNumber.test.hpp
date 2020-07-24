@@ -8,6 +8,8 @@ SCENARIO( "toEndfReactionNumber" ) {
       CHECK( 2 == toEndfReactionNumber( ReactionID( "n,Fe56->n,Fe56" ) ) );
       CHECK( 3 == toEndfReactionNumber( ReactionID( "n,Fe56->non-elastic" ) ) );
       CHECK( 5 == toEndfReactionNumber( ReactionID( "n,Fe56->anything" ) ) );
+      CHECK( 101 == toEndfReactionNumber( ReactionID( "n,Fe56->disappearance" ) ) );
+      CHECK( 27 ==  toEndfReactionNumber( ReactionID( "n,Fe56->absorption" ) ) );
 
       CHECK( 11 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,h2,Mn53" ) ) );
       CHECK( 875 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,Fe55" ) ) ); // not 16
@@ -17,8 +19,6 @@ SCENARIO( "toEndfReactionNumber" ) {
       CHECK( 24 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,he4,Cr51" ) ) );
 
       CHECK( 37 == toEndfReactionNumber( ReactionID( "n,Fe56->n,n,n,n,Fe53" ) ) );
-      CHECK( 101 == toEndfReactionNumber( ReactionID( "n,Fe56->disappearance" ) ) );
-      CHECK( 27 ==  toEndfReactionNumber( ReactionID( "n,Fe56->absorption" ) ) );
 
       CHECK( 51 == toEndfReactionNumber( ReactionID( "n,Fe56->n,Fe56_e1" ) ) );
       CHECK( 52 == toEndfReactionNumber( ReactionID( "n,Fe56->n,Fe56_e2" ) ) );
@@ -332,6 +332,10 @@ SCENARIO( "toEndfReactionNumber" ) {
 
       // incident protons
       CHECK( 2 == toEndfReactionNumber( ReactionID( "p,Fe56->p,Fe56" ) ) );
+      CHECK( 3 == toEndfReactionNumber( ReactionID( "p,Fe56->non-elastic" ) ) );
+      CHECK( 5 == toEndfReactionNumber( ReactionID( "p,Fe56->anything" ) ) );
+      CHECK( 101 == toEndfReactionNumber( ReactionID( "p,Fe56->disappearance" ) ) );
+      CHECK( 27 ==  toEndfReactionNumber( ReactionID( "p,Fe56->absorption" ) ) );
 
       CHECK( 11 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,h2,Fe53" ) ) );
       CHECK( 875 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55" ) ) ); // not 16
@@ -342,6 +346,7 @@ SCENARIO( "toEndfReactionNumber" ) {
 
       CHECK( 37 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,n,n,Co53" ) ) );
 
+      CHECK( 50 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56" ) ) );
       CHECK( 51 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e1" ) ) );
       CHECK( 52 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e2" ) ) );
       CHECK( 53 == toEndfReactionNumber( ReactionID( "p,Fe56->n,Co56_e3" ) ) );

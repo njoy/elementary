@@ -48,6 +48,7 @@ ReactionType::name_dictionary{
       { ReactionType::Entry{  42, "3np",            { "z,3np", "n,3np" }, { n, n, n, p } } },
       { ReactionType::Entry{  44, "n2p",            { "z,n2p", "n,n2p" }, { n, p, p } } },
       { ReactionType::Entry{  45, "npa",            { "z,npa", "n,npa" }, { n, p, a } } },
+      { ReactionType::Entry{  50, "n(0)",           { "z,n0", "y,n0" }, { n } } },
       { ReactionType::Entry{  51, "n(1)",           { "z,n1", "n,n'(1)", "n,n1", "z,n'(1)" }, { n }, 1 } },
       { ReactionType::Entry{  52, "n(2)",           { "z,n2", "n,n'(2)", "n,n2", "z,n'(2)" }, { n }, 2 } },
       { ReactionType::Entry{  53, "n(3)",           { "z,n3", "n,n'(3)", "n,n3", "z,n'(3)" }, { n }, 3 } },

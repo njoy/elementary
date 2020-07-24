@@ -22,15 +22,13 @@ namespace elementary {
                                      const ParticleID& target,
                                      int mt ) {
 
-    // generate the incident pair
-    ParticlePairID incidentPair( incident, target );
-
     try {
 
       return ReactionID( incident, target, ReactionType( mt ) );
     }
     catch ( const std::invalid_argument& ) {
 
+      ParticlePairID incidentPair( incident, target );
       throw std::invalid_argument(
                 "The reaction identifier for '" + incidentPair.symbol() + "' "
                 "and MT=" + std::to_string( mt ) + " could not be created" );

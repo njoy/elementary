@@ -12,6 +12,8 @@ SCENARIO( "fromEndfReactionNumber" ) {
       CHECK( ReactionID( "n,Fe56->n,Fe56" ) == fromEndfReactionNumber( neutron, Fe56_e0, 2 ) );
       CHECK( ReactionID( "n,Fe56->non-elastic" ) == fromEndfReactionNumber( neutron, Fe56_e0, 3 ) );
       CHECK( ReactionID( "n,Fe56->anything" ) == fromEndfReactionNumber( neutron, Fe56_e0, 5 ) );
+      CHECK( ReactionID( "n,Fe56->disappearance" ) == fromEndfReactionNumber( neutron, Fe56_e0, 101 ) );
+      CHECK( ReactionID( "n,Fe56->absorption" ) == fromEndfReactionNumber( neutron, Fe56_e0, 27 ) );
 
       CHECK( ReactionID( "n,Fe56->n,n,h2,Mn53" ) == fromEndfReactionNumber( neutron, Fe56_e0, 11 ) );
       CHECK( ReactionID( "n,Fe56->n,n,Fe55" ) == fromEndfReactionNumber( neutron, Fe56_e0, 16 ) );
@@ -21,8 +23,13 @@ SCENARIO( "fromEndfReactionNumber" ) {
       CHECK( ReactionID( "n,Fe56->n,n,he4,Cr51" ) == fromEndfReactionNumber( neutron, Fe56_e0, 24 ) );
 
       CHECK( ReactionID( "n,Fe56->n,n,n,n,Fe53" ) == fromEndfReactionNumber( neutron, Fe56_e0, 37 ) );
-      CHECK( ReactionID( "n,Fe56->disappearance" ) == fromEndfReactionNumber( neutron, Fe56_e0, 101 ) );
-      CHECK( ReactionID( "n,Fe56->absorption" ) == fromEndfReactionNumber( neutron, Fe56_e0, 27 ) );
+
+      // REMARK: mt50 is not allowed for incident neutrons since it is the same as mt2
+      //         It can be generated using fromEndfReactionNumber but when it is given
+      //         to toEndfReactionNumber, it will generate an mt2 for incident neutrons.
+      //         For other incident particle types, toEndfReactionNumber will generate
+      //         mt50
+      CHECK( ReactionID( "n,Fe56->n,Fe56" ) == fromEndfReactionNumber( neutron, Fe56_e0, 50 ) );
 
       CHECK( ReactionID( "n,Fe56->n,Fe56_e1" ) == fromEndfReactionNumber( neutron, Fe56_e0, 51 ) );
       CHECK( ReactionID( "n,Fe56->n,Fe56_e2" ) == fromEndfReactionNumber( neutron, Fe56_e0, 52 ) );
@@ -336,6 +343,10 @@ SCENARIO( "fromEndfReactionNumber" ) {
 
       // incident protons
       CHECK( ReactionID( "p,Fe56->p,Fe56" ) == fromEndfReactionNumber( proton, Fe56_e0, 2 ) );
+      CHECK( ReactionID( "p,Fe56->non-elastic" ) == fromEndfReactionNumber( proton, Fe56_e0, 3 ) );
+      CHECK( ReactionID( "p,Fe56->anything" ) == fromEndfReactionNumber( proton, Fe56_e0, 5 ) );
+      CHECK( ReactionID( "p,Fe56->disappearance" ) == fromEndfReactionNumber( proton, Fe56_e0, 101 ) );
+      CHECK( ReactionID( "p,Fe56->absorption" ) == fromEndfReactionNumber( proton, Fe56_e0, 27 ) );
 
       CHECK( ReactionID( "p,Fe56->n,n,h2,Fe53" ) == fromEndfReactionNumber( proton, Fe56_e0, 11 ) );
       CHECK( ReactionID( "p,Fe56->n,n,Co55" ) == fromEndfReactionNumber( proton, Fe56_e0, 16 ) );
@@ -346,6 +357,7 @@ SCENARIO( "fromEndfReactionNumber" ) {
 
       CHECK( ReactionID( "p,Fe56->n,n,n,n,Co53" ) == fromEndfReactionNumber( proton, Fe56_e0, 37 ) );
 
+      CHECK( ReactionID( "p,Fe56->n,Co56" ) == fromEndfReactionNumber( proton, Fe56_e0, 50 ) );
       CHECK( ReactionID( "p,Fe56->n,Co56_e1" ) == fromEndfReactionNumber( proton, Fe56_e0, 51 ) );
       CHECK( ReactionID( "p,Fe56->n,Co56_e2" ) == fromEndfReactionNumber( proton, Fe56_e0, 52 ) );
       CHECK( ReactionID( "p,Fe56->n,Co56_e3" ) == fromEndfReactionNumber( proton, Fe56_e0, 53 ) );
