@@ -656,6 +656,10 @@ SCENARIO( "toEndfReactionNumber" ) {
       CHECK( 889 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e14" ) ) );
       CHECK( 890 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55_e15" ) ) );
       CHECK( 891 == toEndfReactionNumber( ReactionID( "p,Fe56->n,n,Co55[continuum]" ) ) );
+
+      // special cases
+      CHECK( 2 == toEndfReactionNumber( ReactionID( "n,Fe56_e1->n,Fe56" ) ) );
+      CHECK( 51 == toEndfReactionNumber( ReactionID( "n,Fe56_e1->n,Fe56_e1" ) ) );
     } // THEN
   } // GIVEN
 } // SCENARIO

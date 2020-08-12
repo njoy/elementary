@@ -31,7 +31,8 @@ namespace elementary {
       const auto outgoingResidual = outgoing.residual();
 
       // elastic scattering is a special case
-      if ( incidentResidual == outgoingResidual ) {
+      if ( ( incidentResidual.za() == outgoingResidual.za() ) and
+           ( outgoingResidual.level() == 0 ) ) {
 
         return 2;
       }

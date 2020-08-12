@@ -40,6 +40,30 @@ namespace elementary {
     /* methods */
 
     /**
+     *  @brief return whether or not the particle is a fundamental particle
+     */
+    bool isFundamentalParticle() const noexcept {
+
+      return this->identifier_.index() == 0;
+    }
+
+    /**
+     *  @brief return whether or not the particle is a nucleus
+     */
+    bool isNucleus() const noexcept {
+
+      return this->identifier_.index() == 1;
+    }
+
+    /**
+     *  @brief return whether or not the particle is a nuclide
+     */
+    bool isNuclide() const noexcept {
+
+      return this->identifier_.index() == 2;
+    }
+
+    /**
      *  @brief return the particle symbol
      */
     std::string symbol() const noexcept {

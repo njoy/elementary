@@ -11,7 +11,18 @@ static std::string fromReactionType( const ParticleID& incident,
 
     if ( type.name() == "elastic" ) {
 
-      return incidentPair.symbol() + "->" + incidentPair.symbol();
+      if ( target.level() == 0 ) {
+
+        return incidentPair.symbol() + "->" + incidentPair.symbol();
+      }
+      else {
+
+        ParticleID residual = target.isNucleus()
+                              ? ParticleID( NucleusID( target.za(), 0 ) )
+                              : ParticleID( NuclideID( target.za(), 0 ) );
+        return incidentPair.symbol() + "->" +
+               ParticlePairID( incident, residual ).symbol();
+      }
     }
     else {
 
