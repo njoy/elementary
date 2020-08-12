@@ -36,6 +36,12 @@ SCENARIO( "ParticlePairID" ) {
       ReactionID id4( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( "elastic" ) );
       CHECK( "n,Fe56->n,Fe56" == id4.symbol() );
 
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 2 ) );
+      CHECK( "n,Fe56->n,Fe56" == id4.symbol() );
+
+      id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56_e1" ), ReactionType( 2 ) );
+      CHECK( "n,Fe56_e1->n,Fe56" == id4.symbol() );
+
       id4 = ReactionID( ParticleID( "n" ), ParticleID( "Fe56" ), ReactionType( 51 ) );
       CHECK( "n,Fe56->n,Fe56_e1" == id4.symbol() );
 
