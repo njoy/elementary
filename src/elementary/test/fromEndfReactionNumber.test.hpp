@@ -7,6 +7,7 @@ SCENARIO( "fromEndfReactionNumber" ) {
       ParticleID neutron( "n" );
       ParticleID proton( "p" );
       ParticleID Fe56_e0( "Fe56" );
+      ParticleID Fe56_e1( "Fe56_e1" );
 
       // incident neutrons
       CHECK( ReactionID( "n,Fe56->n,Fe56" ) == fromEndfReactionNumber( neutron, Fe56_e0, 2 ) );
@@ -667,6 +668,10 @@ SCENARIO( "fromEndfReactionNumber" ) {
       CHECK( ReactionID( "p,Fe56->n,n,Co55_e14" ) == fromEndfReactionNumber( proton, Fe56_e0, 889 ) );
       CHECK( ReactionID( "p,Fe56->n,n,Co55_e15" ) == fromEndfReactionNumber( proton, Fe56_e0, 890 ) );
       CHECK( ReactionID( "p,Fe56->n,n,Co55[continuum]" ) == fromEndfReactionNumber( proton, Fe56_e0, 891 ) );
+
+      // special cases
+      CHECK( ReactionID( "n,Fe56_e1->n,Fe56" ) == fromEndfReactionNumber( neutron, Fe56_e1, 2 ) );
+      CHECK( ReactionID( "n,Fe56_e1->n,Fe56_e1" ) == fromEndfReactionNumber( neutron, Fe56_e1, 51 ) );
     } // THEN
   } // GIVEN
 } // SCENARIO
