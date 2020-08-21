@@ -27,6 +27,9 @@ SCENARIO( "ParticlePairID" ) {
       // using a string - from a registered reaction type
       ParticlePairID id3( "total" );
       CHECK( "total" == id3.symbol() );
+
+      id3 = ParticlePairID( "capture" );
+      CHECK( "capture" == id3.symbol() );
     } // THEN
   } // GIVEN
 
