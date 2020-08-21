@@ -5,44 +5,37 @@ static std::string fromReactionType( const ParticleID& incident,
   // generate the incident pair
   ParticlePairID incidentPair( incident, target );
 
-  // special cases: no particles given
-  std::vector< ParticleID > particles = type.particles();
-  if ( not particles.size() ) {
+  // cases: elastic, special and anything else
+  if ( type.name() == "capture" ) {
 
-    if ( type.name() == "elastic" ) {
+    return incidentPair.symbol() + "->capture";
+  }
+  else if ( type.name() == "elastic" ) {
 
-      if ( target.level() == 0 ) {
+    if ( target.level() == 0 ) {
 
-        return incidentPair.symbol() + "->" + incidentPair.symbol();
-      }
-      else {
-
-        ParticleID residual = target.isNucleus()
-                              ? ParticleID( NucleusID( target.za(), 0 ) )
-                              : ParticleID( NuclideID( target.za(), 0 ) );
-        return incidentPair.symbol() + "->" +
-               ParticlePairID( incident, residual ).symbol();
-      }
+      return incidentPair.symbol() + "->" + incidentPair.symbol();
     }
     else {
 
-      return incidentPair.symbol() + "->" + type.name();
+      ParticleID residual = target.isNucleus()
+                            ? ParticleID( NucleusID( target.za(), 0 ) )
+                            : ParticleID( NuclideID( target.za(), 0 ) );
+      return incidentPair.symbol() + "->" +
+             ParticlePairID( incident, residual ).symbol();
     }
+  }
+  else if ( type.isSpecial() ) {
+
+    return incidentPair.symbol() + "->" + type.name();
   }
   else {
 
-    // produce the residual
-    auto isotope = absorb( target, incident );
-    for ( const auto& particle : particles ) {
+    // add the residual to the reaction's particles
+    std::vector< ParticleID > particles = type.particles();
+    particles.push_back( resolve( incident, target, type ) );
 
-      isotope = emit( isotope, particle );
-    }
-    ParticleID residual( NuclideID( isotope.za(), type.level() ) );
-
-    // create the outgoing particle tuple
-    particles.push_back( residual );
-    ParticleTupleID outgoingTuple( particles );
-
-    return incidentPair.symbol() + "->" + outgoingTuple.symbol();
+    // return the identifier
+    return incidentPair.symbol() + "->" + ParticleTupleID( particles ).symbol();
   }
 }
