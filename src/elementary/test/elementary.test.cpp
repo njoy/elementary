@@ -3,6 +3,7 @@
 #include "catch.hpp"
 #include "elementary/src/absorb.hpp"
 #include "elementary/src/emit.hpp"
+#include "elementary/src/resolve.hpp"
 #include "elementary/src/join.hpp"
 #include "elementary/src/split.hpp"
 #include "elementary/src/fromEndfReactionNumber.hpp"
@@ -21,6 +22,7 @@ using namespace njoy::elementary;
 
 #include "elementary/test/absorb.test.hpp"
 #include "elementary/test/emit.test.hpp"
+#include "elementary/test/resolve.test.hpp"
 #include "elementary/test/join.test.hpp"
 #include "elementary/test/split.test.hpp"
 #include "elementary/test/fromEndfReactionNumber.test.hpp"

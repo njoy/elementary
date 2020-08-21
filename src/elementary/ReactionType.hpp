@@ -101,6 +101,20 @@ namespace elementary {
     }
 
     /**
+     *  @brief return whether or not the reaction is a special reaction
+     *         (i.e. a reaction for which no outgoing particles are registered,
+     *         except for elastic)
+     */
+    bool isSpecial() const noexcept {
+
+      if ( this->name() == "elastic" ) {
+
+        return false;
+      }
+      return this->particles().size() == 0;
+    }
+
+    /**
      *  @brief operator<()
      *
      *  @param[in] right   the type on the right hand side

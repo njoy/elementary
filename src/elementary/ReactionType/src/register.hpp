@@ -6,6 +6,7 @@ ReactionType::name_dictionary{
 
   [] () {
 
+    ParticleID g( "g" );
     ParticleID n( "n" );
     ParticleID p( "p" );
     ParticleID d( "h2" );
@@ -27,7 +28,7 @@ ReactionType::name_dictionary{
       { ReactionType::Entry{  38, "fission[3n]",    { "fission4", "n,3nf" } } },
       { ReactionType::Entry{  27, "absorption",     { "n,absorption" } } },
       { ReactionType::Entry{ 101, "disappearance",  { "n,disappearance" } } },
-      { ReactionType::Entry{ 102, "capture",        { "n,g", "n,gamma", "z,g", "z,gamma" } } },
+      { ReactionType::Entry{ 102, "capture",        { "n,g", "n,gamma", "z,g", "z,gamma" }, { g } } },
       { ReactionType::Entry{  11, "2nd",            { "z,2nd", "n,2nd" }, { n, n, d } } },
       { ReactionType::Entry{  16, "2n(t)",          { "z,2n", "n,2n" }, { n, n } } },
       { ReactionType::Entry{  17, "3n",             { "z,3n", "n,3n" }, { n, n, n } } },

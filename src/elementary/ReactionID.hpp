@@ -13,6 +13,7 @@
 #include "elementary/ParticleTupleID.hpp"
 #include "elementary/src/absorb.hpp"
 #include "elementary/src/emit.hpp"
+#include "elementary/src/resolve.hpp"
 
 namespace njoy {
 namespace elementary {
