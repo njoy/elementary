@@ -44,6 +44,9 @@ SCENARIO( "ParticleTupleID" ) {
       ParticleTupleID id6( "total" );
       CHECK( "total" == id6.symbol() );
 
+      id6 = ParticleTupleID( "capture" );
+      CHECK( "capture" == id6.symbol() );
+
       // using a particle pair
       ParticleTupleID id7( ParticlePairID( ParticleID( "n" ),
                                            ParticleID( "Fe56" ) ) );
