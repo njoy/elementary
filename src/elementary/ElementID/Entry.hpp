@@ -14,7 +14,7 @@ public:
 
   /* constructor */
   Entry( Number number, std::string&& symbol, std::string&& name,
-         std::vector< std::string >&& alternatives = {} ) :
+         std::vector< std::string >&& alternatives ) :
     number_( number ), symbol_( std::move( symbol ) ),
     name_( std::move( name ) ), alternatives_( std::move( alternatives ) ) {}
 

@@ -28,7 +28,8 @@ namespace elementary {
   class NuclideID {
 
     /* regex */
-    static const std::regex regex;
+    static inline const std::regex regex{ "^([A-Z][a-z]?\\d{1,3})"
+                                          "((_e(\\d+))|(\\[continuum\\]))?$" };
 
     /* fields */
     IsotopeID isotope_;
@@ -132,9 +133,6 @@ namespace elementary {
       return this->hash() != right.hash();
     }
   };
-
-  // register the regex
-  #include "elementary/NuclideID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
