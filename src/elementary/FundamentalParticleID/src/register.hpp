@@ -1,20 +1,18 @@
 //! @todo this could be initialised using a json property file
 
 // register the element numbers, names and symbols
-const std::map< FundamentalParticleID::Hash, FundamentalParticleID::Entry >
-FundamentalParticleID::particle_dictionary{
+static inline const std::map< Hash, Entry > particle_dictionary{
 
-  { 0, FundamentalParticleID::Entry{ 0, "photon", "photon",
-                                     { "g", "gamma", "x-ray" } } },
-  { 1, FundamentalParticleID::Entry{ 1, "n", "neutron" } },
-  { 1001, FundamentalParticleID::Entry{ 1001, "p", "proton" } }
+  { 0, Entry{ 0, "photon", "photon", { "g", "gamma", "x-ray" } } },
+  { 1, Entry{ 1, "n", "neutron", {} } },
+  { 1001, Entry{ 1001, "p", "proton", {} } }
 };
 
 // register the alternatives (stored in lower case)
-const std::map< std::string, FundamentalParticleID::Hash >
-FundamentalParticleID::conversion_dictionary = [] ( const auto& dictionary ) {
+static inline const std::map< std::string, Hash >
+conversion_dictionary = [] ( const auto& dictionary ) {
 
-  std::map< std::string, FundamentalParticleID::Hash > conversion;
+  std::map< std::string, Hash > conversion;
   for ( const auto& [ hash, entry ] : dictionary ) {
 
     conversion[ tolower( entry.symbol() ) ] = hash;
@@ -25,4 +23,4 @@ FundamentalParticleID::conversion_dictionary = [] ( const auto& dictionary ) {
     }
   }
   return conversion;
-}( FundamentalParticleID::particle_dictionary );
+}( particle_dictionary );

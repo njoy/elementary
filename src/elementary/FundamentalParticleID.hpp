@@ -24,8 +24,7 @@ namespace elementary {
     #include "elementary/FundamentalParticleID/Entry.hpp"
 
     /* static fields */
-    static const std::map< Hash, Entry > particle_dictionary;
-    static const std::map< std::string, Hash > conversion_dictionary;
+    #include "elementary/FundamentalParticleID/src/register.hpp"
 
     /* fields */
     Hash hash_;
@@ -98,9 +97,6 @@ namespace elementary {
       return  this->hash() != right.hash();
     }
   };
-
-  // register the element numbers, symbols, names and alternatives
-  #include "elementary/FundamentalParticleID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
