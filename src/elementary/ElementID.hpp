@@ -24,9 +24,8 @@ namespace elementary {
     #include "elementary/ElementID/Entry.hpp"
 
     /* static fields */
-    static const std::map< Number, Entry > element_dictionary;
-    static const std::map< std::string, Number > conversion_dictionary;
-
+    #include "elementary/ElementID/src/register.hpp"
+    
     /* fields */
     Number z_;
 
@@ -94,9 +93,6 @@ namespace elementary {
       return  this->number() != right.number();
     }
   };
-
-  // register the element numbers, symbols, names and alternatives
-  #include "elementary/ElementID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
