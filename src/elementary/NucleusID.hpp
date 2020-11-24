@@ -19,6 +19,10 @@ namespace elementary {
    *
    *  This identifier is the same as the nuclide identifier, except that the
    *  name is complete lower case.
+   *
+   *  Comparison operators are provided using the logical order given by the
+   *  element, mass and excited state number. A hash function and override for
+   *  std::hash is also provided.
    */
   class NucleusID : protected NuclideID {
 
@@ -94,5 +98,19 @@ namespace elementary {
   #include "elementary/NucleusID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the NucleusID class
+  template <>
+  struct hash< njoy::elementary::NucleusID > {
+
+    size_t operator()( const njoy::elementary::NucleusID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif

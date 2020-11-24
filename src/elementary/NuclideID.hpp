@@ -20,6 +20,10 @@ namespace elementary {
    *
    *  Aliases like Am242m = Am242_e2 will be handled by a factory function
    *  that uses a static map for aliasing.
+   *
+   *  Comparison operators are provided using the logical order given by the
+   *  element, mass and excited state number. A hash function and override for
+   *  std::hash is also provided.
    */
   class NuclideID {
 
@@ -133,5 +137,19 @@ namespace elementary {
   #include "elementary/NuclideID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the NuclideID class
+  template <>
+  struct hash< njoy::elementary::NuclideID > {
+
+    size_t operator()( const njoy::elementary::NuclideID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif

@@ -15,6 +15,10 @@ namespace elementary {
   /**
    *  @class
    *  @brief The isotope identifier, with associated name - e.g. Fe56 or Fe
+   *
+   *  Comparison operators are provided using the logical order given by the
+   *  element and mass number. A hash function and override for std::hash is
+   *  also provided.
    */
   class IsotopeID {
 
@@ -76,6 +80,14 @@ namespace elementary {
     }
 
     /**
+     *  @brief Return the hash value associated to the isotope
+     */
+    auto hash() const noexcept {
+
+      return this->za();
+    }
+
+    /**
      *  @brief operator<()
      *
      *  @param[in] right   the identifier on the right hand side
@@ -110,5 +122,19 @@ namespace elementary {
   #include "elementary/IsotopeID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the ElementID class
+  template <>
+  struct hash< njoy::elementary::IsotopeID > {
+
+    size_t operator()( const njoy::elementary::IsotopeID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif
