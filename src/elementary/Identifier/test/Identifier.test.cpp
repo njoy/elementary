@@ -3,6 +3,10 @@
 #include "catch.hpp"
 #include "elementary/Identifier.hpp"
 
+// other includes
+#include <map>
+#include <unordered_map>
+
 // convenience typedefs
 template < typename Derived >
 using Identifier = njoy::elementary::Identifier< Derived >;
@@ -18,6 +22,20 @@ public:
 
   TestID( const std::string& identifier ) : Identifier( identifier ) {};
 };
+
+namespace std {
+
+  // std::hash override for the Identifier class
+  template <>
+  struct hash< TestID > {
+
+    size_t operator()( const TestID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 class Size5ID : public Identifier< Size5ID > {
 
@@ -64,6 +82,32 @@ SCENARIO( "Identifier" ) {
       CHECK( ( id2 <  id1 ) == false );
       CHECK( ( id2 == id1 ) == false );
       CHECK( ( id2 != id1 ) == true );
+    } // THEN
+
+    THEN( "instances can be used as keys in a std::map" ) {
+
+      std::map< TestID, std::string > map{
+
+        { id1, "1" }, { id2, "2" }
+      };
+
+      CHECK( map[ id1 ] == "1" );
+      CHECK( map[ id2 ] == "2" );
+      CHECK( map[ TestID( "a" ) ] == "1" );
+      CHECK( map[ TestID( "b" ) ] == "2" );
+    } // THEN
+
+    THEN( "instances can be used as keys in a std::unordered_map" ) {
+
+      std::unordered_map< TestID, std::string > map{
+
+        { id1, "1" }, { id2, "2" }
+      };
+
+      CHECK( map[ id1 ] == "1" );
+      CHECK( map[ id2 ] == "2" );
+      CHECK( map[ TestID( "a" ) ] == "1" );
+      CHECK( map[ TestID( "b" ) ] == "2" );
     } // THEN
   } // GIVEN
 

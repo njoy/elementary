@@ -31,6 +31,9 @@ namespace elementary {
    *
    *  The order in which these are given determines which particle is
    *  considered the "particle" and which is the "residual".
+   *
+   *  Comparison operators are provided using the logical order given by the
+   *  symbol. A hash function and override for std::hash is also provided.
    */
   class ParticlePairID : public Identifier< ParticlePairID > {
 
@@ -72,5 +75,19 @@ namespace elementary {
   };
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the ParticlePairID class
+  template <>
+  struct hash< njoy::elementary::ParticlePairID > {
+
+    size_t operator()( const njoy::elementary::ParticlePairID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif

@@ -88,8 +88,7 @@ SCENARIO( "ElementID" ) {
 
       std::unordered_map< ElementID, std::string > map{
 
-        { id1, "1" },
-        { id2, "2" }
+        { id1, "1" }, { id2, "2" }
       };
 
       CHECK( map[ id1 ] == "1" );

@@ -30,6 +30,9 @@ namespace elementary {
    *    - "n,Fe56->n,Fe56" for elastic neutron scattering on Fe56
    *    - "n,he4->h2,h3" for a neutron on alpha resulting in a deuteron and
    *      triton
+   *
+   *  Comparison operators are provided using the logical order given by the
+   *  symbol. A hash function and override for std::hash is also provided.
    */
   class ReactionID : public Identifier< ReactionID > {
 
@@ -80,5 +83,19 @@ namespace elementary {
   };
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the ReactionID class
+  template <>
+  struct hash< njoy::elementary::ReactionID > {
+
+    size_t operator()( const njoy::elementary::ReactionID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif
