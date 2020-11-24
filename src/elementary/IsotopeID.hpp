@@ -22,7 +22,7 @@ namespace elementary {
     using MassNumber = unsigned short;
 
     /* regex */
-    static const std::regex regex;
+    static inline const std::regex regex{ "([A-Za-z]{1,2})(\\d{1,3})?" };
 
     /* fields */
     ElementID element_;
@@ -105,9 +105,6 @@ namespace elementary {
       return this->za() != right.za();
     }
   };
-
-  // register the regex
-  #include "elementary/IsotopeID/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 

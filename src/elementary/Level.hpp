@@ -22,7 +22,7 @@ namespace elementary {
     using Number = unsigned char;
 
     /* regex */
-    static const std::regex regex;
+    static inline const std::regex regex{ "^(_?e(\\d+))|(\\[continuum\\])$" };
 
     /* fields */
     Number level_;
@@ -100,9 +100,6 @@ namespace elementary {
       return  this->number() != right.number();
     }
   };
-
-  // register the regex
-  #include "elementary/Level/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
