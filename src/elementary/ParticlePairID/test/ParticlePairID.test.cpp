@@ -4,6 +4,8 @@
 #include "elementary/ParticlePairID.hpp"
 
 // other includes
+#include <map>
+#include <unordered_map>
 #include "elementary/ParticleID.hpp"
 
 // convenience typedefs
@@ -60,6 +62,32 @@ SCENARIO( "ParticlePairID" ) {
       CHECK( ( id2 <  id1 ) == false );
       CHECK( ( id2 == id1 ) == false );
       CHECK( ( id2 != id1 ) == true );
+    } // THEN
+
+    THEN( "instances can be used as keys in a std::map" ) {
+
+      std::map< ParticlePairID, std::string > map{
+
+        { id1, "1" }, { id2, "2" }
+      };
+
+      CHECK( map[ id1 ] == "1" );
+      CHECK( map[ id2 ] == "2" );
+      CHECK( map[ ParticlePairID( "n,Fe56" ) ] == "1" );
+      CHECK( map[ ParticlePairID( "n,Fe56_e1" ) ] == "2" );
+    } // THEN
+
+    THEN( "instances can be used as keys in a std::unordered_map" ) {
+
+      std::unordered_map< ParticlePairID, std::string > map{
+
+        { id1, "1" }, { id2, "2" }
+      };
+
+      CHECK( map[ id1 ] == "1" );
+      CHECK( map[ id2 ] == "2" );
+      CHECK( map[ ParticlePairID( "n,Fe56" ) ] == "1" );
+      CHECK( map[ ParticlePairID( "n,Fe56_e1" ) ] == "2" );
     } // THEN
   } // GIVEN
 

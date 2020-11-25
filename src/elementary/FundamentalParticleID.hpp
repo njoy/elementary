@@ -5,6 +5,8 @@
 #include <string>
 
 // other includes
+#include <map>
+#include <unordered_map>
 #include "elementary/src/tolower.hpp"
 
 namespace njoy {
@@ -14,6 +16,10 @@ namespace elementary {
    *  @class
    *  @brief The fundamental particle identifier, with associated symbol and
    *         name
+   *
+   *  Comparison operators are provided using a unique hash for each registered
+   *  fundamental particle type. A hash function and override for std::hash is
+   *  also provided.
    */
   class FundamentalParticleID {
 
@@ -99,5 +105,19 @@ namespace elementary {
   };
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the FundamentalParticleID class
+  template <>
+  struct hash< njoy::elementary::FundamentalParticleID > {
+
+    size_t operator()( const njoy::elementary::FundamentalParticleID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif

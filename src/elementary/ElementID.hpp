@@ -14,6 +14,10 @@ namespace elementary {
   /**
    *  @class
    *  @brief The element identifier, with associated element symbol and name
+   *
+   *  Comparison operators are provided using the logical order given by the
+   *  element number. A hash function and override for std::hash is also
+   *  provided.
    */
   class ElementID {
 
@@ -46,6 +50,11 @@ namespace elementary {
 
       return this->z_;
     }
+
+    /**
+     *  @brief return the hash value
+     */
+    auto hash() const noexcept { return this->number(); }
 
     /**
      *  @brief return the element symbol
@@ -95,5 +104,19 @@ namespace elementary {
   };
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the ElementID class
+  template <>
+  struct hash< njoy::elementary::ElementID > {
+
+    size_t operator()( const njoy::elementary::ElementID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif

@@ -4,6 +4,8 @@
 #include "elementary/IsotopeID.hpp"
 
 // other includes
+#include <map>
+#include <unordered_map>
 #include "elementary/ElementID.hpp"
 
 // convenience typedefs
@@ -104,6 +106,32 @@ SCENARIO( "IsotopeID" ) {
       CHECK( ( id2 <  id1 ) == false );
       CHECK( ( id2 == id1 ) == false );
       CHECK( ( id2 != id1 ) == true );
+    } // THEN
+
+    THEN( "instances can be used as keys in a std::map" ) {
+
+      std::map< IsotopeID, std::string > map{
+
+        { id1, "1" }, { id2, "2" }
+      };
+
+      CHECK( map[ id1 ] == "1" );
+      CHECK( map[ id2 ] == "2" );
+      CHECK( map[ IsotopeID( "H1" ) ] == "1" );
+      CHECK( map[ IsotopeID( "He4" ) ] == "2" );
+    } // THEN
+
+    THEN( "instances can be used as keys in a std::unordered_map" ) {
+
+      std::unordered_map< IsotopeID, std::string > map{
+
+        { id1, "1" }, { id2, "2" }
+      };
+
+      CHECK( map[ id1 ] == "1" );
+      CHECK( map[ id2 ] == "2" );
+      CHECK( map[ IsotopeID( "H1" ) ] == "1" );
+      CHECK( map[ IsotopeID( "He4" ) ] == "2" );
     } // THEN
   } // GIVEN
 

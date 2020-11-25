@@ -18,6 +18,9 @@ namespace elementary {
    *  @class
    *  @brief The particle identifier, either a fundamental particle, a nucleus
    *         or nuclide identifier
+   *
+   *  Comparison operators are provided using the logical order given by the
+   *  symbol. A hash function and override for std::hash is also provided.
    */
   class ParticleID {
 
@@ -155,5 +158,19 @@ namespace elementary {
   };
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the ParticleID class
+  template <>
+  struct hash< njoy::elementary::ParticleID > {
+
+    size_t operator()( const njoy::elementary::ParticleID& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif
