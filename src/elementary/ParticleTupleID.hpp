@@ -62,6 +62,7 @@ namespace elementary {
       return ParticleID( split( this->symbol(), "," ).back() );
     }
 
+    using Identifier::hash;
     using Identifier::symbol;
     using Identifier::operator<;
     using Identifier::operator==;
