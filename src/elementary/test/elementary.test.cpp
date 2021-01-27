@@ -1,11 +1,11 @@
 #define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
-#include "elementary/src/absorb.hpp"
-#include "elementary/src/emit.hpp"
-#include "elementary/src/resolve.hpp"
-#include "elementary/src/fromEndfReactionNumber.hpp"
-#include "elementary/src/toEndfReactionNumber.hpp"
+#include "elementary/absorb.hpp"
+#include "elementary/emit.hpp"
+#include "elementary/resolve.hpp"
+#include "elementary/fromEndfReactionNumber.hpp"
+#include "elementary/toEndfReactionNumber.hpp"
 
 // other includes
 #include "elementary/FundamentalParticleID.hpp"

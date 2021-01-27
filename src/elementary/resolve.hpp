@@ -6,8 +6,8 @@
 // other includes
 #include "elementary/ParticleID.hpp"
 #include "elementary/ReactionType.hpp"
-#include "elementary/src/absorb.hpp"
-#include "elementary/src/emit.hpp"
+#include "elementary/absorb.hpp"
+#include "elementary/emit.hpp"
 
 namespace njoy {
 namespace elementary {

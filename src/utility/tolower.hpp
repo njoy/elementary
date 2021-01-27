@@ -9,7 +9,7 @@
 // other includes
 
 namespace njoy {
-namespace elementary {
+namespace utility {
 
   /**
    *  @brief Return the lower case version of a string
@@ -25,7 +25,7 @@ namespace elementary {
                     [] ( const auto& c ) { return std::tolower( c ); } );
     return lower;
   }
-} // elementary namespace
+} // utility namespace
 } // njoy namespace
 
 #endif

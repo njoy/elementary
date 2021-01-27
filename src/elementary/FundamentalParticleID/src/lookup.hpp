@@ -6,7 +6,8 @@ static Hash lookup( const std::string& string ) {
 
   try {
 
-    return FundamentalParticleID::conversion_dictionary.at( tolower( string ) );
+    return FundamentalParticleID::conversion_dictionary.at(
+               utility::tolower( string ) );
   }
   catch ( ... ) {
 

@@ -130,11 +130,11 @@ conversion_dictionary = [] ( const auto& dictionary ) {
   std::map< std::string, Number > conversion;
   for ( const auto& [ number, entry ] : dictionary ) {
 
-    conversion[ tolower( entry.symbol() ) ] = number;
-    conversion[ tolower( entry.name() ) ] = number;
+    conversion[ utility::tolower( entry.symbol() ) ] = number;
+    conversion[ utility::tolower( entry.name() ) ] = number;
     for ( const auto& alternative : entry.alternatives() ) {
 
-      conversion[ tolower( alternative ) ] = number;
+      conversion[ utility::tolower( alternative ) ] = number;
     }
   }
   return conversion;

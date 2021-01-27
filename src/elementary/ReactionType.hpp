@@ -6,7 +6,7 @@
 #include <string>
 
 // other includes
-#include "elementary/src/tolower.hpp"
+#include "utility/tolower.hpp"
 #include "elementary/Level.hpp"
 #include "elementary/ParticleID.hpp"
 
@@ -53,7 +53,8 @@ namespace elementary {
      */
     static bool isRegistered( const std::string& string ) {
 
-      return ReactionType::name_conversion_dictionary.find( tolower( string ) )
+      return ReactionType::name_conversion_dictionary.find(
+                 utility::tolower( string ) )
              != ReactionType::name_conversion_dictionary.end();
     }
 

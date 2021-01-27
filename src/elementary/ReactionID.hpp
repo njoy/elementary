@@ -11,9 +11,9 @@
 #include "elementary/ReactionType.hpp"
 #include "elementary/ParticlePairID.hpp"
 #include "elementary/ParticleTupleID.hpp"
-#include "elementary/src/absorb.hpp"
-#include "elementary/src/emit.hpp"
-#include "elementary/src/resolve.hpp"
+#include "elementary/absorb.hpp"
+#include "elementary/emit.hpp"
+#include "elementary/resolve.hpp"
 
 namespace njoy {
 namespace elementary {

@@ -7,7 +7,7 @@
 #include <string>
 
 // other includes
-#include "elementary/src/tolower.hpp"
+#include "utility/tolower.hpp"
 #include "elementary/NuclideID.hpp"
 
 namespace njoy {
@@ -50,7 +50,7 @@ namespace elementary {
      */
     std::string symbol() const noexcept {
 
-      return tolower( NuclideID::symbol() );
+      return utility::tolower( NuclideID::symbol() );
     }
 
     /**

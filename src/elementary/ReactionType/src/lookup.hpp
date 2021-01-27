@@ -6,7 +6,8 @@ static const std::string& lookup( const std::string& string ) {
 
   try {
 
-    return ReactionType::name_conversion_dictionary.at( tolower( string ) );
+    return ReactionType::name_conversion_dictionary.at(
+               utility::tolower( string ) );
   }
   catch ( const std::out_of_range& ) {
 
