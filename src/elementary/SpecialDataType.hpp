@@ -6,7 +6,7 @@
 #include <string>
 
 // other includes
-#include "elementary/src/tolower.hpp"
+#include "utility/tolower.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -53,7 +53,8 @@ namespace elementary {
      */
     static bool isRegistered( const std::string& string ) {
 
-      return SpecialDataType::name_conversion_dictionary.find( tolower( string ) )
+      return SpecialDataType::name_conversion_dictionary.find(
+                 utility::tolower( string ) )
              != SpecialDataType::name_conversion_dictionary.end();
     }
 
