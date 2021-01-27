@@ -1,12 +1,12 @@
-#ifndef NJOY_ELEMENTARY_OVERLOAD
-#define NJOY_ELEMENTARY_OVERLOAD
+#ifndef NJOY_UTILITY_OVERLOAD
+#define NJOY_UTILITY_OVERLOAD
 
 // system includes
 
 // other includes
 
 namespace njoy {
-namespace elementary {
+namespace utility {
 
   template < class... Types > struct overload : Types... {
 
@@ -15,6 +15,6 @@ namespace elementary {
   template < class... Types > overload( Types... ) -> overload< Types... >;
 
 } // elementary namespace
-} // njoy namespace
+} // utility namespace
 
 #endif

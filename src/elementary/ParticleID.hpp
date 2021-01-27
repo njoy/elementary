@@ -6,7 +6,7 @@
 #include <variant>
 
 // other includes
-#include "elementary/src/overload.hpp"
+#include "utility/overload.hpp"
 #include "elementary/FundamentalParticleID.hpp"
 #include "elementary/NucleusID.hpp"
 #include "elementary/NuclideID.hpp"
@@ -102,12 +102,12 @@ namespace elementary {
     Level level() const noexcept {
 
       return std::visit(
-               overload{ [] ( const FundamentalParticleID& )
-                            { return Level( 0 ); },
-                         [] ( const NucleusID& identifier )
-                            { return identifier.level(); },
-                         [] ( const NuclideID& identifier )
-                            { return identifier.level(); } },
+               utility::overload{ [] ( const FundamentalParticleID& )
+                                     { return Level( 0 ); },
+                                  [] ( const NucleusID& identifier )
+                                     { return identifier.level(); },
+                                  [] ( const NuclideID& identifier )
+                                     { return identifier.level(); } },
                this->identifier_ );
     }
 
@@ -117,12 +117,12 @@ namespace elementary {
     int hash() const noexcept {
 
       return std::visit(
-               overload{ [] ( const FundamentalParticleID& identifier )
-                            { return identifier.hash(); },
-                         [] ( const NucleusID& identifier )
-                            { return identifier.hash() * 10; },
-                         [] ( const NuclideID& identifier )
-                            { return identifier.hash() * 10 + 1; } },
+               utility::overload{ [] ( const FundamentalParticleID& identifier )
+                                     { return identifier.hash(); },
+                                  [] ( const NucleusID& identifier )
+                                     { return identifier.hash() * 10; },
+                                  [] ( const NuclideID& identifier )
+                                     { return identifier.hash() * 10 + 1; } },
                this->identifier_ );
     }
 
