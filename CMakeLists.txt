@@ -52,13 +52,32 @@ endif()
 # Project targets
 ########################################################################
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# elementary : library
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 add_library( elementary INTERFACE
     )
 target_include_directories( elementary INTERFACE src/ )
 target_link_libraries( elementary
     INTERFACE catch-adapter
     )
+    
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# elementary : python bindings
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+include_directories( python/src/ )
+
+pybind11_add_module( elementary.python
+    EXCLUDE_FROM_ALL
+    python/src/elementary.python.cpp
+    )
+target_link_libraries( elementary.python PUBLIC elementary )
+target_compile_options( elementary.python PUBLIC "-fPIC" )
+target_compile_options( elementary.python PUBLIC "-fvisibility=hidden" )
+set_target_properties( elementary.python PROPERTIES OUTPUT_NAME elementary )
+set_target_properties( elementary.python PROPERTIES COMPILE_DEFINITIONS "PYBIND11" )
 
 #######################################################################
 # Top-level Only
