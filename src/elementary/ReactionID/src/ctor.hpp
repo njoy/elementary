@@ -1,8 +1,9 @@
 /**
  *  @brief Constructor
  *
- *  @param[in] id1           the incoming particle pair
- *  @param[in] id2           the outgoing particles
+ *  @param[in] incident    the incident particle
+ *  @param[in] target      the target
+ *  @param[in] type        the reaction type
  */
 ReactionID( const ParticleID& incident, const ParticleID& target,
             const ReactionType& type ) :
@@ -11,8 +12,8 @@ ReactionID( const ParticleID& incident, const ParticleID& target,
 /**
  *  @brief Constructor
  *
- *  @param[in] id1           the incoming particle pair
- *  @param[in] id2           the outgoing particles
+ *  @param[in] in     the incoming particle pair
+ *  @param[in] out    the outgoing particle pair
  */
 ReactionID( const ParticlePairID& in, const ParticlePairID& out ) :
   Identifier( in.symbol() + "->" + out.symbol(), false ) {}
@@ -20,8 +21,8 @@ ReactionID( const ParticlePairID& in, const ParticlePairID& out ) :
 /**
  *  @brief Constructor
  *
- *  @param[in] id1           the incoming particle pair
- *  @param[in] id2           the outgoing particles
+ *  @param[in] in     the incoming particle pair
+ *  @param[in] out    the outgoing particle tuple
  */
 ReactionID( const ParticlePairID& in, const ParticleTupleID& out ) :
   Identifier( in.symbol() + "->" + out.symbol(), false ) {}

@@ -76,6 +76,7 @@ namespace elementary {
       return ParticleTupleID( utility::split( this->symbol(), "->" ).back(), false );
     }
 
+    using Identifier::hash;
     using Identifier::symbol;
     using Identifier::operator<;
     using Identifier::operator==;
