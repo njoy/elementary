@@ -5,7 +5,7 @@
  */
 static bool validate( const std::string& string ) {
 
-  auto strings = split( string, "," );
+  auto strings = utility::split( string, "," );
   if ( strings.size() < 2 ) {
 
     if ( ReactionType::isRegistered( string ) ) {

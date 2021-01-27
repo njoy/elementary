@@ -5,7 +5,7 @@
 #include <string>
 
 // other includes
-#include "elementary/src/split.hpp"
+#include "utility/split.hpp"
 #include "elementary/Identifier.hpp"
 #include "elementary/ParticleID.hpp"
 #include "elementary/ReactionType.hpp"
@@ -57,7 +57,7 @@ namespace elementary {
      */
     bool isSpecial() const noexcept {
 
-      return split( split( this->symbol(), "->" ).back(), "," ).size() == 1;
+      return utility::split( utility::split( this->symbol(), "->" ).back(), "," ).size() == 1;
     }
 
     /**
@@ -65,7 +65,7 @@ namespace elementary {
      */
     ParticlePairID incident() const noexcept {
 
-      return ParticlePairID( split( this->symbol(), "->" ).front(), false );
+      return ParticlePairID( utility::split( this->symbol(), "->" ).front(), false );
     }
 
     /**
@@ -73,7 +73,7 @@ namespace elementary {
      */
     ParticleTupleID outgoing() const noexcept {
 
-      return ParticleTupleID( split( this->symbol(), "->" ).back(), false );
+      return ParticleTupleID( utility::split( this->symbol(), "->" ).back(), false );
     }
 
     using Identifier::symbol;

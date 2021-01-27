@@ -1,5 +1,5 @@
-#ifndef NJOY_ELEMENTARY_SPLIT
-#define NJOY_ELEMENTARY_SPLIT
+#ifndef NJOY_UTILITY_SPLIT
+#define NJOY_UTILITY_SPLIT
 
 // system includes
 #include <numeric>
@@ -8,7 +8,7 @@
 // other includes
 
 namespace njoy {
-namespace elementary {
+namespace utility {
 
   /**
    *  @brief Split a string into a list of strings using a given separator
@@ -34,6 +34,6 @@ namespace elementary {
     return strings;
    }
 } // elementary namespace
-} // njoy namespace
+} // utility namespace
 
 #endif

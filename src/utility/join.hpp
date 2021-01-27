@@ -1,5 +1,5 @@
-#ifndef NJOY_ELEMENTARY_JOIN
-#define NJOY_ELEMENTARY_JOIN
+#ifndef NJOY_UTILITY_JOIN
+#define NJOY_UTILITY_JOIN
 
 // system includes
 #include <numeric>
@@ -8,7 +8,7 @@
 // other includes
 
 namespace njoy {
-namespace elementary {
+namespace utility {
 
   /**
    *  @brief Join a list of string to a single string using a given separator
@@ -44,6 +44,6 @@ namespace elementary {
     return join( strings, "" );
   }
 } // elementary namespace
-} // njoy namespace
+} // utility namespace
 
 #endif
