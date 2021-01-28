@@ -6,7 +6,7 @@
 namespace python = pybind11;
 
 // declarations
-// void wrapElementID( python::module& );
+void wrapElementID( python::module& );
 // void wrapFundamentalParticleID( python::module& );
 // void wrapIsotopeID( python::module& );
 // void wrapLevel( python::module& );
@@ -24,11 +24,14 @@ namespace python = pybind11;
 // void wrapResolve( python::module& );
 
 /**
- *  @brief Elementary python bindings
+ *  @brief ENDFtk python bindings
+ *
+ *  The name given here (elementary) must be the same as the name
+ *  set on the PROPERTIES OUTPUT_NAME in the CMakeLists.txt file.
  */
 PYBIND11_MODULE( elementary, module ) {
 
-  // wrapElementID( module );
+  wrapElementID( module );
   // wrapFundamentalParticleID( module );
   // wrapIsotopeID( module );
   // wrapLevel( module );

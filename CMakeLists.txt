@@ -62,7 +62,7 @@ target_include_directories( elementary INTERFACE src/ )
 target_link_libraries( elementary
     INTERFACE catch-adapter
     )
-    
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # elementary : python bindings
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -72,6 +72,7 @@ include_directories( python/src/ )
 pybind11_add_module( elementary.python
     EXCLUDE_FROM_ALL
     python/src/elementary.python.cpp
+    python/src/ElementID.python.cpp
     )
 target_link_libraries( elementary.python PUBLIC elementary )
 target_compile_options( elementary.python PUBLIC "-fPIC" )
