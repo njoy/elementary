@@ -49,61 +49,61 @@ class Test_elementary_ElementID( unittest.TestCase ) :
 
     alternatives = { 'Aluminum' : 13, 'Cesium' : 55 }
 
-    def test_constructors( self ) :
+    def test_values( self ) :
 
         for z in self.numbers :
 
-            element = ElementID( z )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( z )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
-            element = ElementID( self.symbols[z] )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( self.symbols[z] )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
-            element = ElementID( self.symbols[z].lower() )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( self.symbols[z].lower() )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
-            element = ElementID( self.symbols[z].upper() )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( self.symbols[z].upper() )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
-            element = ElementID( self.names[z] )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( self.names[z] )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
-            element = ElementID( self.names[z].lower() )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( self.names[z].lower() )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
-            element = ElementID( self.names[z].upper() )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( self.names[z].upper() )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
         for alternative, z in self.alternatives.items() :
 
-            element = ElementID( alternative )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( alternative )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
-            element = ElementID( alternative.lower() )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( alternative.lower() )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
-            element = ElementID( alternative.upper() )
-            self.assertEqual( element.number, z )
-            self.assertEqual( element.symbol, self.symbols[z] )
-            self.assertEqual( element.name, self.names[z] )
+            id = ElementID( alternative.upper() )
+            self.assertEqual( id.number, z )
+            self.assertEqual( id.symbol, self.symbols[z] )
+            self.assertEqual( id.name, self.names[z] )
 
     def test_comparison( self ) :
 
@@ -125,20 +125,20 @@ class Test_elementary_ElementID( unittest.TestCase ) :
         id1 = ElementID( 1 )
         id2 = ElementID( 2 )
 
-        map = { id1 : "1", id2 : "2" }
+        map = { id1 : '1', id2 : '2' }
 
-        self.assertEqual( map[ id1 ], "1" )
-        self.assertEqual( map[ id2 ], "2" )
-        self.assertEqual( map[ ElementID( 1 ) ], "1" )
-        self.assertEqual( map[ ElementID( 2 ) ], "2" )
+        self.assertEqual( map[ id1 ], '1' )
+        self.assertEqual( map[ id2 ], '2' )
+        self.assertEqual( map[ ElementID( 1 ) ], '1' )
+        self.assertEqual( map[ ElementID( 2 ) ], '2' )
 
     def test_failures( self ) :
 
         # illegal values
-        with self.assertRaises( ValueError ) : element = ElementID( 0 )
-        with self.assertRaises( ValueError ) : element = ElementID( 119 )
-        with self.assertRaises( ValueError ) : element = ElementID( -1 )
-        with self.assertRaises( ValueError ) : element = ElementID( 'unknown' )
+        with self.assertRaises( ValueError ) : id = ElementID( 0 )
+        with self.assertRaises( ValueError ) : id = ElementID( 119 )
+        with self.assertRaises( ValueError ) : id = ElementID( -1 )
+        with self.assertRaises( ValueError ) : id = ElementID( 'unknown' )
 
 if __name__ == '__main__' :
 

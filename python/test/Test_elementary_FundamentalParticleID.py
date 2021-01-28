@@ -9,37 +9,62 @@ from elementary import FundamentalParticleID
 class Test_elementary_FundamentalParticleID( unittest.TestCase ) :
     """Unit test for the FundamentalParticleID class."""
 
-    def test_constructors( self ) :
+    symbols = [ 'photon', 'n', 'p' ]
+    names = [ 'photon', 'neutron', 'proton' ]
+    numbers = [ 0, 1, 1001 ]
 
-        id = FundamentalParticleID( 'n' )
-        self.assertEqual( 'n', id.symbol )
-        self.assertEqual( 'neutron', id.name )
-        self.assertEqual( 1, id.za )
+    alternatives = { 'g' : 0, 'gamma' : 0, 'x-ray' : 0 }
 
-        id = FundamentalParticleID( 'photon' )
-        self.assertEqual( 'photon', id.symbol )
-        self.assertEqual( 'photon', id.name )
-        self.assertEqual( 0, id.za )
+    def test_values( self ) :
 
-        id = FundamentalParticleID( 'g' )
-        self.assertEqual( 'photon', id.symbol )
-        self.assertEqual( 'photon', id.name )
-        self.assertEqual( 0, id.za )
+        for i in range( len( self.symbols ) ) :
 
-        id = FundamentalParticleID( 'gamma' )
-        self.assertEqual( 'photon', id.symbol )
-        self.assertEqual( 'photon', id.name )
-        self.assertEqual( 0, id.za )
+            id = FundamentalParticleID( self.symbols[i] )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
 
-        id = FundamentalParticleID( 'GAMMA' )
-        self.assertEqual( 'photon', id.symbol )
-        self.assertEqual( 'photon', id.name )
-        self.assertEqual( 0, id.za )
+            id = FundamentalParticleID( self.symbols[i].lower() )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
 
-        id = FundamentalParticleID( 'x-ray' )
-        self.assertEqual( 'photon', id.symbol )
-        self.assertEqual( 'photon', id.name )
-        self.assertEqual( 0, id.za )
+            id = FundamentalParticleID( self.symbols[i].upper() )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
+
+            id = FundamentalParticleID( self.names[i] )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
+
+            id = FundamentalParticleID( self.names[i].lower() )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
+
+            id = FundamentalParticleID( self.names[i].upper() )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
+
+        for alternative, i in self.alternatives.items() :
+
+            id = FundamentalParticleID( alternative )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
+
+            id = FundamentalParticleID( alternative.lower() )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
+
+            id = FundamentalParticleID( alternative.upper() )
+            self.assertEqual( id.symbol, self.symbols[i] )
+            self.assertEqual( id.name, self.names[i] )
+            self.assertEqual( id.za, self.numbers[i] )
 
     def test_comparison( self ) :
 
@@ -61,12 +86,12 @@ class Test_elementary_FundamentalParticleID( unittest.TestCase ) :
         id1 = FundamentalParticleID( 'n' )
         id2 = FundamentalParticleID( 'p' )
 
-        map = { id1 : "1", id2 : "2" }
+        map = { id1 : '1', id2 : '2' }
 
-        self.assertEqual( map[ id1 ], "1" )
-        self.assertEqual( map[ id2 ], "2" )
-        self.assertEqual( map[ FundamentalParticleID( 'n' ) ], "1" )
-        self.assertEqual( map[ FundamentalParticleID( 'p' ) ], "2" )
+        self.assertEqual( map[ id1 ], '1' )
+        self.assertEqual( map[ id2 ], '2' )
+        self.assertEqual( map[ FundamentalParticleID( 'n' ) ], '1' )
+        self.assertEqual( map[ FundamentalParticleID( 'p' ) ], '2' )
 
     def test_failures( self ) :
 
