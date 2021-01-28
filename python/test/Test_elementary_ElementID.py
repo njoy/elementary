@@ -105,6 +105,33 @@ class TestElementID( unittest.TestCase ) :
             self.assertEqual( element.symbol, self.symbols[z] )
             self.assertEqual( element.name, self.names[z] )
 
+    def test_comparison( self ) :
+
+        id1 = ElementID( 1 )
+        id2 = ElementID( 2 )
+
+        self.assertEqual( id1 <  id1, False )
+        self.assertEqual( id1 == id1, True )
+        self.assertEqual( id1 != id1, False )
+        self.assertEqual( id1 <  id2, True )
+        self.assertEqual( id1 == id2, False )
+        self.assertEqual( id1 != id2, True )
+        self.assertEqual( id2 <  id1, False )
+        self.assertEqual( id2 == id1, False )
+        self.assertEqual( id2 != id1, True )
+
+    def test_key( self ) :
+
+        id1 = ElementID( 1 )
+        id2 = ElementID( 2 )
+
+        map = { id1 : "1", id2 : "2" }
+
+        self.assertEqual( map[ id1 ], "1" )
+        self.assertEqual( map[ id2 ], "2" )
+        self.assertEqual( map[ ElementID( 1 ) ], "1" )
+        self.assertEqual( map[ ElementID( 2 ) ], "2" )
+
     def test_failures( self ) :
 
         # illegal values
