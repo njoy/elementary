@@ -6,7 +6,7 @@ import unittest
 # local imports
 from elementary import ElementID
 
-class TestElementID( unittest.TestCase ) :
+class Test_elementary_ElementID( unittest.TestCase ) :
     """Unit test for the ElementID class."""
 
     numbers = range( 1, 119 )

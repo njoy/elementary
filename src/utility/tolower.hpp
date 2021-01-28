@@ -18,7 +18,7 @@ namespace utility {
    *
    *  @param[in] string   the string to be converted to lower case
    */
-  std::string tolower( const std::string& string ) {
+  inline std::string tolower( const std::string& string ) {
 
     std::string lower;
     std::transform( string.begin(), string.end(), std::back_inserter( lower ),

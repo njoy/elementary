@@ -7,7 +7,7 @@ namespace python = pybind11;
 
 // declarations
 void wrapElementID( python::module& );
-// void wrapFundamentalParticleID( python::module& );
+void wrapFundamentalParticleID( python::module& );
 // void wrapIsotopeID( python::module& );
 // void wrapLevel( python::module& );
 // void wrapNucleusID( python::module& );
@@ -32,7 +32,7 @@ void wrapElementID( python::module& );
 PYBIND11_MODULE( elementary, module ) {
 
   wrapElementID( module );
-  // wrapFundamentalParticleID( module );
+  wrapFundamentalParticleID( module );
   // wrapIsotopeID( module );
   // wrapLevel( module );
   // wrapNucleusID( module );

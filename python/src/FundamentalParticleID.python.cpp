@@ -3,65 +3,61 @@
 #include <pybind11/stl.h>
 
 // local includes
-#include "elementary/ElementID.hpp"
+#include "elementary/FundamentalParticleID.hpp"
 #include "definitions.hpp"
 
 // namespace aliases
 namespace python = pybind11;
 
-void wrapElementID( python::module& module ) {
+void wrapFundamentalParticleID( python::module& module ) {
 
   // type aliases
-  using Component = njoy::elementary::ElementID;
+  using Component = njoy::elementary::FundamentalParticleID;
 
   // create the component
   python::class_< Component > component(
 
     module,
-    "ElementID",
+    "FundamentalParticleID",
     "The element identifier, with associated element symbol and name"
+    "The fundamental particle identifier, with associated symbol and\n"
+    "name\n\n"
+    "The following fundamental particles are recognised by this class:\n"
+    "  - \"photon\" : \"g\", \"gamma\", \"x-ray\"\n"
+    "  - \"n\" : \"neutron\"\n"
+    "  - \"p\" : \"proton\""
   );
 
   // wrap the component
   component
   .def(
 
-    python::init< int >(),
-    python::arg( "number" ),
-    "Initialise the ElementID using an element number\n\n"
-    "This function throws a ValueError exception if the number\n"
-    "is not between 1 and the largest registered element number.\n\n"
+    python::init< const std::string& >(),
+    python::arg( "string" ),
+    "Initialise the FundamentalParticleID using a string\n\n"
+    "This function throws a ValueError exception exception if the string is\n"
+    "not a registered symbol, name or alternative.\n\n"
     "Arguments:\n"
     "    string    the symbol, name or alternative name of the particle\n"
     "              (case insensitive)"
   )
-  .def(
-
-    python::init< const std::string& >(),
-    python::arg( "string" ),
-    "Initialise the ElementID using a string\n\n"
-    "This function throws a ValueError exception exception if the string is\n"
-    "not a registered symbol, name or alternative.\n\n"
-    "Arguments:\n"
-    "    number   the element number"
-  )
   .def_property_readonly(
 
-    "number",
-    &Component::number,
-    "Return the element number"
+    "za",
+    &Component::za,
+    "Return the fundamental particle za value"
   )
   .def_property_readonly(
 
     "symbol",
     &Component::symbol,
-    "Return the element symbol"
+    "Return the fundamental particle symbol"
   )
   .def_property_readonly(
 
     "name",
     &Component::name,
-    "Return the element name"
+    "Return the fundamental particle name"
   )
   .def(
 

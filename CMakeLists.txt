@@ -73,6 +73,7 @@ pybind11_add_module( elementary.python
     EXCLUDE_FROM_ALL
     python/src/elementary.python.cpp
     python/src/ElementID.python.cpp
+    python/src/FundamentalParticleID.python.cpp
     )
 target_link_libraries( elementary.python PUBLIC elementary )
 target_compile_options( elementary.python PUBLIC "-fPIC" )
