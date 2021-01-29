@@ -16,8 +16,8 @@ namespace utility {
    *  @param[in] string      the strings to be split
    *  @param[in] separator   the separator to be used
    */
-  std::vector< std::string > split( const std::string& string,
-                                    const std::string& separator ) {
+  inline std::vector< std::string > split( const std::string& string,
+                                           const std::string& separator ) {
 
     std::vector< std::string > strings;
 
