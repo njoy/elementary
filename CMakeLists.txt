@@ -75,6 +75,7 @@ pybind11_add_module( elementary.python
     python/src/ElementID.python.cpp
     python/src/FundamentalParticleID.python.cpp
     python/src/IsotopeID.python.cpp
+    python/src/Level.python.cpp
     )
 target_link_libraries( elementary.python PUBLIC elementary )
 target_compile_options( elementary.python PUBLIC "-fPIC" )

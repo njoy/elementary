@@ -4,6 +4,8 @@
 #include "elementary/Level.hpp"
 
 // other includes
+#include <map>
+#include <unordered_map>
 
 // convenience typedefs
 using Level = njoy::elementary::Level;
@@ -74,6 +76,32 @@ SCENARIO( "Level" ) {
       CHECK( ( id2 <  id1 ) == false );
       CHECK( ( id2 == id1 ) == false );
       CHECK( ( id2 != id1 ) == true );
+    } // THEN
+
+    THEN( "instances can be used as keys in a std::map" ) {
+
+      std::map< Level, std::string > map{
+
+        { id1, "1" }, { id2, "2" }
+      };
+
+      CHECK( map[ id1 ] == "1" );
+      CHECK( map[ id2 ] == "2" );
+      CHECK( map[ Level( 0 ) ] == "1" );
+      CHECK( map[ Level( 1 ) ] == "2" );
+    } // THEN
+
+    THEN( "instances can be used as keys in a std::unordered_map" ) {
+
+      std::unordered_map< Level, std::string > map{
+
+        { id1, "1" }, { id2, "2" }
+      };
+
+      CHECK( map[ id1 ] == "1" );
+      CHECK( map[ id2 ] == "2" );
+      CHECK( map[ Level( 0 ) ] == "1" );
+      CHECK( map[ Level( 1 ) ] == "2" );
     } // THEN
   } // GIVEN
 
