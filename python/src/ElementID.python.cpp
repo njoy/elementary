@@ -32,6 +32,7 @@ void wrapElementID( python::module& module ) {
     "This function throws a ValueError exception if the number\n"
     "is not between 1 and the largest registered element number.\n\n"
     "Arguments:\n"
+    "    self      the identifier\n"
     "    string    the symbol, name or alternative name of the particle\n"
     "              (case insensitive)"
   )
@@ -43,6 +44,7 @@ void wrapElementID( python::module& module ) {
     "This function throws a ValueError exception exception if the string is\n"
     "not a registered symbol, name or alternative.\n\n"
     "Arguments:\n"
+    "    self      the identifier\n"
     "    number   the element number"
   )
   .def_property_readonly(
@@ -62,13 +64,10 @@ void wrapElementID( python::module& module ) {
     "name",
     &Component::name,
     "Return the element name"
-  )
-  .def(
-
-    "__repr__",
-    &Component::symbol,
-    "Convenience function for printing the element identifier"
   );
+
+  // add standard definitions
+  addStandardDefinitions< Component >( component );
 
   // add standard dictionary key definitions
   addStandardDictionaryKeyDefinitions< Component >( component );

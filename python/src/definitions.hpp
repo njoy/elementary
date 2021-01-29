@@ -42,4 +42,24 @@ void addStandardDictionaryKeyDefinitions( PythonClass& component ) {
   );
 }
 
+/**
+ *  @brief Add standard definitions
+ *
+ *  This adds the following standard functions:
+ *    __repr__
+ *
+ *  @param[in] component   the component to which the definitions have to be added
+ */
+template < typename Component, typename PythonClass >
+void addStandardDefinitions( PythonClass& component ) {
+
+  component
+  .def(
+
+    "__repr__",
+    &Component::symbol,
+    "Convenience function for printing the identifier"
+  );
+}
+
 #endif

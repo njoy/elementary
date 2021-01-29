@@ -38,6 +38,7 @@ void wrapFundamentalParticleID( python::module& module ) {
     "This function throws a ValueError exception exception if the string is\n"
     "not a registered symbol, name or alternative.\n\n"
     "Arguments:\n"
+    "    self      the identifier\n"
     "    string    the symbol, name or alternative name of the particle\n"
     "              (case insensitive)"
   )
@@ -58,13 +59,10 @@ void wrapFundamentalParticleID( python::module& module ) {
     "name",
     &Component::name,
     "Return the fundamental particle name"
-  )
-  .def(
-
-    "__repr__",
-    &Component::symbol,
-    "Convenience function for printing the element identifier"
   );
+
+  // add standard definitions
+  addStandardDefinitions< Component >( component );
 
   // add standard dictionary key definitions
   addStandardDictionaryKeyDefinitions< Component >( component );
