@@ -22,6 +22,7 @@ void wrapLevel( python::module& module ) {
     "The nuclear level number"
   );
 
+  // wrap the component
   component
   .def(
 

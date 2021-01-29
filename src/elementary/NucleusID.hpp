@@ -40,10 +40,25 @@ namespace elementary {
 
     /* methods */
 
-    using NuclideID::isotope;
-    using NuclideID::element;
-    using NuclideID::mass;
-    using NuclideID::level;
+    /**
+     *  @brief return the isotope identifier
+     */
+    const IsotopeID& isotope() const noexcept { return NuclideID::isotope(); }
+
+    /**
+     *  @brief return the element identifier
+     */
+    const ElementID& element() const noexcept { return NuclideID::element(); }
+
+    /**
+     *  @brief return the mass number
+     */
+    auto mass() const noexcept { return NuclideID::mass(); }
+
+    /**
+     *  @brief return the energy level number
+     */
+    auto level() const noexcept { return NuclideID::level(); }
 
     /**
      *  @brief return the nucleus symbol
@@ -61,8 +76,15 @@ namespace elementary {
       return this->symbol();
     }
 
-    using NuclideID::za;
-    using NuclideID::hash;
+    /**
+     *  @brief return the nuclide za value
+     */
+    int za() const noexcept { return NuclideID::za(); }
+
+    /**
+     *  @brief return the nuclide hash value
+     */
+    int hash() const noexcept { return NuclideID::hash(); }
 
     /**
      *  @brief operator<()
