@@ -78,6 +78,7 @@ pybind11_add_module( elementary.python
     python/src/Level.python.cpp
     python/src/NucleusID.python.cpp
     python/src/NuclideID.python.cpp
+    python/src/ParticleID.python.cpp
     )
 target_link_libraries( elementary.python PUBLIC elementary )
 target_compile_options( elementary.python PUBLIC "-fPIC" )

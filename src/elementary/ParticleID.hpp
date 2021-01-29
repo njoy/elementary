@@ -24,11 +24,15 @@ namespace elementary {
    */
   class ParticleID {
 
+  public:
+
     /* type aliases */
     using IdentifierVariant = std::variant< FundamentalParticleID,
                                             NucleusID,
                                             NuclideID >;
 
+  protected:
+    
     /* fields */
     IdentifierVariant identifier_;
 

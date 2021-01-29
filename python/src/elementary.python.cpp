@@ -12,7 +12,7 @@ void wrapIsotopeID( python::module& );
 void wrapLevel( python::module& );
 void wrapNucleusID( python::module& );
 void wrapNuclideID( python::module& );
-// void wrapParticleID( python::module& );
+void wrapParticleID( python::module& );
 // void wrapParticlePairID( python::module& );
 // void wrapParticleTupleID( python::module& );
 // void wrapReactionType( python::module& );
@@ -37,7 +37,7 @@ PYBIND11_MODULE( elementary, module ) {
   wrapLevel( module );
   wrapNucleusID( module );
   wrapNuclideID( module );
-  // wrapParticleID( module );
+  wrapParticleID( module );
   // wrapParticlePairID( module );
   // wrapParticleTupleID( module );
   // wrapReactionType( module );
