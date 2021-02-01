@@ -19,8 +19,8 @@ namespace elementary {
    *  @param[in] target     the target particle identifier
    *  @param[in] type       the reaction type
    */
-  ParticleID resolve( const ParticleID& incident, const ParticleID& target,
-                      const ReactionType& type ) {
+  inline ParticleID resolve( const ParticleID& incident, const ParticleID& target,
+                             const ReactionType& type ) {
 
     if ( type.symbol() == "elastic" ) {
 

@@ -21,7 +21,7 @@ namespace elementary {
    *  @throws invalid_argument   the particle cannot be emitted
    */
   template < typename Compound, typename Particle >
-  IsotopeID emit( const Compound& compound, const Particle& particle ) {
+  inline IsotopeID emit( const Compound& compound, const Particle& particle ) {
 
     try {
 

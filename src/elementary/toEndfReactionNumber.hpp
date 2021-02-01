@@ -19,7 +19,7 @@ namespace elementary {
    *
    *  @param[in] identifier   the reaction identifier
    */
-  int toEndfReactionNumber( const ReactionID& identifier ) {
+  inline int toEndfReactionNumber( const ReactionID& identifier ) {
 
     if ( not identifier.isSpecial() ) {
 

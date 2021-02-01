@@ -19,7 +19,7 @@ namespace elementary {
    *                        particle)
    */
   template < typename Compound, typename Particle >
-  IsotopeID absorb( const Compound& compound, const Particle& particle ) {
+  inline IsotopeID absorb( const Compound& compound, const Particle& particle ) {
 
     try {
 
