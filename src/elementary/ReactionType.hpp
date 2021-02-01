@@ -7,7 +7,7 @@
 
 // other includes
 #include "utility/tolower.hpp"
-#include "elementary/Level.hpp"
+#include "elementary/Identifier.hpp"
 #include "elementary/ParticleID.hpp"
 
 namespace njoy {
@@ -22,7 +22,9 @@ namespace elementary {
    *  reactions). Special data types like nubar, etc. are not considered
    *  reactions and have their own predefined DataType.
    */
-  class ReactionType {
+  class ReactionType : public Identifier< ReactionType > {
+
+    friend Identifier< ReactionType >;
 
     /* type aliases */
     using Name = std::string;
@@ -36,9 +38,9 @@ namespace elementary {
     #include "elementary/ReactionType/src/register.hpp"
 
     /* fields */
-    Name name_;
 
     /* auxiliary functions */
+    static std::string name() { return "a reaction type"; }
     #include "elementary/ReactionType/src/lookup.hpp"
 
   public:
@@ -73,19 +75,11 @@ namespace elementary {
     }
 
     /**
-     *  @brief return the reaction name
-     */
-    const Name& name() const noexcept {
-
-      return this->name_;
-    }
-
-    /**
      *  @brief return the mt number
      */
     auto mt() const noexcept {
 
-      return ReactionType::name_dictionary.at( this->name() ).number();
+      return ReactionType::name_dictionary.at( this->symbol() ).number();
     }
 
     /**
@@ -93,7 +87,7 @@ namespace elementary {
      */
     const std::vector< ParticleID >& particles() const noexcept {
 
-      return ReactionType::name_dictionary.at( this->name() ).particles();
+      return ReactionType::name_dictionary.at( this->symbol() ).particles();
     }
 
     /**
@@ -101,7 +95,7 @@ namespace elementary {
      */
     auto level() const noexcept {
 
-      return ReactionType::name_dictionary.at( this->name() ).level();
+      return ReactionType::name_dictionary.at( this->symbol() ).level();
     }
 
     /**
@@ -111,7 +105,7 @@ namespace elementary {
      */
     bool isSpecial() const noexcept {
 
-      if ( this->name() == "elastic" ) {
+      if ( this->symbol() == "elastic" ) {
 
         return false;
       }
@@ -119,36 +113,36 @@ namespace elementary {
     }
 
     /**
-     *  @brief operator<()
+     *  @brief Verify if a string is a valid ReactionID
      *
-     *  @param[in] right   the type on the right hand side
+     *  @param[in] string   the string to be validated
      */
-    bool operator<( const ReactionType& right ) const noexcept {
+    static bool validate( const std::string& string ) {
 
-      return this->name() < right.name();
+      return isRegistered( string );
     }
 
-    /**
-     *  @brief operator==()
-     *
-     *  @param[in] right   the type on the right hand side
-     */
-    bool operator==( const ReactionType& right ) const noexcept {
-
-      return this->name() == right.name();
-    }
-
-    /**
-     *  @brief operator!=()
-     *
-     *  @param[in] right   the type on the right hand side
-     */
-    bool operator!=( const ReactionType& right ) const noexcept {
-
-      return  this->name() != right.name();
-    }
+    using Identifier::hash;
+    using Identifier::symbol;
+    using Identifier::operator<;
+    using Identifier::operator==;
+    using Identifier::operator!=;
   };
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the ReactionID class
+  template <>
+  struct hash< njoy::elementary::ReactionType > {
+
+    size_t operator()( const njoy::elementary::ReactionType& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif

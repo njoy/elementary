@@ -15,7 +15,7 @@ void wrapNuclideID( python::module& );
 void wrapParticleID( python::module& );
 void wrapParticlePairID( python::module& );
 void wrapParticleTupleID( python::module& );
-// void wrapReactionType( python::module& );
+void wrapReactionType( python::module& );
 // void wrapReactionID( python::module& );
 // void wrapFromEndfReactionNumber( python::module& );
 // void wrapToEndfReactionNumber( python::module& );
@@ -40,7 +40,7 @@ PYBIND11_MODULE( elementary, module ) {
   wrapParticleID( module );
   wrapParticlePairID( module );
   wrapParticleTupleID( module );
-  // wrapReactionType( module );
+  wrapReactionType( module );
   // wrapReactionID( module );
   // wrapFromEndfReactionNumber( module );
   // wrapToEndfReactionNumber( module );

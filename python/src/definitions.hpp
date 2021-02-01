@@ -25,19 +25,21 @@ void addStandardDictionaryKeyDefinitions( PythonClass& component ) {
   .def(
 
     "__hash__",
-    &Component::hash,
+    [] ( const Component& self ) { return self.hash(); },
     "Hash function"
   )
   .def(
 
     "__eq__",
-    &Component::operator==,
+    [] ( const Component& self, const Component& right )
+       { return self == right; },
     "Equal function"
   )
   .def(
 
     "__lt__",
-    &Component::operator<,
+    [] ( const Component& self, const Component& right )
+       { return self < right; },
     "Less than function"
   );
 }
@@ -57,7 +59,7 @@ void addStandardDefinitions( PythonClass& component ) {
   .def(
 
     "__repr__",
-    &Component::symbol,
+    [] ( const Component& self ) { return self.symbol(); },
     "Convenience function for printing the identifier"
   );
 }

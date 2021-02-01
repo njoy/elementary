@@ -11,8 +11,8 @@ static bool validate( const std::string& string ) {
     if ( ReactionType::isRegistered( string ) ) {
 
       ReactionType type( string );
-      if ( ( type.isSpecial() or ( type.name() == "capture" ) ) and
-           ( type.name() != "elastic" ) ) {
+      if ( ( type.isSpecial() or ( type.symbol() == "capture" ) ) and
+           ( type.symbol() != "elastic" ) ) {
 
         return true;
       }

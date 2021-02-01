@@ -16,8 +16,8 @@ namespace utility {
    *  @param[in] strings     the strings to be joined together
    *  @param[in] separator   the separator to be used
    */
-  std::string join( const std::vector< std::string >& strings,
-                    const std::string& separator ) {
+  inline std::string join( const std::vector< std::string >& strings,
+                           const std::string& separator ) {
 
     if ( not strings.size() ) {
 
@@ -39,7 +39,7 @@ namespace utility {
    *
    *  @param[in] strings     the strings to be joined together
    */
-  std::string join( const std::vector< std::string >& strings ) {
+  inline std::string join( const std::vector< std::string >& strings ) {
 
     return join( strings, "" );
   }
