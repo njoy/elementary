@@ -7,20 +7,23 @@
 
 // other includes
 #include "utility/tolower.hpp"
+#include "elementary/Identifier.hpp"
 
 namespace njoy {
 namespace elementary {
 
   /**
    *  @class
-   *  @brief A predefined special data type, with associated information
-   *         (including MT numbers)
+   *  @brief A predefined special data type, with associated information such
+   *         as a symbol, aliases or optional ENDF reaction numbers
    *
    *  This SpecialDataType is used for special data that cannot be considered
    *  reactions, like nubar, total particle production cross sections, etc.
    *  Reactions have their own predefined ReactionType
    */
-  class SpecialDataType {
+  class SpecialDataType : public Identifier< SpecialDataType > {
+
+    friend Identifier< SpecialDataType >;
 
     /* type aliases */
     using Name = std::string;
@@ -33,9 +36,9 @@ namespace elementary {
     #include "elementary/SpecialDataType/src/register.hpp"
 
     /* fields */
-    Name name_;
 
     /* auxiliary functions */
+    static std::string name() { return "a special data type"; }
     #include "elementary/SpecialDataType/src/lookup.hpp"
 
   public:
@@ -70,52 +73,44 @@ namespace elementary {
     }
 
     /**
-     *  @brief return the special data type name
-     */
-    const Name& name() const noexcept {
-
-      return this->name_;
-    }
-
-    /**
      *  @brief return the mt number
      */
     auto mt() const noexcept {
 
-      return SpecialDataType::name_dictionary.at( this->name() ).number();
+      return SpecialDataType::name_dictionary.at( this->symbol() ).number();
     }
 
     /**
-     *  @brief operator<()
+     *  @brief Verify if a string is a valid ReactionID
      *
-     *  @param[in] right   the type on the right hand side
+     *  @param[in] string   the string to be validated
      */
-    bool operator<( const SpecialDataType& right ) const noexcept {
+    static bool validate( const std::string& string ) {
 
-      return this->name() < right.name();
+      return isRegistered( string );
     }
 
-    /**
-     *  @brief operator==()
-     *
-     *  @param[in] right   the type on the right hand side
-     */
-    bool operator==( const SpecialDataType& right ) const noexcept {
-
-      return this->name() == right.name();
-    }
-
-    /**
-     *  @brief operator!=()
-     *
-     *  @param[in] right   the type on the right hand side
-     */
-    bool operator!=( const SpecialDataType& right ) const noexcept {
-
-      return  this->name() != right.name();
-    }
+    using Identifier::hash;
+    using Identifier::symbol;
+    using Identifier::operator<;
+    using Identifier::operator==;
+    using Identifier::operator!=;
   };
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the ReactionID class
+  template <>
+  struct hash< njoy::elementary::SpecialDataType > {
+
+    size_t operator()( const njoy::elementary::SpecialDataType& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif

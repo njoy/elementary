@@ -7,7 +7,7 @@
  */
 SpecialDataID( const ParticleID& incident, const ParticleID& target,
                const SpecialDataType& type ) :
-  Identifier( ParticlePairID( incident, target ).symbol() + "->" + type.name(),
+  Identifier( ParticlePairID( incident, target ).symbol() + "->" + type.symbol(),
               false ) {}
 
 /**

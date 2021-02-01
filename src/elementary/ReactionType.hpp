@@ -15,8 +15,8 @@ namespace elementary {
 
   /**
    *  @class
-   *  @brief A predefined reaction type, with associated information (including
-   *         MT numbers)
+   *  @brief A predefined reaction type, with associated information such as a
+   *         symbol, aliases or optional ENDF reaction numbers
    *
    *  This ReactionType is used for actual reactions (including summation
    *  reactions). Special data types like nubar, etc. are not considered

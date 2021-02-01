@@ -82,6 +82,7 @@ pybind11_add_module( elementary.python
     python/src/ParticlePairID.python.cpp
     python/src/ParticleTupleID.python.cpp
     python/src/ReactionType.python.cpp
+    python/src/SpecialDataType.python.cpp
     )
 target_link_libraries( elementary.python PUBLIC elementary )
 target_compile_options( elementary.python PUBLIC "-fPIC" )

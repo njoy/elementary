@@ -7,7 +7,8 @@
  *  @param[in] string   the name or alternative name of the special data type
  *                      (case insensitive)
  */
-SpecialDataType( const std::string& string ) : name_( lookup( string ) ) {}
+SpecialDataType( const std::string& string ) :
+  Identifier( lookup( string ), false ) {}
 
 /**
  *  @brief Constructor
@@ -17,4 +18,4 @@ SpecialDataType( const std::string& string ) : name_( lookup( string ) ) {}
  *
  *  @param[in] number   the mt number
  */
-SpecialDataType( int number ) : name_( lookup( number ) ) {}
+SpecialDataType( int number ) : Identifier( lookup( number ), false ) {}

@@ -12,26 +12,26 @@ class Test_elementary_ReactionType( unittest.TestCase ) :
 
     def test_values( self ) :
 
-        neutron = ParticleID( "n" )
-        proton = ParticleID( "p" )
-        deuteron = ParticleID( "h2" )
-        triton = ParticleID( "h3" )
-        helion = ParticleID( "he3" )
-        alpha = ParticleID( "he4" )
+        neutron = ParticleID( 'n' )
+        proton = ParticleID( 'p' )
+        deuteron = ParticleID( 'h2' )
+        triton = ParticleID( 'h3' )
+        helion = ParticleID( 'he3' )
+        alpha = ParticleID( 'he4' )
 
         id = ReactionType( 1 )
         self.assertEqual( 1 == id.mt )
-        self.assertEqual( "total" == id.symbol )
+        self.assertEqual( 'total' == id.symbol )
         self.assertEqual( 0 == len( id.particles ) )
 
         id = ReactionType( 2 )
         self.assertEqual( 2 == id.mt )
-        self.assertEqual( "elastic" == id.symbol )
+        self.assertEqual( 'elastic' == id.symbol )
         self.assertEqual( 0 == len( id.particles ) )
 
         id = ReactionType( 11 )
         self.assertEqual( 11 == id.mt )
-        self.assertEqual( "2nd" == id.symbol )
+        self.assertEqual( '2nd' == id.symbol )
         self.assertEqual( 3 == len( id.particles ) )
         self.assertEqual( neutron == id.particles[0] )
         self.assertEqual( neutron == id.particles[1] )
@@ -39,14 +39,14 @@ class Test_elementary_ReactionType( unittest.TestCase ) :
 
         id = ReactionType( 16 )
         self.assertEqual( 16 == id.mt )
-        self.assertEqual( "2n(t)" == id.symbol )
+        self.assertEqual( '2n(t)' == id.symbol )
         self.assertEqual( 2 == len( id.particles ) )
         self.assertEqual( neutron == id.particles[0] )
         self.assertEqual( neutron == id.particles[1] )
 
         id = ReactionType( 17 )
         self.assertEqual( 17 == id.mt )
-        self.assertEqual( "3n" == id.symbol )
+        self.assertEqual( '3n' == id.symbol )
         self.assertEqual( 3 == len( id.particles ) )
         self.assertEqual( neutron == id.particles[0] )
         self.assertEqual( neutron == id.particles[1] )
@@ -54,14 +54,14 @@ class Test_elementary_ReactionType( unittest.TestCase ) :
 
         id = ReactionType( 22 )
         self.assertEqual( 22 == id.mt )
-        self.assertEqual( "na" == id.symbol )
+        self.assertEqual( 'na' == id.symbol )
         self.assertEqual( 2 == len( id.particles ) )
         self.assertEqual( neutron == id.particles[0] )
         self.assertEqual( alpha == id.particles[1] )
 
         id = ReactionType( 23 )
         self.assertEqual( 23 == id.mt )
-        self.assertEqual( "n3a" == id.symbol )
+        self.assertEqual( 'n3a' == id.symbol )
         self.assertEqual( 4 == len( id.particles ) )
         self.assertEqual( neutron == id.particles[0] )
         self.assertEqual( alpha == id.particles[1] )
@@ -70,7 +70,7 @@ class Test_elementary_ReactionType( unittest.TestCase ) :
 
         id = ReactionType( 24 )
         self.assertEqual( 24 == id.mt )
-        self.assertEqual( "2na" == id.symbol )
+        self.assertEqual( '2na' == id.symbol )
         self.assertEqual( 3 == len( id.particles ) )
         self.assertEqual( neutron == id.particles[0] )
         self.assertEqual( neutron == id.particles[1] )
@@ -78,7 +78,7 @@ class Test_elementary_ReactionType( unittest.TestCase ) :
 
         id = ReactionType( 37 )
         self.assertEqual( 37 == id.mt )
-        self.assertEqual( "4n" == id.symbol )
+        self.assertEqual( '4n' == id.symbol )
         self.assertEqual( 4 == len( id.particles ) )
         self.assertEqual( neutron == id.particles[0] )
         self.assertEqual( neutron == id.particles[1] )

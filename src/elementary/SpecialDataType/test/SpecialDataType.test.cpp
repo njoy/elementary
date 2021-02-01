@@ -31,19 +31,19 @@ SCENARIO( "SpecialDataType" ) {
 
       SpecialDataType id1( 452 );
       CHECK( 452 == id1.mt() );
-      CHECK( "nubar,total" == id1.name() );
+      CHECK( "nubar,total" == id1.symbol() );
 
       SpecialDataType id2( "nubar,total" );
       CHECK( 452 == id2.mt() );
-      CHECK( "nubar,total" == id2.name() );
+      CHECK( "nubar,total" == id2.symbol() );
 
       SpecialDataType id3( 251 );
       CHECK( 251 == id3.mt() );
-      CHECK( "mubar" == id3.name() );
+      CHECK( "mubar" == id3.symbol() );
 
       SpecialDataType id4( "mubar" );
       CHECK( 251 == id4.mt() );
-      CHECK( "mubar" == id4.name() );
+      CHECK( "mubar" == id4.symbol() );
     } // THEN
   } // GIVEN
 
@@ -51,7 +51,7 @@ SCENARIO( "SpecialDataType" ) {
 
     THEN( "an exception is thrown" ) {
 
-      CHECK_THROWS( SpecialDataType( "not a reaction name or alternative" ) );
+      CHECK_THROWS( SpecialDataType( "not a special data name or alternative" ) );
       CHECK_THROWS( SpecialDataType( 0 ) );
       CHECK_THROWS( SpecialDataType( -1 ) );
     } // THEN
