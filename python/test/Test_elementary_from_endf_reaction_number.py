@@ -9,7 +9,7 @@ from elementary import ParticleID
 from elementary import ReactionID
 
 class Test_elementary_from_endf_reaction_number( unittest.TestCase ) :
-    """Unit test for the ReactionID class."""
+    """Unit test for the from_endf_reaction_number function."""
 
     def test_values( self ) :
 

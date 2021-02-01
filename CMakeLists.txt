@@ -87,6 +87,9 @@ pybind11_add_module( elementary.python
     python/src/SpecialDataID.python.cpp
     python/src/fromEndfReactionNumber.python.cpp
     python/src/toEndfReactionNumber.python.cpp
+    python/src/emit.python.cpp
+    python/src/absorb.python.cpp
+    python/src/resolve.python.cpp
     )
 target_link_libraries( elementary.python PUBLIC elementary )
 target_compile_options( elementary.python PUBLIC "-fPIC" )

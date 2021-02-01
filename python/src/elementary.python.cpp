@@ -21,9 +21,9 @@ void wrapSpecialDataType( python::module& );
 void wrapSpecialDataID( python::module& );
 void wrapFromEndfReactionNumber( python::module& );
 void wrapToEndfReactionNumber( python::module& );
-// void wrapEmit( python::module& );
-// void wrapAbsorb( python::module& );
-// void wrapResolve( python::module& );
+void wrapEmit( python::module& );
+void wrapAbsorb( python::module& );
+void wrapResolve( python::module& );
 
 /**
  *  @brief ENDFtk python bindings
@@ -48,7 +48,7 @@ PYBIND11_MODULE( elementary, module ) {
   wrapSpecialDataID( module );
   wrapFromEndfReactionNumber( module );
   wrapToEndfReactionNumber( module );
-  // wrapEmit( module );
-  // wrapAbsorb( module );
-  // wrapResolve( module );
+  wrapEmit( module );
+  wrapAbsorb( module );
+  wrapResolve( module );
 }

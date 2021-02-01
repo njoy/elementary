@@ -8,7 +8,7 @@ from elementary import ReactionID
 from elementary import to_endf_reaction_number
 
 class Test_elementary_to_endf_reaction_number( unittest.TestCase ) :
-    """Unit test for the ReactionID class."""
+    """Unit test for the to_endf_reaction_number function."""
 
     def test_values( self ) :
 
