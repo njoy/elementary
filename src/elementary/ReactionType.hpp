@@ -15,7 +15,12 @@ namespace elementary {
 
   /**
    *  @class
-   *  @brief The ENDF reaction number, with associated information
+   *  @brief A predefined reaction type, with associated information (including
+   *         MT numbers)
+   *
+   *  This ReactionType is used for actual reactions (including summation
+   *  reactions). Special data types like nubar, etc. are not considered
+   *  reactions and have their own predefined DataType.
    */
   class ReactionType {
 
@@ -28,9 +33,7 @@ namespace elementary {
     #include "elementary/ReactionType/Entry.hpp"
 
     /* static fields */
-    static const std::map< Name, Entry > name_dictionary;
-    static const std::map< std::string, Name > name_conversion_dictionary;
-    static const std::map< Number, Name > mt_conversion_dictionary;
+    #include "elementary/ReactionType/src/register.hpp"
 
     /* fields */
     Name name_;
@@ -69,7 +72,7 @@ namespace elementary {
     }
 
     /**
-     *  @brief return the element name
+     *  @brief return the reaction name
      */
     const Name& name() const noexcept {
 
@@ -144,9 +147,6 @@ namespace elementary {
       return  this->name() != right.name();
     }
   };
-
-  // register the reaction type names, mt numbers and alternatives
-  #include "elementary/ReactionType/src/register.hpp"
 } // elementary namespace
 } // njoy namespace
 
