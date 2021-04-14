@@ -83,44 +83,11 @@ void wrapParticlePairID( python::module& module ) {
     "symbol",
     [] ( const Component& self ) { return self.symbol(); },
     "Return the particle pair symbol symbol"
-  )
-  .def(
-
-    "__hash__",
-    [] ( const Component& self ) { return self.hash(); },
-    "Hash function"
-  )
-  .def(
-
-    "__eq__",
-    [] ( const Component& self, const Component& right )
-       { return self == right; },
-    "Equal function"
-  )
-  .def(
-
-    "__lt__",
-    [] ( const Component& self, const Component& right )
-       { return self < right; },
-    "Less than function"
-  )
-  .def(
-
-    "__eq__",
-    [] ( const Component& self, const std::string& right )
-       { return self == right; },
-    "Equal function"
-  )
-  .def(
-
-    "__lt__",
-    [] ( const Component& self, const std::string& right )
-       { return self < right; },
-    "Less than function"
   );
 
   // add standard definitions
   addStandardDefinitions< Component >( component );
 
-  // cannot add standard dictionary key definitions
+  // add standard dictionary key definitions
+  addStandardDictionaryKeyDefinitions< Component >( component );
 }
