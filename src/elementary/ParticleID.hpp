@@ -10,6 +10,7 @@
 #include "elementary/FundamentalParticleID.hpp"
 #include "elementary/NucleusID.hpp"
 #include "elementary/NuclideID.hpp"
+#include "elementary/macros.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -22,7 +23,7 @@ namespace elementary {
    *  Comparison operators are provided using the logical order given by the
    *  symbol. A hash function and override for std::hash is also provided.
    */
-  class ParticleID {
+  class PYTHON_EXPORT ParticleID {
 
   public:
 
