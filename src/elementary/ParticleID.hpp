@@ -32,7 +32,7 @@ namespace elementary {
                                             NuclideID >;
 
   protected:
-    
+
     /* fields */
     IdentifierVariant identifier_;
 
@@ -138,6 +138,36 @@ namespace elementary {
     bool operator<( const ParticleID& right ) const noexcept {
 
       return this->hash() < right.hash();
+    }
+
+    /**
+     *  @brief operator<=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator<=( const ParticleID& right ) const noexcept {
+
+      return this->hash() <= right.hash();
+    }
+
+    /**
+     *  @brief operator>()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>( const ParticleID& right ) const noexcept {
+
+      return this->hash() > right.hash();
+    }
+
+    /**
+     *  @brief operator>=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>=( const ParticleID& right ) const noexcept {
+
+      return this->hash() >= right.hash();
     }
 
     /**

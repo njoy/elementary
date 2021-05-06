@@ -79,6 +79,9 @@ namespace elementary {
     using Identifier::hash;
     using Identifier::symbol;
     using Identifier::operator<;
+    using Identifier::operator<=;
+    using Identifier::operator>;
+    using Identifier::operator>=;
     using Identifier::operator==;
     using Identifier::operator!=;
   };
