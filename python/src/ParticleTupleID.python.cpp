@@ -97,14 +97,14 @@ void wrapParticleTupleID( python::module& module ) {
 
     "particles",
     &Component::particles,
-    "Return the particle identifiers for the particles in the tuple\n"
+    "The particle identifiers for the particles in the tuple\n"
     "(this excludes the residual)"
   )
   .def_property_readonly(
 
     "residual",
     &Component::residual,
-    "Return the particle identifier for the residual in the tuple"
+    "The particle identifier for the residual in the tuple"
   )
   .def_static(
 
@@ -119,7 +119,41 @@ void wrapParticleTupleID( python::module& module ) {
 
     "symbol",
     [] ( const Component& self ) { return self.symbol(); },
-    "Return the particle pair symbol symbol"
+    "The particle pair symbol symbol"
+  )
+  .def(
+
+    "__hash__",
+    [] ( const Component& self ) { return self.hash(); },
+    "Hash function"
+  )
+  .def(
+
+    "__eq__",
+    [] ( const Component& self, const Component& right )
+       { return self == right; },
+    "Equal function"
+  )
+  .def(
+
+    "__lt__",
+    [] ( const Component& self, const Component& right )
+       { return self < right; },
+    "Less than function"
+  )
+  .def(
+
+    "__eq__",
+    [] ( const Component& self, const std::string& right )
+       { return self == right; },
+    "Equal function"
+  )
+  .def(
+
+    "__lt__",
+    [] ( const Component& self, const std::string& right )
+       { return self < right; },
+    "Less than function"
   );
 
   // add standard definitions

@@ -66,31 +66,31 @@ void wrapIsotopeID( python::module& module ) {
 
     "element",
     &Component::element,
-    "Return the isotope's element identifier"
+    "The isotope's element identifier"
   )
   .def_property_readonly(
 
     "mass",
     &Component::mass,
-    "Return the isotope mass number"
+    "The isotope mass number"
   )
   .def_property_readonly(
 
     "za",
     &Component::za,
-    "Return the isotope's za value"
+    "The isotope's za value"
   )
   .def_property_readonly(
 
     "symbol",
     &Component::symbol,
-    "Return the isotope symbol"
+    "The isotope symbol"
   )
   .def_property_readonly(
 
     "name",
     &Component::name,
-    "Return the isotope name"
+    "The isotope name"
   );
 
   // add standard definitions

@@ -73,43 +73,43 @@ void wrapNucleusID( python::module& module ) {
 
     "isotope",
     &Component::isotope,
-    "Return the nucleus isotope identifier"
+    "The nucleus isotope identifier"
   )
   .def_property_readonly(
 
     "element",
     &Component::element,
-    "Return the nucleus element identifier"
+    "The nucleus element identifier"
   )
   .def_property_readonly(
 
     "mass",
     &Component::mass,
-    "Return the nucleus mass number"
+    "The nucleus mass number"
   )
   .def_property_readonly(
 
     "level",
     &Component::level,
-    "Return the nucleus level identifier"
+    "The nucleus level identifier"
   )
   .def_property_readonly(
 
     "symbol",
     &Component::symbol,
-    "Return the nucleus symbol"
+    "The nucleus symbol"
   )
   .def_property_readonly(
 
     "name",
     &Component::name,
-    "Return the nucleus name"
+    "The nucleus name"
   )
   .def_property_readonly(
 
     "za",
     &Component::za,
-    "Return the nucleus za value"
+    "The nucleus za value"
   );
 
   // add standard definitions
