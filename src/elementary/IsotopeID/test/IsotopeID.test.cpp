@@ -144,6 +144,8 @@ SCENARIO( "IsotopeID" ) {
       CHECK_THROWS( IsotopeID( 119, 1 ) ); // element above 118
       CHECK_THROWS( IsotopeID( 1, 400 ) ); // mass above 300
       CHECK_THROWS( IsotopeID( 0 ) );      // zero za
+      CHECK_THROWS( IsotopeID( 119000 ) ); // too high element
+      CHECK_THROWS( IsotopeID( 1400 ) );   // too high mass
       CHECK_THROWS( IsotopeID( -1 ) );     // negative za
       CHECK_THROWS( IsotopeID( "not an isotope" ) ); // bad string
       CHECK_THROWS( IsotopeID( "H400" ) ); // bad string: mass to high

@@ -9,7 +9,7 @@
 // other includes
 
 namespace njoy {
-namespace elementary {
+namespace utility {
 
   /**
    *  @brief Return the lower case version of a string
@@ -18,14 +18,14 @@ namespace elementary {
    *
    *  @param[in] string   the string to be converted to lower case
    */
-  std::string tolower( const std::string& string ) {
+  inline std::string tolower( const std::string& string ) {
 
     std::string lower;
     std::transform( string.begin(), string.end(), std::back_inserter( lower ),
                     [] ( const auto& c ) { return std::tolower( c ); } );
     return lower;
   }
-} // elementary namespace
+} // utility namespace
 } // njoy namespace
 
 #endif

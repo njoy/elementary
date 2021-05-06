@@ -6,7 +6,8 @@ static Number lookup( const std::string& string ) {
 
   try {
 
-    return ElementID::conversion_dictionary.at( tolower( string ) );
+    return ElementID::conversion_dictionary.at(
+               utility::tolower( string ) );
   }
   catch ( ... ) {
 

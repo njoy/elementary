@@ -6,7 +6,7 @@
 #include <string>
 
 // other includes
-#include "elementary/src/tolower.hpp"
+#include "utility/tolower.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -29,7 +29,7 @@ namespace elementary {
 
     /* static fields */
     #include "elementary/ElementID/src/register.hpp"
-    
+
     /* fields */
     Number z_;
 

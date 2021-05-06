@@ -6,7 +6,7 @@
 
   std::vector< ParticleID > particles;
 
-  auto strings = split( this->symbol(), "," );
+  auto strings = utility::split( this->symbol(), "," );
   auto begin = strings.begin();
   auto end = strings.end();
   std::transform( begin, --end, std::back_inserter( particles ),

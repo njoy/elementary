@@ -6,8 +6,8 @@
 // other includes
 #include "elementary/ParticleID.hpp"
 #include "elementary/ReactionType.hpp"
-#include "elementary/src/absorb.hpp"
-#include "elementary/src/emit.hpp"
+#include "elementary/absorb.hpp"
+#include "elementary/emit.hpp"
 
 namespace njoy {
 namespace elementary {
@@ -19,10 +19,10 @@ namespace elementary {
    *  @param[in] target     the target particle identifier
    *  @param[in] type       the reaction type
    */
-  ParticleID resolve( const ParticleID& incident, const ParticleID& target,
-                      const ReactionType& type ) {
+  inline ParticleID resolve( const ParticleID& incident, const ParticleID& target,
+                             const ReactionType& type ) {
 
-    if ( type.name() == "elastic" ) {
+    if ( type.symbol() == "elastic" ) {
 
       return target;
     }
@@ -31,7 +31,7 @@ namespace elementary {
       throw std::invalid_argument(
                 "The daughter nuclide cannot be determined for the special "
                 "reaction '" + incident.symbol() + "," + target.symbol() + "->"
-                + type.name() + "'" );
+                + type.symbol() + "'" );
     }
     else {
 
@@ -55,7 +55,7 @@ namespace elementary {
 
         throw std::invalid_argument(
                   "The daughter nuclide cannot be determined for the reaction "
-                  "type '" + type.name() + "' for '" + incident.symbol() + ","
+                  "type '" + type.symbol() + "' for '" + incident.symbol() + ","
                   + target.symbol() + "' because the reaction is impossible" );
       }
     }

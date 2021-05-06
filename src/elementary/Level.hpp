@@ -71,6 +71,14 @@ namespace elementary {
     }
 
     /**
+     *  @brief Return the hash value associated to the level
+     */
+    auto hash() const noexcept {
+
+      return this->number();
+    }
+
+    /**
      *  @brief operator<()
      *
      *  @param[in] right   the identifier on the right hand side
@@ -102,5 +110,19 @@ namespace elementary {
   };
 } // elementary namespace
 } // njoy namespace
+
+namespace std {
+
+  // std::hash override for the Level class
+  template <>
+  struct hash< njoy::elementary::Level > {
+
+    size_t operator()( const njoy::elementary::Level& key ) const {
+
+      return key.hash();
+    }
+  };
+
+} // namespace std
 
 #endif

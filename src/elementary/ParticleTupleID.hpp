@@ -6,8 +6,8 @@
 #include <vector>
 
 // other includes
-#include "elementary/src/join.hpp"
-#include "elementary/src/split.hpp"
+#include "utility/join.hpp"
+#include "utility/split.hpp"
 #include "elementary/Identifier.hpp"
 #include "elementary/ParticleID.hpp"
 #include "elementary/ParticlePairID.hpp"
@@ -59,7 +59,7 @@ namespace elementary {
      */
     ParticleID residual() const noexcept {
 
-      return ParticleID( split( this->symbol(), "," ).back() );
+      return ParticleID( utility::split( this->symbol(), "," ).back() );
     }
 
     using Identifier::hash;

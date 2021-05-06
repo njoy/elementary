@@ -6,7 +6,7 @@
 #include <algorithm>
 
 // other includes
-#include "elementary/src/split.hpp"
+#include "utility/split.hpp"
 #include "elementary/ParticlePairID.hpp"
 #include "elementary/ParticleTupleID.hpp"
 #include "elementary/ReactionID.hpp"
@@ -19,7 +19,7 @@ namespace elementary {
    *
    *  @param[in] identifier   the reaction identifier
    */
-  int toEndfReactionNumber( const ReactionID& identifier ) {
+  inline int toEndfReactionNumber( const ReactionID& identifier ) {
 
     if ( not identifier.isSpecial() ) {
 
@@ -83,7 +83,7 @@ namespace elementary {
     }
     else {
 
-      auto special = split( identifier.symbol(), "->" ).back();
+      auto special = utility::split( identifier.symbol(), "->" ).back();
       if ( ReactionType::isRegistered( special ) ) {
 
         return ReactionType( special ).mt();

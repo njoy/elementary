@@ -7,7 +7,7 @@
 // other includes
 #include <map>
 #include <unordered_map>
-#include "elementary/src/tolower.hpp"
+#include "utility/tolower.hpp"
 
 namespace njoy {
 namespace elementary {

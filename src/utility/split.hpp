@@ -1,5 +1,5 @@
-#ifndef NJOY_ELEMENTARY_SPLIT
-#define NJOY_ELEMENTARY_SPLIT
+#ifndef NJOY_UTILITY_SPLIT
+#define NJOY_UTILITY_SPLIT
 
 // system includes
 #include <numeric>
@@ -8,7 +8,7 @@
 // other includes
 
 namespace njoy {
-namespace elementary {
+namespace utility {
 
   /**
    *  @brief Split a string into a list of strings using a given separator
@@ -16,8 +16,8 @@ namespace elementary {
    *  @param[in] string      the strings to be split
    *  @param[in] separator   the separator to be used
    */
-  std::vector< std::string > split( const std::string& string,
-                                    const std::string& separator ) {
+  inline std::vector< std::string > split( const std::string& string,
+                                           const std::string& separator ) {
 
     std::vector< std::string > strings;
 
@@ -34,6 +34,6 @@ namespace elementary {
     return strings;
    }
 } // elementary namespace
-} // njoy namespace
+} // utility namespace
 
 #endif

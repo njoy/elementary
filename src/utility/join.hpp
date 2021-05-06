@@ -1,5 +1,5 @@
-#ifndef NJOY_ELEMENTARY_JOIN
-#define NJOY_ELEMENTARY_JOIN
+#ifndef NJOY_UTILITY_JOIN
+#define NJOY_UTILITY_JOIN
 
 // system includes
 #include <numeric>
@@ -8,7 +8,7 @@
 // other includes
 
 namespace njoy {
-namespace elementary {
+namespace utility {
 
   /**
    *  @brief Join a list of string to a single string using a given separator
@@ -16,8 +16,8 @@ namespace elementary {
    *  @param[in] strings     the strings to be joined together
    *  @param[in] separator   the separator to be used
    */
-  std::string join( const std::vector< std::string >& strings,
-                    const std::string& separator ) {
+  inline std::string join( const std::vector< std::string >& strings,
+                           const std::string& separator ) {
 
     if ( not strings.size() ) {
 
@@ -39,11 +39,11 @@ namespace elementary {
    *
    *  @param[in] strings     the strings to be joined together
    */
-  std::string join( const std::vector< std::string >& strings ) {
+  inline std::string join( const std::vector< std::string >& strings ) {
 
     return join( strings, "" );
   }
 } // elementary namespace
-} // njoy namespace
+} // utility namespace
 
 #endif

@@ -5,7 +5,7 @@
 #include <string>
 
 // other includes
-#include "elementary/src/split.hpp"
+#include "utility/split.hpp"
 #include "elementary/Identifier.hpp"
 #include "elementary/ParticleID.hpp"
 #include "elementary/ParticlePairID.hpp"
@@ -55,7 +55,8 @@ namespace elementary {
      */
     ParticlePairID incident() const noexcept {
 
-      return ParticlePairID( split( this->symbol(), "->" ).front(), false );
+      return ParticlePairID(
+                 utility::split( this->symbol(), "->" ).front(), false );
     }
 
     using Identifier::hash;

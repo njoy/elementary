@@ -58,10 +58,10 @@ name_conversion_dictionary = [] ( const auto& dictionary ) {
   std::map< std::string, Name > conversion;
   for ( const auto& [ name, entry ] : dictionary ) {
 
-    conversion[ tolower( entry.name() ) ] = name;
+    conversion[ utility::tolower( entry.name() ) ] = name;
     for ( const auto& alternative : entry.alternatives() ) {
 
-      conversion[ tolower( alternative ) ] = name;
+      conversion[ utility::tolower( alternative ) ] = name;
     }
   }
   return conversion;

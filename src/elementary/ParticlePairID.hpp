@@ -5,7 +5,7 @@
 #include <string>
 
 // other includes
-#include "elementary/src/split.hpp"
+#include "utility/split.hpp"
 #include "elementary/ParticleID.hpp"
 #include "elementary/Identifier.hpp"
 #include "elementary/ReactionType.hpp"
@@ -57,7 +57,7 @@ namespace elementary {
      */
     ParticleID particle() const noexcept {
 
-      return ParticleID( split( this->symbol(), "," ).front() );
+      return ParticleID( utility::split( this->symbol(), "," ).front() );
     }
 
     /**
@@ -65,7 +65,7 @@ namespace elementary {
      */
     ParticleID residual() const noexcept {
 
-      return ParticleID( split( this->symbol(), "," ).back() );
+      return ParticleID( utility::split( this->symbol(), "," ).back() );
     }
 
     using Identifier::hash;

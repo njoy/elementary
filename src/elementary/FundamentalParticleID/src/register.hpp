@@ -15,11 +15,11 @@ conversion_dictionary = [] ( const auto& dictionary ) {
   std::map< std::string, Hash > conversion;
   for ( const auto& [ hash, entry ] : dictionary ) {
 
-    conversion[ tolower( entry.symbol() ) ] = hash;
-    conversion[ tolower( entry.name() ) ] = hash;
+    conversion[ utility::tolower( entry.symbol() ) ] = hash;
+    conversion[ utility::tolower( entry.name() ) ] = hash;
     for ( const auto& alternative : entry.alternatives() ) {
 
-      conversion[ tolower( alternative ) ] = hash;
+      conversion[ utility::tolower( alternative ) ] = hash;
     }
   }
   return conversion;

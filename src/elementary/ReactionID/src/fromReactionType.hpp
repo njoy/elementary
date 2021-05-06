@@ -6,11 +6,11 @@ static std::string fromReactionType( const ParticleID& incident,
   ParticlePairID incidentPair( incident, target );
 
   // cases: elastic, special and anything else
-  if ( type.name() == "capture" ) {
+  if ( type.symbol() == "capture" ) {
 
     return incidentPair.symbol() + "->capture";
   }
-  else if ( type.name() == "elastic" ) {
+  else if ( type.symbol() == "elastic" ) {
 
     if ( target.level() == 0 ) {
 
@@ -27,7 +27,7 @@ static std::string fromReactionType( const ParticleID& incident,
   }
   else if ( type.isSpecial() ) {
 
-    return incidentPair.symbol() + "->" + type.name();
+    return incidentPair.symbol() + "->" + type.symbol();
   }
   else {
 

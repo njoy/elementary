@@ -7,7 +7,8 @@
  *  @param[in] string   the name or alternative name of the reaction
  *                      (case insensitive)
  */
-ReactionType( const std::string& string ) : name_( lookup( string ) ) {}
+ReactionType( const std::string& string ) :
+  Identifier( lookup( string ), false ) {}
 
 /**
  *  @brief Constructor
@@ -17,4 +18,4 @@ ReactionType( const std::string& string ) : name_( lookup( string ) ) {}
  *
  *  @param[in] number   the mt number
  */
-ReactionType( int number ) : name_( lookup( number ) ) {}
+ReactionType( int number ) : Identifier( lookup( number ), false ) {}
