@@ -73,25 +73,25 @@ void wrapParticleID( python::module& module ) {
 
     "symbol",
     &Component::symbol,
-    "Return the particle symbol"
+    "The particle symbol"
   )
   .def_property_readonly(
 
     "name",
     &Component::name,
-    "Return the particle name"
+    "The particle name"
   )
   .def_property_readonly(
 
     "za",
     &Component::za,
-    "Return the particle za value"
+    "The particle za value"
   )
   .def_property_readonly(
 
     "level",
     &Component::level,
-    "Return the particle level identifier"
+    "The particle level identifier"
   );
 
   // add standard definitions
