@@ -97,14 +97,14 @@ void wrapParticleTupleID( python::module& module ) {
 
     "particles",
     &Component::particles,
-    "Return the particle identifiers for the particles in the tuple\n"
+    "The particle identifiers for the particles in the tuple\n"
     "(this excludes the residual)"
   )
   .def_property_readonly(
 
     "residual",
     &Component::residual,
-    "Return the particle identifier for the residual in the tuple"
+    "The particle identifier for the residual in the tuple"
   )
   .def_static(
 
@@ -119,7 +119,7 @@ void wrapParticleTupleID( python::module& module ) {
 
     "symbol",
     [] ( const Component& self ) { return self.symbol(); },
-    "Return the particle pair symbol symbol"
+    "The particle pair symbol symbol"
   )
   .def(
 

@@ -21,7 +21,7 @@ void wrapNuclideID( python::module& module ) {
     "NuclideID",
     "The nuclide identifier, with associated name - e.g. Fe56_e0.\n\n"
     "For a nuclide in the ground state, the identifier is equal to the\n"
-    "symbol of the corresponding isotope. For a nculide in an excited\n"
+    "symbol of the corresponding isotope. For a nuclide in an excited\n"
     "state, the identifier is composed of the isotope symbol plus\n"
     "the string \"_e#\", where \"#\" is the excited level number.\n\n"
     "For example: \"Fe56\" for the nuclide in the ground state (\"Fe56_e0\"\n"
@@ -70,43 +70,43 @@ void wrapNuclideID( python::module& module ) {
 
     "isotope",
     &Component::isotope,
-    "Return the nuclide isotope identifier"
+    "The nuclide isotope identifier"
   )
   .def_property_readonly(
 
     "element",
     &Component::element,
-    "Return the nuclide element identifier"
+    "The nuclide element identifier"
   )
   .def_property_readonly(
 
     "mass",
     &Component::mass,
-    "Return the nuclide mass number"
+    "The nuclide mass number"
   )
   .def_property_readonly(
 
     "level",
     &Component::level,
-    "Return the nuclide level identifier"
+    "The nuclide level identifier"
   )
   .def_property_readonly(
 
     "symbol",
     &Component::symbol,
-    "Return the nuclide symbol"
+    "The nuclide symbol"
   )
   .def_property_readonly(
 
     "name",
     &Component::name,
-    "Return the nuclide name"
+    "The nuclide name"
   )
   .def_property_readonly(
 
     "za",
     &Component::za,
-    "Return the nuclide za value"
+    "The nuclide za value"
   );
 
   // add standard definitions

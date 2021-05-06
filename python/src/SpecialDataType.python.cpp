@@ -70,13 +70,13 @@ void wrapSpecialDataType( python::module& module ) {
 
     "symbol",
     &Component::symbol,
-    "Return the reaction symbol"
+    "The reaction symbol"
   )
   .def_property_readonly(
 
     "mt",
     &Component::mt,
-    "Return the mt number of the reaction, or 0 if it does not exist"
+    "The mt number of the reaction, or 0 if it does not exist"
   );
 
   // add standard definitions

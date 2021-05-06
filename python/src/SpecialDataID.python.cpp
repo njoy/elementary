@@ -61,7 +61,7 @@ void wrapSpecialDataID( python::module& module ) {
 
     "incident",
     &Component::incident,
-    "Return the incident particle pair identifier for the reaction"
+    "The incident particle pair identifier for the reaction"
   )
   .def_static(
 
@@ -76,7 +76,7 @@ void wrapSpecialDataID( python::module& module ) {
 
     "symbol",
     [] ( const Component& self ) { return self.symbol(); },
-    "Return the particle pair symbol"
+    "The particle pair symbol"
   );
 
   // add standard definitions
