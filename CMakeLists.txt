@@ -92,10 +92,10 @@ pybind11_add_module( elementary.python
     python/src/resolve.python.cpp
     )
 target_link_libraries( elementary.python PUBLIC elementary )
-target_compile_options( elementary.python PUBLIC "-fPIC" )
 target_compile_options( elementary.python PUBLIC "-fvisibility=hidden" )
 set_target_properties( elementary.python PROPERTIES OUTPUT_NAME elementary )
 set_target_properties( elementary.python PROPERTIES COMPILE_DEFINITIONS "PYBIND11" )
+set_target_properties( elementary.python PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 #######################################################################
 # Top-level Only
