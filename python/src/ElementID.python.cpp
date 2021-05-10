@@ -33,8 +33,7 @@ void wrapElementID( python::module& module ) {
     "is not between 1 and the largest registered element number.\n\n"
     "Arguments:\n"
     "    self      the identifier\n"
-    "    string    the symbol, name or alternative name of the particle\n"
-    "              (case insensitive)"
+    "    number   the element number"
   )
   .def(
 
@@ -45,25 +44,26 @@ void wrapElementID( python::module& module ) {
     "not a registered symbol, name or alternative.\n\n"
     "Arguments:\n"
     "    self      the identifier\n"
-    "    number   the element number"
+    "    string    the symbol, name or alternative name of the particle\n"
+    "              (case insensitive)"
   )
   .def_property_readonly(
 
     "number",
     &Component::number,
-    "Return the element number"
+    "The element number"
   )
   .def_property_readonly(
 
     "symbol",
     &Component::symbol,
-    "Return the element symbol"
+    "The element symbol"
   )
   .def_property_readonly(
 
     "name",
     &Component::name,
-    "Return the element name"
+    "The element name"
   );
 
   // add standard definitions

@@ -57,19 +57,19 @@ void wrapLevel( python::module& module ) {
 
     "number",
     &Component::number,
-    "Return the level number"
+    "The level number"
   )
   .def_property_readonly(
 
     "symbol",
     &Component::symbol,
-    "Return the level symbol"
+    "The level symbol"
   )
   .def_property_readonly(
 
     "name",
     &Component::name,
-    "Return the level name"
+    "The level name"
   );
 
   // add standard definitions

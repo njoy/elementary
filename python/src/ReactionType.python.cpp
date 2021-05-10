@@ -78,25 +78,25 @@ void wrapReactionType( python::module& module ) {
 
     "symbol",
     &Component::symbol,
-    "Return the reaction symbol"
+    "The reaction symbol"
   )
   .def_property_readonly(
 
     "mt",
     &Component::mt,
-    "Return the mt number of the reaction, or 0 if it does not exist"
+    "The mt number of the reaction, or 0 if it does not exist"
   )
   .def_property_readonly(
 
     "particles",
     &Component::particles,
-    "Return the outgoing particles"
+    "The outgoing particles"
   )
   .def_property_readonly(
 
     "level",
     &Component::level,
-    "Return the excited level number of the outgoing residual"
+    "The excited level number of the outgoing residual"
   );
 
   // add standard definitions
