@@ -74,12 +74,21 @@ SCENARIO( "Identifier" ) {
     THEN( "instances can be compared" ) {
 
       CHECK( ( id1 <  id1 ) == false );
+      CHECK( ( id1 <= id1 ) == true );
+      CHECK( ( id1 >  id1 ) == false );
+      CHECK( ( id1 >= id1 ) == true );
       CHECK( ( id1 == id1 ) == true );
       CHECK( ( id1 != id1 ) == false );
       CHECK( ( id1 <  id2 ) == true );
+      CHECK( ( id1 <= id2 ) == true );
+      CHECK( ( id1 >  id2 ) == false );
+      CHECK( ( id1 >= id2 ) == false );
       CHECK( ( id1 == id2 ) == false );
       CHECK( ( id1 != id2 ) == true );
       CHECK( ( id2 <  id1 ) == false );
+      CHECK( ( id2 <= id1 ) == false );
+      CHECK( ( id2 >  id1 ) == true );
+      CHECK( ( id2 >= id1 ) == true );
       CHECK( ( id2 == id1 ) == false );
       CHECK( ( id2 != id1 ) == true );
     } // THEN

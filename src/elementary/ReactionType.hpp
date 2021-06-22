@@ -22,7 +22,7 @@ namespace elementary {
    *  reactions). Special data types like nubar, etc. are not considered
    *  reactions and have their own predefined DataType.
    */
-  class ReactionType : public Identifier< ReactionType > {
+  class PYTHON_EXPORT ReactionType : public Identifier< ReactionType > {
 
     friend Identifier< ReactionType >;
 
@@ -125,6 +125,9 @@ namespace elementary {
     using Identifier::hash;
     using Identifier::symbol;
     using Identifier::operator<;
+    using Identifier::operator<=;
+    using Identifier::operator>;
+    using Identifier::operator>=;
     using Identifier::operator==;
     using Identifier::operator!=;
   };

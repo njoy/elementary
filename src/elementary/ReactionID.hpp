@@ -34,7 +34,7 @@ namespace elementary {
    *  Comparison operators are provided using the logical order given by the
    *  symbol. A hash function and override for std::hash is also provided.
    */
-  class ReactionID : public Identifier< ReactionID > {
+  class PYTHON_EXPORT ReactionID : public Identifier< ReactionID > {
 
     friend Identifier< ReactionID >;
 
@@ -79,6 +79,9 @@ namespace elementary {
     using Identifier::hash;
     using Identifier::symbol;
     using Identifier::operator<;
+    using Identifier::operator<=;
+    using Identifier::operator>;
+    using Identifier::operator>=;
     using Identifier::operator==;
     using Identifier::operator!=;
   };

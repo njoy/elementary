@@ -41,6 +41,13 @@ void addStandardDictionaryKeyDefinitions( PythonClass& component ) {
     [] ( const Component& self, const Component& right )
        { return self < right; },
     "Less than function"
+  )
+  .def(
+
+    "__le__",
+    [] ( const Component& self, const Component& right )
+       { return self <= right; },
+    "Less than or equal function"
   );
 }
 

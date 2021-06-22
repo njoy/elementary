@@ -98,6 +98,36 @@ namespace elementary {
     }
 
     /**
+     *  @brief operator<=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator<=( const IsotopeID& right ) const noexcept {
+
+      return this->za() <= right.za();
+    }
+
+    /**
+     *  @brief operator>()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>( const IsotopeID& right ) const noexcept {
+
+      return this->za() > right.za();
+    }
+
+    /**
+     *  @brief operator>=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>=( const IsotopeID& right ) const noexcept {
+
+      return this->za() >= right.za();
+    }
+
+    /**
      *  @brief operator==()
      *
      *  @param[in] right   the identifier on the right hand side

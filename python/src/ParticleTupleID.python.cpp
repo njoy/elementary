@@ -159,5 +159,6 @@ void wrapParticleTupleID( python::module& module ) {
   // add standard definitions
   addStandardDefinitions< Component >( component );
 
-  // cannot add standard dictionary key definitions
+  // add standard dictionary key definitions
+  addStandardDictionaryKeyDefinitions< Component >( component );
 }

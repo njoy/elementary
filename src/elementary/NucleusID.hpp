@@ -97,6 +97,36 @@ namespace elementary {
     }
 
     /**
+     *  @brief operator<=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator<=( const NucleusID& right ) const noexcept {
+
+      return this->hash() <= right.hash();
+    }
+
+    /**
+     *  @brief operator>()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>( const NucleusID& right ) const noexcept {
+
+      return this->hash() > right.hash();
+    }
+
+    /**
+     *  @brief operator>=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>=( const NucleusID& right ) const noexcept {
+
+      return this->hash() >= right.hash();
+    }
+
+    /**
      *  @brief operator==()
      *
      *  @param[in] right   the identifier on the right hand side
