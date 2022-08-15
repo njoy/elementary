@@ -70,6 +70,66 @@ namespace elementary {
     }
 
     /**
+     *  @brief operator<=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator<=( const Identifier& right ) const noexcept {
+
+      return this->symbol() <= right.symbol();
+    }
+
+    /**
+     *  @brief operator<=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator<=( const std::string& right ) const noexcept {
+
+      return this->symbol() <= right;
+    }
+
+    /**
+     *  @brief operator>()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>( const Identifier& right ) const noexcept {
+
+      return this->symbol() > right.symbol();
+    }
+
+    /**
+     *  @brief operator>()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>( const std::string& right ) const noexcept {
+
+      return this->symbol() > right;
+    }
+
+    /**
+     *  @brief operator>=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>=( const Identifier& right ) const noexcept {
+
+      return this->symbol() >= right.symbol();
+    }
+
+    /**
+     *  @brief operator>=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>=( const std::string& right ) const noexcept {
+
+      return this->symbol() >= right;
+    }
+
+    /**
      *  @brief operator==()
      *
      *  @param[in] right   the identifier on the right hand side

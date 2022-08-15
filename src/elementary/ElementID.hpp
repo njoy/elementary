@@ -83,6 +83,36 @@ namespace elementary {
     }
 
     /**
+     *  @brief operator<=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator<=( const ElementID& right ) const noexcept {
+
+      return this->number() <= right.number();
+    }
+
+    /**
+     *  @brief operator>()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>( const ElementID& right ) const noexcept {
+
+      return this->number() > right.number();
+    }
+
+    /**
+     *  @brief operator>=()
+     *
+     *  @param[in] right   the identifier on the right hand side
+     */
+    bool operator>=( const ElementID& right ) const noexcept {
+
+      return this->number() >= right.number();
+    }
+
+    /**
      *  @brief operator==()
      *
      *  @param[in] right   the identifier on the right hand side
