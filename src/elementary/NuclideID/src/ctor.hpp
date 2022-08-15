@@ -16,6 +16,14 @@ NuclideID( const std::pair< std::string, int >&& pair ) :
 
 public:
 
+//! @todo pybind11 variant needs default constructor workaround
+#ifdef PYBIND11
+/**
+ *  @brief Default constructor - only enabled for pybind11
+ */
+NuclideID() = default;
+#endif
+
 /**
  *  @brief Constructor
  *
